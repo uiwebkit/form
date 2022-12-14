@@ -1,7 +1,9 @@
 import { Component, ElementRef, EventEmitter, HostListener, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { UniObject, UniFormField, UniFormService } from 'uni-form-ng';
+import { UniObject } from '../../models/interfaces/object.model';
+import { UniFormField } from '../../models/interfaces/form-field.model';
+import { UniFormService } from './form.service';
 
 @Component({
   selector: 'uni-form-ng',

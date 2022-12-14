@@ -5,8 +5,9 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { map, Observable, of, startWith } from 'rxjs';
 
-import { UniFormField, UniFormFieldGroup, UniFormFieldOption } from 'uni-form-ng';
-
+import { UniFormField } from '../../../../models/interfaces/form-field.model';
+import { UniFormFieldGroup } from '../../../../models/interfaces/form-field-group.model';
+import { UniFormFieldOption } from '../../../../models/interfaces/form-field-option.model';
 import { UniAutocompleteMatService } from './autocomplete-mat.service';
 
 @Component({

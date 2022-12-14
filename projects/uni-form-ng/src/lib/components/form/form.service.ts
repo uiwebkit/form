@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UniFormField, isDefined } from 'uni-form-ng';
+import { UniFormField } from '../../models/interfaces/form-field.model';
+import { isDefined } from '../../utils/is';
 
 @Injectable({ providedIn: 'root' })
 export class UniFormService {

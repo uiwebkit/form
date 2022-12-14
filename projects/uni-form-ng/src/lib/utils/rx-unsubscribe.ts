@@ -5,7 +5,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 
-
 @Injectable()
 export abstract class RxUnsubscribe implements OnDestroy {
 

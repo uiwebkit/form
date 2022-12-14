@@ -1,5 +1,4 @@
-import { UniFormFieldType } from 'uni-form-ng';
-
+import { UniFormFieldType } from '../types/form-field.type';
 import { UniInputText } from './input-text.model';
 import { UniInputNumber } from './input-number.model';
 import { UniSelectField } from './select-field.model';

@@ -3,8 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs';
 
-import { UniFormField, UniFormFieldOption, UniObject, isDefined, UniFormFieldType } from 'uni-form-ng';
-
+import { UniFormField } from '../../models/interfaces/form-field.model';
+import { UniFormFieldOption } from '../../models/interfaces/form-field-option.model';
+import { UniFormFieldType } from '../../models/types/form-field.type';
+import { UniObject } from '../../models/interfaces/object.model';
+import { isDefined } from '../../utils/is';
 import { RxUnsubscribe } from '../../utils/rx-unsubscribe';
 import { UniFormFieldService } from './form-field.service';
 

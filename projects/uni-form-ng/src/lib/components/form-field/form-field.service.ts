@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { UniFormField } from 'uni-form-ng';
+import { UniFormField } from '../../models/interfaces/form-field.model';
 
 @Injectable({ providedIn: 'root' })
 export class UniFormFieldService {

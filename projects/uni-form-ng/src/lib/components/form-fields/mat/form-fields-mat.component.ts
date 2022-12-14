@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormBuilder,  FormGroup } from '@angular/forms';
 
-import { UniFormField } from 'uni-form-ng';
+import { UniFormField } from '../../../models/interfaces/form-field.model';
 
 @Component({
   selector: 'uni-form-fields-mat',

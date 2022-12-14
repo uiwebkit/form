@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { UniObject } from 'uni-form-ng';
+import { UniObject } from '../../models/interfaces/object.model';
 
 @Component({
   selector: 'uni-form-group-ng',

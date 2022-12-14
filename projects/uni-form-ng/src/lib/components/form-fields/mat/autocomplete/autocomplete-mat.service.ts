@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { UniFormFieldGroup, UniFormFieldOption } from 'uni-form-ng';
+import { UniFormFieldGroup } from '../../../../models/interfaces/form-field-group.model';
+import { UniFormFieldOption } from '../../../../models/interfaces/form-field-option.model';
 
 @Injectable({ providedIn: 'root' })
 export class UniAutocompleteMatService {
