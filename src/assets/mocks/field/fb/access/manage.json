@@ -1,0 +1,7 @@
+{
+  "key": "manage",
+  "label": "Please specify Ad Set list URL",
+  "type": "text",
+  "required": true,
+  "maxLength": 999
+}

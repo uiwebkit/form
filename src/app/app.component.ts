@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation} from '@angular/material/stepper';
+import {map, Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'form';
+
+  stepperOrientation: Observable<StepperOrientation>;
+
+  constructor(breakpointObserver: BreakpointObserver) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+  }
 }

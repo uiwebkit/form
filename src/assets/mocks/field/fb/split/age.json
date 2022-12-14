@@ -1,0 +1,11 @@
+{
+  "key": "age",
+  "label": "Set up age splitting step",
+  "type": "number",
+  "min": 0,
+  "max": 50,
+  "errors": {
+    "min": "Age split range minimum is 0",
+    "max": "Age split range maximum is 50"
+  }
+}

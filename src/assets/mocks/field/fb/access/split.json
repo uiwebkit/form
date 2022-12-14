@@ -1,0 +1,7 @@
+{
+  "key": "split",
+  "label": "Please specify Ad Set edit URL",
+  "type": "text",
+  "required": true,
+  "maxLength": 999
+}

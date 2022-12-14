@@ -1,0 +1,57 @@
+<div *ngIf='field.type === "autocomplete"'>
+  <mat-form-field [style]="{width: '100%'}" [formGroup]='formGroup'>
+    <mat-label>{{ field.label }}</mat-label>
+
+    <mat-chip-grid #chipGrid *ngIf='field.multiple'>
+      <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
+        {{ chip }}
+
+        <button matChipRemove [attr.aria-label]="'remove ' + chip">
+          x
+          <!--<mat-icon>cancel</mat-icon>-->
+        </button>
+      </mat-chip-row>
+
+      <input
+        #autoInput
+        matInput
+        [type]="'text'"
+        [formControl]='autoCtrl'
+        [matChipInputFor]='chipGrid'
+        [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
+        [matChipInputAddOnBlur]='false'
+        (matChipInputTokenEnd)='add($event)'
+        [matAutocomplete]='autoComplete'>
+      <input [formControlName]='field.key' [style]='{display: "none"}'>
+    </mat-chip-grid>
+
+    <input
+      *ngIf='!field.multiple'
+      matInput
+      [type]="'text'"
+      [formControlName]='field.key'
+      [matAutocomplete]='autoComplete'
+      (blur)='onBlur($event)'
+      (keydown.enter)='onBlur($event)'
+    >
+
+    <mat-autocomplete #autoComplete='matAutocomplete' (optionSelected)='selected($event)'>
+      <mat-optgroup *ngFor='let group of (groups$ | async)' [label]='group.name' [disabled]='group.disabled'>
+        <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
+          {{ option.label }}
+        </mat-option>
+      </mat-optgroup>
+
+      <mat-option *ngFor='let option of (options$ | async)' [value]='option.value' [disabled]='option.disabled'>
+        {{ option.label }}
+      </mat-option>
+    </mat-autocomplete>
+
+    <mat-error [style]='{display: "flex"}'>
+      <uni-form-field-error-ng
+        [fieldErrors]='field.errors ?? {}'
+        [errors]='formGroup.controls[field.key].errors'
+      ></uni-form-field-error-ng>
+    </mat-error>
+  </mat-form-field>
+</div>

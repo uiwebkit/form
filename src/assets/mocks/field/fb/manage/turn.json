@@ -1,0 +1,5 @@
+{
+  "type": "switch",
+  "key": "turn",
+  "label": "Turn off / on"
+}

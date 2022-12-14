@@ -1,0 +1,80 @@
+<uni-autocomplete-mat *ngIf='field.type === "autocomplete"' [field]='field' [formGroup]='formGroup'>
+</uni-autocomplete-mat>
+
+<div *ngIf='field.key' [formGroup]='formGroup' (keydown.enter)='onEnter($event)'>
+  <mat-form-field *ngIf='isMatFormField(field)' [style]="{width: '100%'}">
+    <mat-label>{{ field.label }}</mat-label>
+
+    <div [ngSwitch]='field.type'>
+      <input
+        matInput
+        *ngSwitchCase="'text'"
+        [type]="'text'"
+        [formControlName]='field.key'
+        [maxlength]='field.maxLength ?? null'
+      >
+
+      <input
+        matInput
+        *ngSwitchCase="'number'"
+        [type]="'number'"
+        [formControlName]='field.key'
+        [min]='field.min'
+        [max]='field.max'
+        [step]='field.step'
+      >
+
+      <mat-select *ngSwitchCase="'select'" [formControlName]='field.key' [multiple]='field.multiple'>
+        <mat-optgroup *ngFor='let group of field.groups' [label]='group.name' [disabled]='group.disabled'>
+          <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
+            {{ option.label }}
+          </mat-option>
+        </mat-optgroup>
+
+        <mat-option *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <mat-hint *ngIf='field.maxLength && !field.errors?.maxLength' align='start'>
+      Maximum characters count is {{ field.maxLength }}
+    </mat-hint>
+
+    <mat-hint *ngIf='field.errors?.maxLength' align='start'>
+      {{ field.errors?.maxLength }}
+    </mat-hint>
+
+    <mat-hint *ngIf='field.maxLength' align='end'>
+      {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
+    </mat-hint>
+
+    <mat-error [style]='{display: "flex"}'>
+      <uni-form-field-error-ng
+        [fieldErrors]='field.errors ?? {}'
+        [errors]='formGroup.controls[field.key].errors'
+      ></uni-form-field-error-ng>
+    </mat-error>
+  </mat-form-field>
+
+  <div [ngSwitch]='field.type'>
+    <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]='field.key'>
+      {{ field.label }}
+    </mat-checkbox>
+
+    <mat-slide-toggle *ngSwitchCase="'switch'" [formControlName]='field.key'>{{ field.label }}</mat-slide-toggle>
+
+    <div *ngSwitchCase="'radio'">
+      <label *ngIf='field.label' [id]="'radio-group-label'" [style]="{'margin-right': '10px'}">
+        {{ field.label }}
+      </label>
+
+      <mat-radio-group aria-labelledby='radio-group-label' [formControlName]='field.key'>
+        <mat-radio-button *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'
+                          [style]="{display: field.inline ? 'inline-flex' : 'flex', margin: '10px 20px 10px 0', width: 'fit-content'}">
+          {{ option.label }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+</div>

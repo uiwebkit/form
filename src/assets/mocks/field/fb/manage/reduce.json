@@ -1,0 +1,5 @@
+{
+  "type": "checkbox",
+  "key": "reduce",
+  "label": "Reduce current bid (if daily amount spent for now is MORE than specified here sum)"
+}

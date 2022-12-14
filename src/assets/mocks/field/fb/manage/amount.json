@@ -1,0 +1,6 @@
+{
+  "type": "number",
+  "key": "amount",
+  "label": "If amount is",
+  "step": 0.01
+}

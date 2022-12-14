@@ -1,0 +1,7 @@
+{
+  "key": "login",
+  "type": "text",
+  "label": "Enter your login",
+  "required": true,
+  "maxLength": 80
+}

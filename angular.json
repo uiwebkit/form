@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "uni-form-ng": {
+      "projectType": "library",
+      "root": "projects/uni-form-ng",
+      "sourceRoot": "projects/uni-form-ng/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/uni-form-ng/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/uni-form-ng/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/uni-form-ng/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uni-form-ng/src/test.ts",
+            "tsConfig": "projects/uni-form-ng/tsconfig.spec.json",
+            "karmaConfig": "projects/uni-form-ng/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }

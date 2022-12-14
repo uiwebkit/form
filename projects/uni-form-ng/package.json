@@ -1,0 +1,15 @@
+{
+  "name": "uni-form-ng",
+  "version": "0.0.8",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/animations": "*",
+    "@angular/common": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "@angular/material": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0"
+  }
+}

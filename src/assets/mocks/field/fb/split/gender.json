@@ -1,0 +1,5 @@
+{
+  "key": "gender",
+  "type": "checkbox",
+  "label": "By Gender (W/M)"
+}

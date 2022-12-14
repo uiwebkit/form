@@ -1,0 +1,6 @@
+{
+  "key": "engraving",
+  "label": "Enter the engraving text",
+  "type": "text",
+  "required": true
+}
