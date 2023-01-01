@@ -2,6 +2,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormBuilder,  FormGroup } from '@angular/forms';
 
 import { UniFormField } from '../../../models/interfaces/form-field.model';
+import { isDefined } from '../../../utils/is';
 
 @Component({
   selector: 'uni-form-fields-mat',
@@ -12,6 +13,8 @@ export class UniFormFieldsMatComponent {
 
   @Input()
   field: UniFormField = { key: '', type: 'text' };
+
+  isDefined = isDefined;
 
   @Input()
   formGroup: FormGroup;

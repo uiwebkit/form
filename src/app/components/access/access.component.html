@@ -5,7 +5,7 @@
     <mat-card-subtitle [style]="{'margin-bottom': 0}">Connect your Facebook account:</mat-card-subtitle>
 
     <mat-card-content>
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/access/login.json'" [init]="{access: 'code'}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/access/login.json'" [value]="{access: 'code'}"></uni-form-field-ng>
 
       <a *ngIf="isCodeLinkVisible"
          href="mailto:contact@uiwebkit.com?subject=Special ID code request&amp;body=Hello, please send me special ID code. Thank you!">
@@ -20,7 +20,7 @@
     <mat-card-subtitle [style]="{'margin-bottom': 0}">Choose the Task type:</mat-card-subtitle>
 
     <mat-card-content>
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/access/task.json'" [init]="{task: 'split'}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/access/task.json'" [value]="{task: 'split'}"></uni-form-field-ng>
     </mat-card-content>
   </mat-card>
 

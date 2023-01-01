@@ -1,1 +1,1 @@
-export type UniFormFieldType = 'text' | 'number' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'switch' | 'autocomplete';
+export type UniFormFieldType = 'text' | 'number' | 'textarea' | 'checkbox' | 'radio' | 'switch' | 'select' | 'autocomplete';

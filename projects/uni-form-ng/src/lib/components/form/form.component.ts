@@ -19,8 +19,22 @@ export class UniFormComponent {
   submitEvent = new EventEmitter<FormGroup>();
 
   @HostListener('uniFormData') onUniFormData() {
-    const e = event as CustomEvent;
-    const curr = [...e.detail.formData];
+    this.onUniFormDataChange(event as CustomEvent);
+  }
+
+  formGroup: FormGroup;
+  private formData: UniObject<UniFormField[]> = {};
+
+  constructor(
+    private elRef: ElementRef,
+    private formBuilder: FormBuilder,
+    private formService: UniFormService,
+  ) {
+    this.formGroup = this.formBuilder.group({});
+  }
+
+  private onUniFormDataChange(event: CustomEvent) {
+    const curr = [...event.detail.formData];
     const prev = [...(this.formData[curr[0].key] || [])];
     // console.log(prev, curr);
 
@@ -40,18 +54,7 @@ export class UniFormComponent {
     // console.log(this.formGroup);
   }
 
-  private formData: UniObject<UniFormField[]> = {};
-  formGroup: FormGroup;
-
-  constructor(
-    private elRef: ElementRef,
-    private formBuilder: FormBuilder,
-    private formService: UniFormService,
-  ) {
-    this.formGroup = this.formBuilder.group({});
-  }
-
-  uniFormGroupEvent(formGroup: FormGroup): void {
+  private uniFormGroupEvent(formGroup: FormGroup): void {
     const formFields = this.elRef.nativeElement.querySelectorAll('uni-form-field-ng');
 
     formFields.forEach((group: HTMLElement): void => {

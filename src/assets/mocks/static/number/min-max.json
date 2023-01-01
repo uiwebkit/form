@@ -1,0 +1,7 @@
+{
+  "type": "number",
+  "key": "number",
+  "label": "Number field with minimum and maximum",
+  "min": 0,
+  "max": 3
+}

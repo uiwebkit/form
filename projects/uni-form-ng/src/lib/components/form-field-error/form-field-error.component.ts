@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 
-import { UniObject } from '../../models/interfaces/object.model';
+import { UniFormFieldErrors } from '../../models/interfaces/errors.model';
 
 @Component({
   selector: 'uni-form-field-error-ng',
@@ -11,7 +11,7 @@ import { UniObject } from '../../models/interfaces/object.model';
 export class UniFormFieldErrorComponent {
 
   @Input()
-  fieldErrors: UniObject<string> = {};
+  fieldErrors: Partial<UniFormFieldErrors> = {};
 
   @Input()
   errors: ValidationErrors | null = null;

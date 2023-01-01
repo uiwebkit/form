@@ -3,7 +3,6 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 import {StepperOrientation} from '@angular/material/stepper';
 import {map, Observable} from "rxjs";
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

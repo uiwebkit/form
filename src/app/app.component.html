@@ -1,6 +1,18 @@
 <mat-tab-group [selectedIndex]="1" mat-stretch-tabs>
-  <mat-tab label="Test">
+  <mat-tab label="Getting started">
     <app-test></app-test>
+  </mat-tab>
+
+  <mat-tab label="Static fields demo">
+    <app-static></app-static>
+  </mat-tab>
+
+  <mat-tab label="Dynamic fields demo">
+    <app-dynamic></app-dynamic>
+  </mat-tab>
+
+  <mat-tab label="Custom forms demo">
+    <app-custom></app-custom>
   </mat-tab>
 
   <mat-tab label="Facebook">
@@ -22,13 +34,3 @@
     </mat-stepper>
   </mat-tab>
 </mat-tab-group>
-
-<!--<nav mat-tab-nav-bar mat-stretch-tabs [tabPanel]="tabPanel">-->
-<!--  <a mat-tab-link (click)="activeLink = 'test'" [active]="activeLink == 'test'">Test</a>-->
-
-<!--  <a mat-tab-link (click)="activeLink = 'access'" [active]="activeLink == 'access'">Access</a>-->
-<!--</nav>-->
-
-<!--<mat-tab-nav-panel #tabPanel>-->
-<!--  <router-outlet></router-outlet>-->
-<!--</mat-tab-nav-panel>-->

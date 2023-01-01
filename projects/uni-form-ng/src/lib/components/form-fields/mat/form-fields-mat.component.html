@@ -5,13 +5,17 @@
   <mat-form-field *ngIf='isMatFormField(field)' [style]="{width: '100%'}">
     <mat-label>{{ field.label }}</mat-label>
 
-    <div [ngSwitch]='field.type'>
+    <div matPrefix>
+      <ng-content select='[prefix]'></ng-content>
+    </div>
+
+    <ng-container [ngSwitch]='field.type'>
       <input
         matInput
         *ngSwitchCase="'text'"
         [type]="'text'"
         [formControlName]='field.key'
-        [maxlength]='field.maxLength ?? null'
+        [placeholder]='field.placeholder || ""'
       >
 
       <input
@@ -19,6 +23,7 @@
         *ngSwitchCase="'number'"
         [type]="'number'"
         [formControlName]='field.key'
+        [placeholder]='field.placeholder || ""'
         [min]='field.min'
         [max]='field.max'
         [step]='field.step'
@@ -35,17 +40,28 @@
           {{ option.label }}
         </mat-option>
       </mat-select>
+    </ng-container>
+
+    <div matSuffix>
+      <ng-content select='[suffix]'></ng-content>
     </div>
 
-    <mat-hint *ngIf='field.maxLength && !field.errors?.maxLength' align='start'>
+    <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+
+    <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
+      <span *ngIf='isDefined(field.min) && !isDefined(field.max)'>Minimum is: <strong>{{ field.min }}</strong></span>
+      <span *ngIf='isDefined(field.max) && !isDefined(field.min)'>Maximum is: <strong>{{ field.max }}</strong></span>
+
+      <span *ngIf='isDefined(field.min) && isDefined(field.max)'>
+        Minimum is: <strong>{{ field.min }}</strong> and maximum is: <strong>{{ field.max }}</strong>
+      </span>
+    </mat-hint>
+
+    <mat-hint *ngIf='field.maxLength && !field.hint' align='start'>
       Maximum characters count is {{ field.maxLength }}
     </mat-hint>
 
-    <mat-hint *ngIf='field.errors?.maxLength' align='start'>
-      {{ field.errors?.maxLength }}
-    </mat-hint>
-
-    <mat-hint *ngIf='field.maxLength' align='end'>
+    <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
       {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
     </mat-hint>
 

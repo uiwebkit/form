@@ -1,0 +1,26 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/number/label.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/default.json'"
+    [key]='"set"'
+    [label]='"Set number field label"'
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/label.json'"
+    [key]='"change"'
+    [label]='"Changed number field label"'
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [type]='"number"'
+    [key]='"create"'
+    [label]='"Create number field"'
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>

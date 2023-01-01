@@ -1,0 +1,36 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/text/error.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/text/default.json'"
+    [key]='"set"'
+    [label]='"Set text field custom error messages"'
+    [required]='true'
+    [maxLength]='5'
+    [errors]='{required: "Set custom required error message", maxLength: "Maximum characters count is 5"}'
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/text/error.json'"
+    [key]='"change"'
+    [label]='"Change text field custom error messages"'
+    [required]='true'
+    [maxLength]='7'
+    [errors]='{required: "Change custom required error message", maxLength: "Maximum characters count is 7"}'
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [type]='"text"'
+    [key]='"create"'
+    [label]='"Create text field with custom error messages"'
+    [required]='true'
+    [maxLength]='8'
+    [errors]='{required: "Create custom required error message", maxLength: "Maximum characters count is 8"}'
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

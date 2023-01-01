@@ -1,0 +1,6 @@
+{
+  "type": "number",
+  "key": "number",
+  "label": "Required number field",
+  "required": true
+}

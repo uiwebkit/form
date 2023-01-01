@@ -24,15 +24,15 @@ export class UniFormService {
             ? []
             : '';
 
-      formGroup.addControl(field.key, new FormControl(
-        { value, disabled },
-        [
-          ...(field.required ? [Validators.required] : []),
-          ...(field.min ? [Validators.min(field.min)] : []),
-          ...(field.max ? [Validators.max(field.max)] : []),
-          ...(field.maxLength ? [Validators.maxLength(field.maxLength)] : []),
-        ],
-      ));
+      formGroup.addControl(field.key, new FormControl({ value, disabled }, [
+        ...(field.required ? [Validators.required] : []),
+        ...(field.requiredTrue ? [Validators.requiredTrue] : []),
+        ...(field.min ? [Validators.min(field.min)] : []),
+        ...(field.max ? [Validators.max(field.max)] : []),
+        ...(field.minLength ? [Validators.minLength(field.minLength)] : []),
+        ...(field.maxLength ? [Validators.maxLength(field.maxLength)] : []),
+        ...(field.pattern ? [Validators.pattern(field.pattern)] : []),
+      ]));
     });
   }
 }

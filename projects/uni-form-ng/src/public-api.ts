@@ -5,6 +5,7 @@
 export * from './lib/models/types/form-field.type';
 
 export * from './lib/models/interfaces/object.model';
+export * from './lib/models/interfaces/errors.model';
 export * from './lib/models/interfaces/form-field.model';
 export * from './lib/models/interfaces/form-field-group.model';
 export * from './lib/models/interfaces/form-field-option.model';

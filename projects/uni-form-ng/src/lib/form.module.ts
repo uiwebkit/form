@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,13 +11,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 import { UniFormComponent } from './components/form/form.component';
 import { UniFormGroupComponent } from './components/form-group/form-group.component';
 import { UniFormFieldComponent } from './components/form-field/form-field.component';
 import { UniFormFieldErrorComponent } from './components/form-field-error/form-field-error.component';
-import { UniFormService } from './components/form/form.service';
-import { UniFormFieldService } from './components/form-field/form-field.service';
 import { UniFormFieldsMatComponent } from './components/form-fields/mat/form-fields-mat.component';
 import { UniAutocompleteMatComponent } from './components/form-fields/mat/autocomplete/autocomplete-mat.component';
 
@@ -45,6 +44,7 @@ const Declarations = [
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatChipsModule,
+    MatIconModule
   ],
   declarations: Declarations,
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],

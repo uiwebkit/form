@@ -14,7 +14,7 @@ export class UniFormGroupComponent implements OnInit {
   url: string = '';
 
   @Input()
-  init: UniObject = {};
+  value: UniObject = {};
 
   urls: string[] = [];
 
@@ -22,7 +22,6 @@ export class UniFormGroupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get(this.url)
-      .subscribe((urls: any) => (this.urls = urls));
+    this.http.get(this.url).subscribe((urls: any) => this.urls = urls);
   }
 }

@@ -9,7 +9,7 @@
     <mat-card-content>
       <p>Age: {{ ages[0] }} - {{ ages[1] }}</p>
 
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/age.json'" [init]="{}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/age.json'" [value]="{}"></uni-form-field-ng>
 
       <mat-chip-set *ngIf="splitAges.length > 0" aria-label="Split Ages">
         Will split ages to:
@@ -18,7 +18,7 @@
         </mat-chip>
       </mat-chip-set>
 
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/gender.json'" [init]="{}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/gender.json'" [value]="{}"></uni-form-field-ng>
 
       <uni-form-field-ng [url]="'assets/mocks/field/fb/split/countries.json'" [multiple]='true'></uni-form-field-ng>
       <uni-form-field-ng [url]="'assets/mocks/field/fb/split/usa.json'"></uni-form-field-ng>
@@ -36,8 +36,8 @@
 <!--        </mat-panel-description>-->
 <!--      </mat-expansion-panel-header>-->
 
-<!--      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/usa.json'" [init]="{}"></uni-form-field-ng>-->
-<!--      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/canada.json'" [init]="{}"></uni-form-field-ng>-->
+<!--      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/usa.json'" [value]="{}"></uni-form-field-ng>-->
+<!--      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/canada.json'" [value]="{}"></uni-form-field-ng>-->
 <!--    </mat-expansion-panel>-->
 <!--  </mat-accordion>-->
 
@@ -45,8 +45,8 @@
     <mat-card-subtitle>Publish and/or Turn on after Split:</mat-card-subtitle>
 
     <mat-card-content>
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/publish.json'" [init]="{}"></uni-form-field-ng>
-      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/turn.json'" [init]="{}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/publish.json'" [value]="{}"></uni-form-field-ng>
+      <uni-form-field-ng [url]="'assets/mocks/field/fb/split/turn.json'" [value]="{}"></uni-form-field-ng>
     </mat-card-content>
   </mat-card>
 
