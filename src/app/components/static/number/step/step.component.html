@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/number/step.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/default.json'"
+    [options]="{key: 'set', label: 'Set number field custom hint message', step: 0.3}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/step.json'"
+    [options]="{key: 'change', label: 'Change number field hint message', step: 0.5}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'number', key: 'create', label: 'Create number field with hint message', step: 0.7}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

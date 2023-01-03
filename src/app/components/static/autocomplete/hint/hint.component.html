@@ -1,0 +1,25 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/autocomplete/hint.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/autocomplete/default.json'"
+    [options]="{key: 'set', label: 'Set autocomplete field hint', hint: 'Set hint'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/autocomplete/hint.json'"
+    [options]="{key: 'change', label: 'Changed autocomplete field hint', hint: 'Change hint'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'autocomplete', key: 'create', label: 'Create autocomplete field with hint', hint: 'Create hint', options: [
+        {label: 'One', value: 'One'}, {label: 'Two', value: 'Two'}
+    ]}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

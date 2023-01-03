@@ -1,46 +1,58 @@
 <uni-autocomplete-mat *ngIf='field.type === "autocomplete"' [field]='field' [formGroup]='formGroup'>
 </uni-autocomplete-mat>
 
-<div *ngIf='field.key' [formGroup]='formGroup' (keydown.enter)='onEnter($event)'>
-  <mat-form-field *ngIf='isMatFormField(field)' [style]="{width: '100%'}">
+<div *ngIf='field.key' [formGroup]='formGroup'>
+  <mat-form-field *ngIf='isMatFormField(field.type)' class='w-100'>
     <mat-label>{{ field.label }}</mat-label>
 
     <div matPrefix>
       <ng-content select='[prefix]'></ng-content>
     </div>
 
-    <ng-container [ngSwitch]='field.type'>
-      <input
-        matInput
-        *ngSwitchCase="'text'"
-        [type]="'text'"
-        [formControlName]='field.key'
-        [placeholder]='field.placeholder || ""'
-      >
+    <input
+      matInput
+      *ngIf='isInput(field.type)'
+      [type]='field.type'
+      [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
+      (keydown.enter)='onEnter($event)'
+    >
 
-      <input
-        matInput
-        *ngSwitchCase="'number'"
-        [type]="'number'"
-        [formControlName]='field.key'
-        [placeholder]='field.placeholder || ""'
-        [min]='field.min'
-        [max]='field.max'
-        [step]='field.step'
-      >
+    <input
+      matInput
+      *ngIf="field.type === 'number'"
+      [type]='field.type'
+      [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
+      [min]='field.min'
+      [max]='field.max'
+      [step]='field.step'
+      (keydown.enter)='onEnter($event)'
+    >
 
-      <mat-select *ngSwitchCase="'select'" [formControlName]='field.key' [multiple]='field.multiple'>
-        <mat-optgroup *ngFor='let group of field.groups' [label]='group.name' [disabled]='group.disabled'>
-          <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
-            {{ option.label }}
-          </mat-option>
-        </mat-optgroup>
+    <textarea
+      matInput
+      *ngIf="field.type === 'textarea'"
+      [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
+    ></textarea>
 
-        <mat-option *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
+    <mat-select
+      *ngIf="field.type === 'select'"
+      [formControlName]='field.key'
+      [multiple]='field.multi'
+      [placeholder]='field.placeholder || ""'
+    >
+      <mat-optgroup *ngFor='let group of field.groups' [label]='group.name' [disabled]='group.disabled'>
+        <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
           {{ option.label }}
         </mat-option>
-      </mat-select>
-    </ng-container>
+      </mat-optgroup>
+
+      <mat-option *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
 
     <div matSuffix>
       <ng-content select='[suffix]'></ng-content>
@@ -49,23 +61,38 @@
     <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
 
     <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
-      <span *ngIf='isDefined(field.min) && !isDefined(field.max)'>Minimum is: <strong>{{ field.min }}</strong></span>
-      <span *ngIf='isDefined(field.max) && !isDefined(field.min)'>Maximum is: <strong>{{ field.max }}</strong></span>
+      <span *ngIf='isDefined(field.min) && !isDefined(field.max)'>
+        Minimum is: <strong>{{ field.min }}</strong>
+      </span>
+
+      <span *ngIf='isDefined(field.max) && !isDefined(field.min)'>
+        Maximum is: <strong>{{ field.max }}</strong>
+      </span>
 
       <span *ngIf='isDefined(field.min) && isDefined(field.max)'>
         Minimum is: <strong>{{ field.min }}</strong> and maximum is: <strong>{{ field.max }}</strong>
       </span>
     </mat-hint>
 
-    <mat-hint *ngIf='field.maxLength && !field.hint' align='start'>
-      Maximum characters count is {{ field.maxLength }}
+    <mat-hint *ngIf='(field.minLength || field.maxLength)  && !field.hint' align='start'>
+      <span *ngIf='field.minLength && !field.maxLength'>
+        Minimum characters count is: <strong>{{ field.minLength }}</strong>
+      </span>
+
+      <span *ngIf='field.maxLength && !field.minLength'>
+        Maximum characters count is: <strong>{{ field.maxLength }}</strong>
+      </span>
+
+      <span *ngIf='field.minLength && field.maxLength'>
+        Minimum characters count is: <strong>{{ field.minLength }}</strong> and maximum is: <strong>{{ field.maxLength }}</strong>
+      </span>
     </mat-hint>
 
     <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
       {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
     </mat-hint>
 
-    <mat-error [style]='{display: "flex"}'>
+    <mat-error class='d-flex'>
       <uni-form-field-error-ng
         [fieldErrors]='field.errors ?? {}'
         [errors]='formGroup.controls[field.key].errors'
@@ -73,24 +100,34 @@
     </mat-error>
   </mat-form-field>
 
-  <div [ngSwitch]='field.type'>
-    <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]='field.key'>
-      {{ field.label }}
-    </mat-checkbox>
-
-    <mat-slide-toggle *ngSwitchCase="'switch'" [formControlName]='field.key'>{{ field.label }}</mat-slide-toggle>
-
-    <div *ngSwitchCase="'radio'">
-      <label *ngIf='field.label' [id]="'radio-group-label'" [style]="{'margin-right': '10px'}">
-        {{ field.label }}
-      </label>
-
-      <mat-radio-group aria-labelledby='radio-group-label' [formControlName]='field.key'>
-        <mat-radio-button *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'
-                          [style]="{display: field.inline ? 'inline-flex' : 'flex', margin: '10px 20px 10px 0', width: 'fit-content'}">
-          {{ option.label }}
-        </mat-radio-button>
-      </mat-radio-group>
+  <div *ngIf="field.type === 'slider'">
+    <div class='uni-slider-label-container'>
+      <label>{{ field.label }}</label>
+      <label *ngIf='!field.keyEnd'>{{ slideValue1 }}</label>
+      <label *ngIf='field.keyEnd'>{{ slideValue1 }} - {{ slideValue2 }}</label>
     </div>
+
+    <mat-slider [min]='field.min' [max]='field.max' [step]='field.step' discrete class='w-100'>
+      <input matSliderThumb *ngIf='!field.keyEnd' [formControlName]='field.key' (valueChange)='onStep1($event)'>
+
+      <input matSliderStartThumb *ngIf='field.keyEnd' [formControlName]='field.key' (valueChange)='onStep1($event)'>
+      <input matSliderEndThumb *ngIf='field.keyEnd' [formControlName]='field.keyEnd' (valueChange)='onStep2($event)'>
+    </mat-slider>
+  </div>
+
+  <mat-slide-toggle *ngIf="field.type === 'switch'" [formControlName]='field.key' class='py-2'>
+    <span class='uni-pointer'>{{ field.label }}</span>
+  </mat-slide-toggle>
+
+  <mat-checkbox *ngIf="field.type === 'checkbox'" [formControlName]='field.key'>{{ field.label }}</mat-checkbox>
+
+  <div *ngIf="field.type === 'radio'" [class]='field.inline ? "uni-radio-field-inline" : "uni-radio-field"'>
+    <label *ngIf='field.label' class='uni-radio-field-label'>{{ field.label }}</label>
+
+    <mat-radio-group [formControlName]='field.key' [required]='field.required || false'>
+      <mat-radio-button *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
+        <span class='uni-pointer'>{{ option.label }}</span>
+      </mat-radio-button>
+    </mat-radio-group>
   </div>
 </div>

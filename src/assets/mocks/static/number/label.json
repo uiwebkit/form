@@ -1,5 +1,5 @@
 {
   "type": "number",
   "key": "number",
-  "label": "Number field"
+  "label": "Number field with label"
 }

@@ -1,17 +1,24 @@
-<uni-form-ng (formGroupEvent)="handleFruitForm($event)" (submitEvent)="onFruitSubmit($event)">
+<uni-form-ng (formGroupEvent)='handleFruitForm($event)' (submitEvent)='onFruitSubmit($event)'>
   <mat-card>
     <mat-card-header>
       <mat-card-title>Fruits Customization</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <uni-form-field-ng [url]="'assets/mocks/field/test/fruit.json'" [value]="{fruit: 'apple'}"></uni-form-field-ng>
+      <uni-form-field-ng
+        [url]="'assets/mocks/field/test/fruit.json'"
+        [options]='{value: "apple"}'
+        [nested]="{values :{color: 'green', engraving: 'test'}}"
+      ></uni-form-field-ng>
     </mat-card-content>
   </mat-card>
 
   <mat-card [style]="'margin: 10px 0'">
     <mat-card-content>
-      <uni-form-field-ng [url]="'assets/mocks/field/test/auth.json'" [value]="{auth: true}"></uni-form-field-ng>
+      <uni-form-field-ng
+        [url]="'assets/mocks/field/test/auth.json'"
+        [nested]="{values :{login: 'login', password: 'password'}}"
+      ></uni-form-field-ng>
     </mat-card-content>
 
     <mat-card-actions>
@@ -22,19 +29,21 @@
 
 <p></p>
 
-<uni-form-ng (formGroupEvent)="handleAuthForm($event)" (submitEvent)="onAuthSubmit($event)">
+<uni-form-ng (formGroupEvent)='handleAuthForm($event)' (submitEvent)='onAuthSubmit($event)'>
   <mat-card>
     <mat-card-header>
       <mat-card-title>Authorization</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <uni-form-group-ng [url]="'assets/mocks/group/test.json'" [value]="{login: 'login', password: 'pass', taste: 'sour'}">
-      </uni-form-group-ng>
+      <uni-form-group-ng
+        [url]="'assets/mocks/group/test.json'"
+        [nested]="{values: {login: 'login', password: 'password', taste: 'sour'}}"
+      ></uni-form-group-ng>
     </mat-card-content>
 
     <mat-card-actions>
-      <button type="submit" mat-button [disabled]='!formAuth.valid'>SUBMIT</button>
+      <button type='submit' mat-button [disabled]='!formAuth.valid'>SUBMIT</button>
     </mat-card-actions>
   </mat-card>
 </uni-form-ng>

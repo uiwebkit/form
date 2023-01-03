@@ -1,0 +1,23 @@
+{
+  "type": "autocomplete",
+  "key": "autocomplete",
+  "label": "Autocomplete field with validation error",
+  "required": true,
+  "errors": {
+    "required": "Custom required error message"
+  },
+  "options": [
+    {
+      "label": "One",
+      "value": "One"
+    },
+    {
+      "label": "Two",
+      "value": "Two"
+    },
+    {
+      "label": "Three",
+      "value": "Three"
+    }
+  ]
+}

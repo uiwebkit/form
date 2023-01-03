@@ -1,0 +1,7 @@
+{
+  "type": "textarea",
+  "key": "text",
+  "label": "Textarea field with pattern validation",
+  "pattern": "[a-zA-Z]*",
+  "hint": "Must be latin letters only"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "switch",
+  "key": "switch",
+  "label": "Required switch*",
+  "requiredTrue": true
+}

@@ -1,0 +1,13 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/select/option.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'select', key: 'create', label: 'Create disabled select field', options: [{disabled: true, label: 'One', value: 1}]}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

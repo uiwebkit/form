@@ -4,20 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/default.json'"
-    [key]='"set"'
-    [label]='"Set number field label"'
+    [options]="{key: 'set', label: 'Set number field label'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/label.json'"
-    [key]='"change"'
-    [label]='"Changed number field label"'
+    [options]="{key: 'change', label: 'Changed number field label'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"number"'
-    [key]='"create"'
-    [label]='"Create number field"'
+    [options]="{type: 'number', key: 'create', label: 'Create number field with label'}"
   ></uni-form-field-ng>
 
   <mat-action-row>

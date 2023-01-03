@@ -1,0 +1,33 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-static-switch-default></app-static-switch-default>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Disabled</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-static-switch-disabled></app-static-switch-disabled>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Required*</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-static-switch-required></app-static-switch-required>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default value</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-static-switch-value></app-static-switch-value>
+  </mat-expansion-panel>
+</mat-accordion>

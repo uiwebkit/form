@@ -4,22 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Text field with default value"'
-    [value]='{set: "Set default value"}'
+    [options]="{key: 'set', label: 'Set text field value', value: 'Set value'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/value.json'"
-    [key]='"change"'
-    [value]='{change: "Changed default value"}'
+    [options]="{key: 'change', label: 'Changed text field value', value: 'Change value'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Text field with default value"'
-    [value]='{create: "Create default value"}'
+    [options]="{type: 'text', key: 'create', label: 'Create text field with value', value: 'Create value'}"
   ></uni-form-field-ng>
 
   <mat-action-row>

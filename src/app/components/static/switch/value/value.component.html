@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/switch/value.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/switch/default.json'"
+    [options]="{key: 'set', label: 'Set switch default value', value: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/switch/value.json'"
+    [options]="{key: 'change', label: 'Changed switch default value', value: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'switch', key: 'create', label: 'Create switch with default value', value: true}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

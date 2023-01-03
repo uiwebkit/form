@@ -1,0 +1,28 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/select/error.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/select/default.json'"
+    [options]="{key: 'set', label: 'Set select field custom error messages', required: true, errors: {
+    required: 'Set custom required error message'
+    }}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/select/error.json'"
+    [options]="{key: 'change', label: 'Change select field custom error messages', errors: {
+    required: 'Changed custom required error message'
+    }}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'select', key: 'create', label: 'Create select field with error messages', required: true, errors: {
+    required: 'Create custom required error message'}, options: [{label: ''}, {label: 'One', value: 1}]}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

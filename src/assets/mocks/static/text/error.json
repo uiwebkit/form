@@ -3,9 +3,11 @@
   "key": "text",
   "label": "Text field with validation error messages",
   "required": true,
+  "minLength": 2,
   "maxLength": 3,
   "errors": {
     "required": "Custom required error message",
+    "minLength": "Maximum characters count is 2",
     "maxLength": "Maximum characters count is 3"
   }
 }

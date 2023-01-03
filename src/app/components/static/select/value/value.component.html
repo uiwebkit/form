@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/select/value.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/select/default.json'"
+    [options]="{key: 'set', label: 'Set select field value', value: 3}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/select/value.json'"
+    [options]="{key: 'change', label: 'Changed select field value', value: 3}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'select', key: 'create', label: 'Create select field with value', value: 1, options: [{label: ''}, {label: 'One', value: 1}]}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

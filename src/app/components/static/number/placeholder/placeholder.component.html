@@ -4,23 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/default.json'"
-    [key]='"set"'
-    [label]='"Set number field custom placeholder"'
-    [placeholder]='"Set placeholder"'
+    [options]="{key: 'set', label: 'Set number field placeholder', placeholder: 'Set placeholder'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/placeholder.json'"
-    [key]='"change"'
-    [label]='"Change number field placeholder"'
-    [placeholder]='"Changed placeholder"'
+    [options]="{key: 'change', label: 'Change number field placeholder', placeholder: 'Changed placeholder'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"number"'
-    [key]='"create"'
-    [label]='"Create number field with custom placeholder"'
-    [placeholder]='"Create placeholder"'
+    [options]="{type: 'number', key: 'create', label: 'Create number field with placeholder', placeholder: 'Create placeholder'}"
   ></uni-form-field-ng>
 
   <mat-action-row>

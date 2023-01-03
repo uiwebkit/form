@@ -1,7 +1,8 @@
 {
+  "type": "email",
   "key": "login",
-  "type": "text",
   "label": "Enter your login",
+  "value": "email",
   "required": true,
   "maxLength": 80
 }

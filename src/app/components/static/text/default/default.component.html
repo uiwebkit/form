@@ -4,20 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Set text field label"'
+    [options]="{key: 'set', label: 'Set text field label'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/label.json'"
-    [key]='"change"'
-    [label]='"Changed text field label"'
+    [options]="{key: 'change', label: 'Changed text field label'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Create text field"'
+    [options]="{type: 'text', key: 'create', label: 'Create text field with label'}"
   ></uni-form-field-ng>
 
   <mat-action-row>

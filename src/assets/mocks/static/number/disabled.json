@@ -1,6 +1,6 @@
 {
   "type": "number",
-  "key": "numberDisabled",
+  "key": "number",
   "label": "Disabled number field",
   "disabled": true
 }

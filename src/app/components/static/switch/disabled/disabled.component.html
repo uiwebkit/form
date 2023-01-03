@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/switch/disabled.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/switch/default.json'"
+    [options]="{key: 'set', label: 'Set disabled switch', disabled: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/switch/disabled.json'"
+    [options]="{key: 'change', label: 'Changed disabled switch', disabled: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'switch', key: 'create', label: 'Create disabled switch', disabled: true}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

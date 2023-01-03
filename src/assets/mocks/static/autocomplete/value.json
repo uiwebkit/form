@@ -1,0 +1,20 @@
+{
+  "type": "autocomplete",
+  "key": "autocomplete",
+  "label": "Autocomplete field with default value",
+  "value": "Two",
+  "options": [
+    {
+      "label": "One",
+      "value": "One"
+    },
+    {
+      "label": "Two",
+      "value": "Two"
+    },
+    {
+      "label": "Three",
+      "value": "Three"
+    }
+  ]
+}

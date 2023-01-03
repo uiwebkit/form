@@ -1,0 +1,6 @@
+{
+  "type": "checkbox",
+  "key": "checkbox",
+  "label": "Checkbox with default value",
+  "value": true
+}

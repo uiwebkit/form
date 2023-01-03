@@ -1,0 +1,29 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/number/error.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/default.json'"
+    [options]="{key: 'set', label: 'Set number field custom error messages', required: true, min: 0, max: 5, errors: {
+    required: 'Set custom required error message', min: 'Minimum is 0', max: 'Maximum is 5'
+    }}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/number/error.json'"
+    [options]="{key: 'change', label: 'Change number field custom error messages', errors: {
+    required: 'Changed custom required error message', min: 'Minimum number: 1', max: 'Maximum number: 3'
+    }}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'number', key: 'create', label: 'Create number field with error messages', required: true, min: 0, max: 8, errors: {
+    required: 'Create custom required error message', min: 'Minimum is 0', max: 'Maximum is 8'
+    }}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

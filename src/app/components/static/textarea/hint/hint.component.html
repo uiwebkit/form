@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/textarea/hint.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/textarea/default.json'"
+    [options]="{key: 'set', label: 'Set textarea field hint', hint: 'Set hint'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/textarea/hint.json'"
+    [options]="{key: 'change', label: 'Changed textarea field hint', hint: 'Change hint'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'textarea', key: 'create', label: 'Create textarea field with hint', hint: 'Create hint'}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

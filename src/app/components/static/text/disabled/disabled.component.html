@@ -4,23 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Set disabled text field"'
-    [disabled]='true'
+    [options]="{key: 'set', label: 'Set disabled text field', disabled: true}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/disabled.json'"
-    [key]='"change"'
-    [label]='"Changed disabled text field"'
-    [disabled]='false'
+    [options]="{key: 'change', label: 'Changed disabled text field', disabled: false}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Create disabled text field"'
-    [disabled]='true'
+    [options]="{type: 'text', key: 'create', label: 'Create disabled text field', disabled: true}"
   ></uni-form-field-ng>
 
   <mat-action-row>

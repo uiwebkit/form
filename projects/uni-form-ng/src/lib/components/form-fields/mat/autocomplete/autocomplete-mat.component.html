@@ -2,7 +2,7 @@
   <mat-form-field [style]="{width: '100%'}" [formGroup]='formGroup'>
     <mat-label>{{ field.label }}</mat-label>
 
-    <mat-chip-grid #chipGrid *ngIf='field.multiple'>
+    <mat-chip-grid #chipGrid *ngIf='field.multi'>
       <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
         {{ chip }}
 
@@ -17,6 +17,7 @@
         [type]="'text'"
         [formControl]='autoCtrl'
         [matChipInputFor]='chipGrid'
+        [placeholder]='field.placeholder || ""'
         [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
         [matChipInputAddOnBlur]='false'
         (matChipInputTokenEnd)='add($event)'
@@ -25,10 +26,11 @@
     </mat-chip-grid>
 
     <input
-      *ngIf='!field.multiple'
+      *ngIf='!field.multi'
       matInput
       [type]="'text'"
       [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
       [matAutocomplete]='autoComplete'
       (blur)='onBlur($event)'
       (keydown.enter)='onBlur($event)'
@@ -45,6 +47,8 @@
         {{ option.label }}
       </mat-option>
     </mat-autocomplete>
+
+    <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
 
     <mat-error [style]='{display: "flex"}'>
       <uni-form-field-error-ng

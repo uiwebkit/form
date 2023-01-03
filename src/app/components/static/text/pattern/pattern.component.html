@@ -4,29 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Set text field pattern"'
-    [pattern]='"[a-zA-Z]*"'
-    [hint]='"Must be latin letters only"'
-    [errors]='{pattern: "Error: there is not only latin letters"}'
+    [options]="{key: 'set', label: 'Set text field pattern', hint: 'Must be latin letters only', pattern: '[a-zA-Z]*', errors: {pattern: 'Error: there is not only latin letters'}}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/pattern.json'"
-    [key]='"change"'
-    [label]='"Change text field pattern"'
-    [hint]='"Must be digits only"'
-    [pattern]='"[0-9]*"'
-    [errors]='{pattern: "Error: there is not only digits"}'
+    [options]="{key: 'change', label: 'Changed text field pattern', hint: 'Must be digits only', pattern: '[0-9]*', errors: {pattern: 'Error: there is not only digits'}}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Create text field with pattern validation"'
-    [hint]='"Must be digits only"'
-    [pattern]='"[0-9]*"'
-    [errors]='{pattern: "Error: there is not only digits"}'
+    [options]="{type: 'text', key: 'create', label: 'Create text field pattern', hint: 'Must be digits only', pattern: '[0-9]*', errors: {pattern: 'Error: there is not only digits'}}"
   ></uni-form-field-ng>
 
   <mat-action-row>

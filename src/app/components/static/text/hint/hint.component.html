@@ -4,23 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Set text field custom hint message"'
-    [hint]='"Set hint message"'
+    [options]="{key: 'set', label: 'Set text field hint', hint: 'Set hint'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/hint.json'"
-    [key]='"change"'
-    [label]='"Change text field hint message"'
-    [hint]='"Changed hint message"'
+    [options]="{key: 'change', label: 'Changed text field hint', hint: 'Change hint'}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Create text field with hint message"'
-    [hint]='"Create hint message"'
+    [options]="{type: 'text', key: 'create', label: 'Create text field with hint', hint: 'Create hint'}"
   ></uni-form-field-ng>
 
   <mat-action-row>

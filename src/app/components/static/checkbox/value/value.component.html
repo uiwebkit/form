@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/checkbox/value.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/checkbox/default.json'"
+    [options]="{key: 'set', label: 'Set checkbox default value', value: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/checkbox/value.json'"
+    [options]="{key: 'change', label: 'Changed checkbox default value', value: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'checkbox', key: 'create', label: 'Create checkbox with default value', value: true}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

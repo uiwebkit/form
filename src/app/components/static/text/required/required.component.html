@@ -4,23 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"
-    [key]='"set"'
-    [label]='"Set required text field"'
-    [required]='true'
+    [options]="{key: 'set', label: 'Set required text field', required: true}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/required.json'"
-    [key]='"change"'
-    [label]='"Changed required text field"'
-    [required]='false'
+    [options]="{key: 'change', label: 'Changed required text field', required: false}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"text"'
-    [key]='"create"'
-    [label]='"Create required text field"'
-    [required]='true'
+    [options]="{type: 'text', key: 'create', label: 'Create required text field', required: true}"
   ></uni-form-field-ng>
 
   <mat-action-row>

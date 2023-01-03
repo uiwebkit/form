@@ -14,7 +14,7 @@ export class UniFormGroupComponent implements OnInit {
   url: string = '';
 
   @Input()
-  value: UniObject = {};
+  nested: { values: UniObject<number | string | string[] | boolean> } | undefined;
 
   urls: string[] = [];
 

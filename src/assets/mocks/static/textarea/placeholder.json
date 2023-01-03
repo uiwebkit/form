@@ -1,0 +1,6 @@
+{
+  "type": "textarea",
+  "key": "textarea",
+  "label": "Textarea field with placeholder",
+  "placeholder": "Default placeholder"
+}

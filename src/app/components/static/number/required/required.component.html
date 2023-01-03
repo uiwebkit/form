@@ -4,23 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/default.json'"
-    [key]='"set"'
-    [label]='"Set required number field"'
-    [required]='true'
+    [options]="{key: 'set', label: 'Set required number field', required: true}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/required.json'"
-    [key]='"change"'
-    [label]='"Changed required number field"'
-    [required]='false'
+    [options]="{key: 'change', label: 'Changed required number field', required: false}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [type]='"number"'
-    [key]='"create"'
-    [label]='"Create required number field"'
-    [required]='true'
+    [options]="{type: 'number', key: 'create', label: 'Create required number field', required: true}"
   ></uni-form-field-ng>
 
   <mat-action-row>

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-static-text-max-length',
-  templateUrl: './max-length.component.html',
+  selector: 'app-static-textarea-default',
+  templateUrl: './default.component.html',
 })
-export class AppStaticTextMaxLengthComponent {
+export class AppStaticTextareaDefaultComponent {
 
   form: FormGroup | undefined;
 

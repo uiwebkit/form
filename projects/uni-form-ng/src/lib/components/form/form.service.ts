@@ -18,11 +18,15 @@ export class UniFormService {
       const disabled = field.disabled || false;
       const value = isDefined(field.value)
         ? field.value
-        : field.type === 'checkbox'
+        : field.type === 'switch' || field.type === 'checkbox'
           ? false
-          : field.multiple
+          : field.multi
             ? []
             : '';
+
+      if (field.keyEnd) {
+        formGroup.addControl(field.keyEnd, new FormControl(value))
+      }
 
       formGroup.addControl(field.key, new FormControl({ value, disabled }, [
         ...(field.required ? [Validators.required] : []),

@@ -1,0 +1,6 @@
+{
+  "type": "checkbox",
+  "key": "checkbox",
+  "label": "Required checkbox*",
+  "requiredTrue": true
+}

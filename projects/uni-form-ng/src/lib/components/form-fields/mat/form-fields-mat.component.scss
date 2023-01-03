@@ -1,0 +1,41 @@
+.w-100 {
+  width: 100% !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.uni-pointer {
+  cursor: pointer;
+}
+
+.py-2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.uni-radio-field {
+  mat-radio-button {
+    display: flex;
+    width: fit-content;
+  }
+}
+
+.uni-radio-field-inline {
+  .uni-radio-field-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -10px;
+  }
+
+  mat-radio-button {
+    display: inline-flex;
+    width: fit-content;
+  }
+}
+
+.uni-slider-label-container {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+{
+  "type": "radio",
+  "key": "radio",
+  "label": "Disabled radio button option",
+  "options": [
+    {
+      "label": "One",
+      "value": 1
+    },
+    {
+      "disabled": true,
+      "label": "Two",
+      "value": 2
+    }
+  ]
+}

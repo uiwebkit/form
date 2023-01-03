@@ -1,0 +1,6 @@
+{
+  "type": "switch",
+  "key": "switch",
+  "label": "Disabled switch",
+  "disabled": true
+}

@@ -1,0 +1,15 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/autocomplete/groups.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'autocomplete', key: 'create', label: 'Create grouped autocomplete', groups: [
+    {name: 'Digits', options: [{label: 'One', value: 'Digit: 1'}]}, {name: 'Letters', options: [{label: 'A', value: 'Letter: a'}]}
+    ]}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

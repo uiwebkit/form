@@ -1,0 +1,33 @@
+{
+  "type": "autocomplete",
+  "key": "autocomplete",
+  "label": "Groped autocomplete",
+  "groups": [
+    {
+      "name": "Digits",
+      "options": [
+        {
+          "label": "One",
+          "value": "One"
+        },
+        {
+          "label": "Two",
+          "value": "Two"
+        }
+      ]
+    },
+    {
+      "name": "Letters",
+      "options": [
+        {
+          "label": "A",
+          "value": "A"
+        },
+        {
+          "label": "B",
+          "value": "B"
+        }
+      ]
+    }
+  ]
+}

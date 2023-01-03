@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/textarea/pattern.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/textarea/default.json'"
+    [options]="{key: 'set', label: 'Set textarea field pattern', hint: 'Must be latin letters only', pattern: '[a-zA-Z]*', errors: {pattern: 'Error: there is not only latin letters'}}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/textarea/pattern.json'"
+    [options]="{key: 'change', label: 'Changed textarea field pattern', hint: 'Must be digits only', pattern: '[0-9]*', errors: {pattern: 'Error: there is not only digits'}}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'textarea', key: 'create', label: 'Create textarea field pattern', hint: 'Must be digits only', pattern: '[0-9]*', errors: {pattern: 'Error: there is not only digits'}}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

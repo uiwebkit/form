@@ -1,30 +1,41 @@
-<mat-stepper [selectedIndex]='1' [orientation]='"vertical"' #stepper>
+<mat-stepper [selectedIndex]='selectedIndex' [orientation]='"vertical"' (selectionChange)='onStepChange($event)' #stepper>
   <mat-step label='Input text' [completed]='false'>
-   <app-static-text class='d-block mt-1 w-500'></app-static-text>
+   <app-static-text *ngIf='selectedIndex === 0'></app-static-text>
   </mat-step>
 
   <mat-step label='Input number' [completed]='false'>
-    <app-static-number class='d-block mt-1 w-500'></app-static-number>
+    <app-static-number *ngIf='selectedIndex === 1'></app-static-number>
   </mat-step>
 
   <mat-step label='Textarea' [completed]='false'>
+    <app-static-textarea *ngIf='selectedIndex === 2'></app-static-textarea>
   </mat-step>
 
   <mat-step label='Select' [completed]='false'>
+    <app-static-select *ngIf='selectedIndex === 3'></app-static-select>
   </mat-step>
 
   <mat-step label='Autocomplete' [completed]='false'>
+    <app-static-autocomplete *ngIf='selectedIndex === 4'></app-static-autocomplete>
   </mat-step>
 
   <mat-step label='Datepicker' [completed]='false'>
+    <app-static-datepicker *ngIf='selectedIndex === 5'></app-static-datepicker>
   </mat-step>
 
-  <mat-step label='Checkbox' [completed]='false'>
-  </mat-step>
-
-  <mat-step label='Radio button' [completed]='false'>
+  <mat-step label='Slider' [completed]='false'>
+    <app-static-slider *ngIf='selectedIndex === 6'></app-static-slider>
   </mat-step>
 
   <mat-step label='Switch' [completed]='false'>
+    <app-static-switch *ngIf='selectedIndex === 7'></app-static-switch>
+  </mat-step>
+
+  <mat-step label='Checkbox' [completed]='false'>
+    <app-static-checkbox *ngIf='selectedIndex === 8'></app-static-checkbox>
+  </mat-step>
+
+  <mat-step label='Radio button' [completed]='false'>
+    <app-static-radio *ngIf='selectedIndex === 9'></app-static-radio>
   </mat-step>
 </mat-stepper>

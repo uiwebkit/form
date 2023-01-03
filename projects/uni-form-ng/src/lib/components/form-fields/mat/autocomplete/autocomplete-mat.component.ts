@@ -42,7 +42,7 @@ export class UniAutocompleteMatComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.field.type === 'autocomplete') {
-      const formField = this.field.multiple ? this.autoCtrl : this.formGroup.get(this.field.key);
+      const formField = this.field.multi ? this.autoCtrl : this.formGroup.get(this.field.key);
 
       if (this.field.groups) {
         this.fieldGroupsBackup = this.field.groups;
@@ -79,7 +79,7 @@ export class UniAutocompleteMatComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    if (this.field.multiple && this.autoInput) {
+    if (this.field.multi && this.autoInput) {
       const value = event.option.viewValue;
       const notPresent = this.chips.filter((chip: string) => chip.toLowerCase() === value.toLowerCase()).length === 0;
 

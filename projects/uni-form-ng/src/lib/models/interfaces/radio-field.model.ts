@@ -1,5 +1,5 @@
 export interface UniRadioField {
-  inline?: boolean;
+  inline: boolean;
 }
 
 export interface UniStrictRadioField extends UniRadioField {

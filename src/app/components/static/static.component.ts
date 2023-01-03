@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './static.component.html',
 })
 export class AppStaticComponent {
+
+  selectedIndex: number = 6;
+
+  onStepChange(event: any) {
+    this.selectedIndex = event.selectedIndex;
+  }
 }
