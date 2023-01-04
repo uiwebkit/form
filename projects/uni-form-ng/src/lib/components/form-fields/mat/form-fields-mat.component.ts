@@ -21,9 +21,6 @@ export class UniFormFieldsMatComponent {
   @Input()
   formGroup: FormGroup;
 
-  slideValue1: number = 0;
-  slideValue2: number = 40;
-
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({});
   }
@@ -34,14 +31,6 @@ export class UniFormFieldsMatComponent {
 
   isMatFormField(fieldType: UniFormFieldType): boolean {
     return ['text', 'email', 'password', 'number', 'textarea', 'select'].includes(fieldType);
-  }
-
-  onStep1(event: number) {
-    this.slideValue1 = event;
-  }
-
-  onStep2(event: number) {
-    this.slideValue2 = event;
   }
 
   onEnter(event: Event): void {

@@ -103,15 +103,22 @@
   <div *ngIf="field.type === 'slider'">
     <div class='uni-slider-label-container'>
       <label>{{ field.label }}</label>
-      <label *ngIf='!field.keyEnd'>{{ slideValue1 }}</label>
-      <label *ngIf='field.keyEnd'>{{ slideValue1 }} - {{ slideValue2 }}</label>
+      <label *ngIf='!field.keyEnd'>{{ formGroup.value[field.key] }}</label>
+      <label *ngIf='field.keyEnd'>{{ formGroup.value[field.key] }} - {{ formGroup.value[field.keyEnd] }}</label>
     </div>
 
-    <mat-slider [min]='field.min' [max]='field.max' [step]='field.step' discrete class='w-100'>
-      <input matSliderThumb *ngIf='!field.keyEnd' [formControlName]='field.key' (valueChange)='onStep1($event)'>
+    <mat-slider
+      [min]='field.min'
+      [max]='field.max'
+      [step]='field.step'
+      [discrete]='field.tooltip'
+      [showTickMarks]='field.ticks'
+      class='w-100'
+    >
+      <input matSliderThumb *ngIf='!field.keyEnd' [formControlName]='field.key'>
 
-      <input matSliderStartThumb *ngIf='field.keyEnd' [formControlName]='field.key' (valueChange)='onStep1($event)'>
-      <input matSliderEndThumb *ngIf='field.keyEnd' [formControlName]='field.keyEnd' (valueChange)='onStep2($event)'>
+      <input matSliderStartThumb *ngIf='field.keyEnd' [formControlName]='field.key'>
+      <input matSliderEndThumb *ngIf='field.keyEnd' [formControlName]='field.keyEnd'>
     </mat-slider>
   </div>
 

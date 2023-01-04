@@ -21,8 +21,30 @@
   margin-bottom: 1em;
 }
 
+.p-1 {
+  padding: 1em;
+}
+
+.ps-2 {
+  padding-left: 2em;
+}
+
 .w-500 {
   width: 500px;
+}
+
+.h-100v {
+  height: 100vh;
+}
+
+.mat-mdc-tab-header {
+  position: fixed!important;
+  background-color: #FFF;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
 }
 
 //@use "@angular/material" as mat;

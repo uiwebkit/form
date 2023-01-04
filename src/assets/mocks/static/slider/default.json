@@ -1,5 +1,4 @@
 {
   "type": "slider",
-  "key": "slider",
-  "keyEnd": "sliderEnd"
+  "key": "slider"
 }

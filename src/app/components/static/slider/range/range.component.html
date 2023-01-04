@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/range.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/default.json'"
+    [options]="{key: 'set', keyEnd: 'setEnd', label: 'Set slider default range:', value: 10, valueEnd: 90}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/range.json'"
+    [options]="{key: 'change', keyEnd: 'changeEnd', label: 'Changed slider default range:', value: 15, valueEnd: 85}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'slider', key: 'create', keyEnd: 'createEnd', label: 'Create slider with default range:', value: 20, valueEnd: 80}"
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>
+

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatStepperModule } from '@angular/material/stepper';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 import { AppStaticComponent } from './static.component';
 import { AppStaticTextModule } from './text/text.module';
@@ -17,7 +20,10 @@ import { AppStaticRadioModule } from './radio/radio.module';
 @NgModule({
   imports: [
     CommonModule,
-    MatStepperModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
 
     AppStaticTextModule,
     AppStaticNumberModule,
@@ -28,10 +34,10 @@ import { AppStaticRadioModule } from './radio/radio.module';
     AppStaticSliderModule,
     AppStaticSwitchModule,
     AppStaticCheckboxModule,
-    AppStaticRadioModule
+    AppStaticRadioModule,
   ],
   declarations: [AppStaticComponent],
-  exports: [AppStaticComponent]
+  exports: [AppStaticComponent],
 })
 export class AppStaticModule {
 }

@@ -1,0 +1,9 @@
+{
+  "type": "slider",
+  "key": "slider",
+  "label": "Slider with min and max:",
+  "tooltip": true,
+  "ticks": true,
+  "min": 200,
+  "max": 500
+}

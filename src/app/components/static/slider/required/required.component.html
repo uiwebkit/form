@@ -1,22 +1,23 @@
 <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
 
-  <uni-form-field-ng [url]="'assets/mocks/static/slider/label.json'"></uni-form-field-ng>
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/required.json'"></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/slider/default.json'"
-    [options]="{key: 'set', label: 'Set slider label:'}"
+    [options]="{key: 'set', label: 'Set required slider*:', required: true}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [url]="'assets/mocks/static/slider/label.json'"
-    [options]="{key: 'change', label: 'Changed slider label:'}"
+    [url]="'assets/mocks/static/slider/required.json'"
+    [options]="{key: 'change', label: 'Changed required slider:', required: false}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [options]="{type: 'slider', key: 'create', label: 'Create slider with label:'}"
+    [options]="{type: 'slider', key: 'create', label: 'Create required slider*:', required: true}"
   ></uni-form-field-ng>
 
   <mat-action-row>
     <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
   </mat-action-row>
 </uni-form-ng>
+

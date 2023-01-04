@@ -25,7 +25,7 @@ export class UniFormService {
             : '';
 
       if (field.keyEnd) {
-        formGroup.addControl(field.keyEnd, new FormControl(value))
+        formGroup.addControl(field.keyEnd, new FormControl(field.valueEnd || 0))
       }
 
       formGroup.addControl(field.key, new FormControl({ value, disabled }, [

@@ -4,16 +4,16 @@
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/number/default.json'"
-    [options]="{key: 'set', label: 'Set number field maximum', min: 0, max: 5}"
+    [options]="{key: 'set', label: 'Set number field min and max', min: 3, max: 5}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [url]="'assets/mocks/static/number/step.json'"
-    [options]="{key: 'change', label: 'Changed number field maximum', min: 0, max: 7}"
+    [url]="'assets/mocks/static/number/min-max.json'"
+    [options]="{key: 'change', label: 'Changed number field min and max', min: 5, max: 7}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [options]="{type: 'number', key: 'create', label: 'Create number field with maximum', min: 0, max: 8}"
+    [options]="{type: 'number', key: 'create', label: 'Create number field with min and max', min: 7, max: 8}"
   ></uni-form-field-ng>
 
   <mat-action-row>

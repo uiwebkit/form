@@ -1,19 +1,19 @@
 <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
 
-  <uni-form-field-ng [url]="'assets/mocks/static/slider/label.json'"></uni-form-field-ng>
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/ticks.json'"></uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/slider/default.json'"
-    [options]="{key: 'set', label: 'Set slider label:'}"
+    [options]="{key: 'set', label: 'Set slider has ticks:', ticks: true}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [url]="'assets/mocks/static/slider/label.json'"
-    [options]="{key: 'change', label: 'Changed slider label:'}"
+    [url]="'assets/mocks/static/slider/ticks.json'"
+    [options]="{key: 'change', label: 'Changed slider has ticks:', ticks: false}"
   ></uni-form-field-ng>
 
   <uni-form-field-ng
-    [options]="{type: 'slider', key: 'create', label: 'Create slider with label:'}"
+    [options]="{type: 'slider', key: 'create', label: 'Create slider with ticks:', ticks: true}"
   ></uni-form-field-ng>
 
   <mat-action-row>
