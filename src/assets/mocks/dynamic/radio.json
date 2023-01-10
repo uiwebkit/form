@@ -1,0 +1,23 @@
+{
+  "type": "radio",
+  "key": "radio",
+  "label": "Select one option:",
+  "inline": true,
+  "options": [
+    {
+      "label": "Authorization",
+      "value": "auth",
+      "fields": [
+        "assets/mocks/dynamic/login.json",
+        "assets/mocks/dynamic/password.json"
+      ]
+    },
+    {
+      "label": "Select locations",
+      "value": "location",
+      "fields": [
+        "assets/mocks/dynamic/countries.json"
+      ]
+    }
+  ]
+}

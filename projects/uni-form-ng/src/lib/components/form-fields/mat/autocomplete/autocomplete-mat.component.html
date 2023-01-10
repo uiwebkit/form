@@ -1,60 +1,59 @@
-<div *ngIf='field.type === "autocomplete"'>
-  <mat-form-field [style]="{width: '100%'}" [formGroup]='formGroup'>
-    <mat-label>{{ field.label }}</mat-label>
+<mat-form-field [style]="{width: '100%'}" [formGroup]='formGroup'>
+  <mat-label>{{ field.label }}</mat-label>
 
-    <mat-chip-grid #chipGrid *ngIf='field.multi'>
-      <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
-        {{ chip }}
+  <mat-chip-grid #chipGrid *ngIf='field.multi'>
+    <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
+      {{ chip }}
 
-        <button matChipRemove [attr.aria-label]="'remove ' + chip">
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip-row>
-
-      <input
-        #autoInput
-        matInput
-        [type]="'text'"
-        [formControl]='autoCtrl'
-        [matChipInputFor]='chipGrid'
-        [placeholder]='field.placeholder || ""'
-        [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
-        [matChipInputAddOnBlur]='false'
-        (matChipInputTokenEnd)='add($event)'
-        [matAutocomplete]='autoComplete'>
-      <input [formControlName]='field.key' [style]='{display: "none"}'>
-    </mat-chip-grid>
+      <button matChipRemove [attr.aria-label]="'remove ' + chip">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
 
     <input
-      *ngIf='!field.multi'
+      #autoInput
       matInput
       [type]="'text'"
-      [formControlName]='field.key'
+      [formControl]='autoCtrl'
+      [matChipInputFor]='chipGrid'
       [placeholder]='field.placeholder || ""'
-      [matAutocomplete]='autoComplete'
-      (blur)='onBlur($event)'
-      (keydown.enter)='onBlur($event)'
-    >
+      [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
+      [matChipInputAddOnBlur]='false'
+      (matChipInputTokenEnd)='add($event)'
+      [matAutocomplete]='autoComplete'>
+    <input [formControlName]='field.key' [style]='{display: "none"}'>
+  </mat-chip-grid>
 
-    <mat-autocomplete #autoComplete='matAutocomplete' (optionSelected)='selected($event)'>
-      <mat-optgroup *ngFor='let group of (groups$ | async)' [label]='group.name' [disabled]='group.disabled'>
-        <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
-          {{ option.label }}
-        </mat-option>
-      </mat-optgroup>
+  <input
+    *ngIf='!field.multi'
+    matInput
+    [type]="'text'"
+    [formControlName]='field.key'
+    [placeholder]='field.placeholder || ""'
+    [matAutocomplete]='autoComplete'
+    (blur)='onBlur($event)'
+    (keydown.enter)='onBlur($event)'
+  >
 
-      <mat-option *ngFor='let option of (options$ | async)' [value]='option.value' [disabled]='option.disabled'>
+  <mat-autocomplete #autoComplete='matAutocomplete' (optionSelected)='selected($event)'>
+    <mat-optgroup *ngFor='let group of (groups$ | async)' [label]='group.name' [disabled]='group.disabled'>
+      <mat-option *ngFor='let option of group.options' [value]='option.value'
+                  [disabled]='option.disabled || isSelected(option.value)' [class.active]='isSelected(option.value)'>
         {{ option.label }}
       </mat-option>
-    </mat-autocomplete>
+    </mat-optgroup>
 
-    <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+    <mat-option *ngFor='let option of (options$ | async)' [value]='option.value' [disabled]='option.disabled'>
+      {{ option.label }}
+    </mat-option>
+  </mat-autocomplete>
 
-    <mat-error [style]='{display: "flex"}'>
-      <uni-form-field-error-ng
-        [fieldErrors]='field.errors ?? {}'
-        [errors]='formGroup.controls[field.key].errors'
-      ></uni-form-field-error-ng>
-    </mat-error>
-  </mat-form-field>
-</div>
+  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+
+  <mat-error [style]='{display: "flex"}'>
+    <uni-form-field-error-ng
+      [fieldErrors]='field.errors ?? {}'
+      [errors]='formGroup.controls[field.key].errors'
+    ></uni-form-field-error-ng>
+  </mat-error>
+</mat-form-field>

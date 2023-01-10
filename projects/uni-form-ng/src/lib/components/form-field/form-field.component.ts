@@ -5,8 +5,9 @@ import { takeUntil } from 'rxjs';
 
 import { UniFormField } from '../../models/interfaces/form-field.model';
 import { UniFormFieldOption } from '../../models/interfaces/form-field-option.model';
+import { UniFormNested } from '../../models/interfaces/nested.model';
 import { UniObject } from '../../models/interfaces/object.model';
-import { isDefined } from '../../utils/is';
+import { isDefined, isObject } from '../../utils/is';
 import { RxUnsubscribe } from '../../utils/rx-unsubscribe';
 import { UniFormFieldService } from './form-field.service';
 
@@ -25,7 +26,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
   options: Partial<UniFormField> | undefined;
 
   @Input()
-  nested: { values: UniObject<number | string | string[] | boolean> } | undefined;
+  nested: UniObject<UniFormNested> = {};
 
   @HostListener('uniFormGroup') onUniFormGroup() {
     this.formGroup = (event as CustomEvent).detail;
@@ -47,7 +48,9 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
   ngOnInit(): void {
     if (this.url) {
       this.http.get(this.url).subscribe((field: any) => {
-        field = this.enrichField(field, this.options, this.nested);
+        // @TODO make with builder pattern
+        field = this.enrichField(field, this.options);
+        field = this.enrichField(field, this.nested[field.key]);
         this.fields = [field];
         this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
 
@@ -66,7 +69,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
                 this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
               }
             });
-        } else if ((field.options || field.groups) && !field.multi) {
+        } else if (field.options || field.groups) {
           const hasOptionsFields = field.options?.some((option: UniFormFieldOption) => option.fields);
           const hasGroupsOptionsFields = field.groups?.some((group: any) => group.options
             ?.some((option: UniFormFieldOption) => option.fields),
@@ -96,39 +99,42 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
     }
   }
 
-  private enrichField(field: UniFormField, options: Partial<UniFormField> | undefined, nested: any = {}): UniFormField {
-    if (options) {
-      field = { ...field, ...options };
-    } else if (nested.values && isDefined(nested.values[field.key])) {
-      field.value = nested.values[field.key];
-    }
-
-    return field;
-  }
-
-  private loadNestedFields(urls: string[]): void {
-    urls.forEach((url: string, index: number) => {
+  private loadNestedFields(urls: string[], fieldIndex: number = 0): void {
+    urls.forEach((url: string, urlIndex: number) => {
       this.http.get(url).subscribe((nestedField: any) => {
-        this.fields[index + 1] = this.getInitializedField(this.nested?.values, nestedField);
+        if (fieldIndex) {
+          urlIndex++;
+        }
+
+        this.fields[urlIndex + 1] = this.enrichField(nestedField, this.nested[nestedField.key]);
+        this.fields = this.fields.filter(field => isObject(field));
         this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
       });
     });
   }
 
-  private getInitializedField(values: UniObject<any> = {}, field: UniFormField): UniFormField {
-    if (isDefined(values[field.key])) {
-      field.value = values[field.key] as string | string[] | boolean;
+  // @TODO move to service
+  private enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
+    if (options) {
+      field = {
+        ...field,
+        ...options,
+      };
     }
 
     return field;
   }
 
-  private setSelectedOption(field: UniFormField, value: string): void {
-    const valueOption = field.options?.filter((option: UniFormFieldOption) => option.value === value) || [];
+  private setSelectedOption(field: UniFormField, value: string | number | string[] | number[]): void {
+    const options = this.formFieldService.groupsToOptions(field);
+    const selectedOptions = this.formFieldService.getSelectedOptions(options, value);
+
     this.fields = [field];
 
-    if (valueOption.length > 0 && valueOption[0].fields && valueOption[0].fields.length > 0) {
-      this.loadNestedFields(valueOption[0].fields);
+    if (selectedOptions.length > 0 && this.formFieldService.hasSelectedOptionsFields(selectedOptions)) {
+      selectedOptions.forEach((option: UniFormFieldOption, index: number) => {
+        this.loadNestedFields(option.fields || [], index);
+      });
     } else {
       this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
     }

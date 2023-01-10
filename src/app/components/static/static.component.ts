@@ -4,36 +4,28 @@ import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-static',
-  templateUrl: './static.component.html',
-  styleUrls: ['./static.component.scss'],
+  templateUrl: './static.component.html'
 })
 export class AppStaticComponent {
-
-  // selectedIndex: number = 6;
-  //
-  // onStepChange(event: any) {
-  //   this.selectedIndex = event.selectedIndex;
-  // }
 
   isMobile: Observable<boolean>;
   opened: boolean = true;
 
   list = [
-    { name: 'Input text' },
-    { name: 'Input number' },
-    { name: 'Textarea' },
-    { name: 'Select' },
-    { name: 'Autocomplete' },
-    { name: 'Datepicker' },
-    { name: 'Slider' },
-    { name: 'Switch' },
-    { name: 'Checkbox' },
-    { name: 'Radio button' },
+    { name: 'Input text', link: 'text' },
+    { name: 'Input number', link: 'number' },
+    { name: 'Textarea', link: 'textarea' },
+    { name: 'Select', link: 'select' },
+    { name: 'Autocomplete', link: 'autocomplete' },
+    { name: 'Datepicker', link: 'datepicker' },
+    { name: 'Slider', link: 'slider' },
+    { name: 'Switch', link: 'switch' },
+    { name: 'Checkbox', link: 'checkbox' },
+    { name: 'Radio button', link: 'radio' },
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, breakpointObserver: BreakpointObserver) {
     this.isMobile = breakpointObserver.observe('(max-width: 600px)')
       .pipe(map(({ matches }): boolean => matches));
   }
-
 }

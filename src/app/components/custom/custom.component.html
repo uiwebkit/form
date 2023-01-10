@@ -1,1 +1,49 @@
-<p>custom works!</p>
+<uni-form-ng (formGroupEvent)='handleFruitForm($event)' (submitEvent)='onFruitSubmit($event)'>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Fruits Customization</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <uni-form-field-ng
+        [url]="'assets/mocks/field/test/fruit.json'"
+        [options]='{value: "apple"}'
+        [nested]="{color: {value: 'green'}, engraving: {value: 'test'}}"
+      ></uni-form-field-ng>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card [style]="'margin: 10px 0'">
+    <mat-card-content>
+      <uni-form-field-ng
+        [url]="'assets/mocks/field/test/auth.json'"
+        [nested]="{login: {value: 'login'}, password: {value: 'password'}}"
+      ></uni-form-field-ng>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type='submit' mat-button [disabled]='!formFruit.valid'>SUBMIT</button>
+    </mat-card-actions>
+  </mat-card>
+</uni-form-ng>
+
+<p></p>
+
+<uni-form-ng (formGroupEvent)='handleAuthForm($event)' (submitEvent)='onAuthSubmit($event)'>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Authorization</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <uni-form-group-ng
+        [url]="'assets/mocks/group/test.json'"
+        [nested]="{login: {value: 'login'}, password: {value: 'password'}, taste: {value: 'sour'}}"
+      ></uni-form-group-ng>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type='submit' mat-button [disabled]='!formAuth.valid'>SUBMIT</button>
+    </mat-card-actions>
+  </mat-card>
+</uni-form-ng>

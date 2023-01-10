@@ -1,0 +1,12 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/dynamic/countries.json'"
+    [options]='{type: "autocomplete", multi: true}'
+    [nested]='{canada: {type: "autocomplete", multi: true}, usa: {type: "autocomplete", multi: true}}'
+  ></uni-form-field-ng>
+
+  <mat-action-row>
+    <button type='submit' mat-raised-button color='primary' [disabled]='!form?.valid'>SUBMIT</button>
+  </mat-action-row>
+</uni-form-ng>

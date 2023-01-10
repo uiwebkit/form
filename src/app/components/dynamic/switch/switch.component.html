@@ -1,0 +1,25 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-switch-default></app-dynamic-switch-default>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default values</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-switch-value></app-dynamic-switch-value>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Remove nested fields on change</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-switch-clean></app-dynamic-switch-clean>
+  </mat-expansion-panel>
+</mat-accordion>

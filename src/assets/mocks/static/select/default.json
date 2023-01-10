@@ -3,7 +3,6 @@
   "key": "select",
   "label": "Select field",
   "options": [
-    {},
     {
       "label": "One",
       "value": 1

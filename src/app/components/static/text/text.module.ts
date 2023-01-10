@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { UniFormModule } from 'uni-form-ng';
 
@@ -35,11 +37,12 @@ const Declarations = [
 
     MatExpansionModule,
     MatButtonModule,
-
+    MatIconModule,
+    MatTooltipModule,
     UniFormModule,
   ],
   declarations: Declarations,
-  exports: Declarations
+  exports: Declarations,
 })
 export class AppStaticTextModule {
 }

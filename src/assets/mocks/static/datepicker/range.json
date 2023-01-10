@@ -1,0 +1,6 @@
+{
+  "type": "datepicker",
+  "key": "datepicker",
+  "keyEnd": "datepickerEnd",
+  "label": "Datepicker with range"
+}

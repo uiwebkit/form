@@ -1,18 +1,34 @@
 <mat-accordion>
-  <mat-expansion-panel [expanded]='true'>
+  <mat-expansion-panel [expanded]='true' #defaults>
     <mat-expansion-panel-header>
       <mat-panel-title>Default</mat-panel-title>
+
+      <mat-panel-description>
+        <button mat-icon-button (click)='test($event)' [matTooltip]="codeTooltip" [hidden]='!defaults.expanded'>
+          <mat-icon>code</mat-icon>
+        </button>
+      </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-static-text-default></app-static-text-default>
+    <ng-container *ngIf='isCode'>
+      123
+    </ng-container>
+
+    <app-static-text-default [hidden]='isCode'></app-static-text-default>
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel #disabled>
     <mat-expansion-panel-header>
       <mat-panel-title>Disabled</mat-panel-title>
+
+      <mat-panel-description>
+        <button mat-icon-button (click)='test($event)' [matTooltip]="codeTooltip" [hidden]='!disabled.expanded'>
+          <mat-icon>code</mat-icon>
+        </button>
+      </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-static-text-disabled></app-static-text-disabled>
+    <app-static-text-disabled [hidden]='isCode'></app-static-text-disabled>
   </mat-expansion-panel>
 
   <mat-expansion-panel>

@@ -48,5 +48,13 @@
       The actual value does not match the pattern: <strong>{{ errors!['pattern']!['requiredPattern'] }}</strong>
     </ng-template>
   </ng-container>
+
+  <ng-container *ngIf="errors!['matDatepickerParse']">
+<!--    <div *ngIf="fieldErrors['format']; else formatTemplate">{{ fieldErrors.format }}</div>-->
+
+<!--    <ng-template #fotmatTemplate>-->
+      Incorrect date format
+<!--    </ng-template>-->
+  </ng-container>
 </ng-container>
 

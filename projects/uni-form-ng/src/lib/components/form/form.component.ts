@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Output, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { UniObject } from '../../models/interfaces/object.model';
@@ -11,6 +11,9 @@ import { UniFormService } from './form.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class UniFormComponent {
+
+  @Input()
+  clean: boolean | undefined;
 
   @Output()
   formGroupEvent = new EventEmitter<FormGroup>();
@@ -36,9 +39,10 @@ export class UniFormComponent {
   private onUniFormDataChange(event: CustomEvent) {
     const curr = [...event.detail.formData];
     const prev = [...(this.formData[curr[0].key] || [])];
-    // console.log(prev, curr);
+    // console.log(...prev);
+    // console.log(...curr);
 
-    if (prev) {
+    if (this.clean && prev) {
       const removeFields = curr ? prev.filter((field: UniFormField) => !curr.includes(field)) : prev;
       // console.log('Remove:', removeFields);
       this.formService.removeControls(this.formGroup, removeFields);

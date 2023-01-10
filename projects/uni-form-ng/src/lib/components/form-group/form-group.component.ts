@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { UniObject } from '../../models/interfaces/object.model';
+import { UniFormNested } from '../../models/interfaces/nested.model';
 
 @Component({
   selector: 'uni-form-group-ng',
@@ -14,7 +15,7 @@ export class UniFormGroupComponent implements OnInit {
   url: string = '';
 
   @Input()
-  nested: { values: UniObject<number | string | string[] | boolean> } | undefined;
+  nested: UniObject<UniFormNested> = {};
 
   urls: string[] = [];
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +21,8 @@ import { AppStaticRadioModule } from './radio/radio.module';
 @NgModule({
   imports: [
     CommonModule,
+
+    RouterModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,

@@ -1,1 +1,25 @@
-<p>dynamic works!</p>
+<mat-sidenav-container class='uni-sidenav-container'>
+  <mat-sidenav #sidenav [mode]="(isMobile | async) ? 'over' : 'side'" [fixedInViewport]='true' fixedTopGap='48'
+               [(opened)]='opened'>
+    <button mat-raised-button (click)='sidenav.toggle()' class='mt-1'>
+      < Close menu
+    </button>
+
+    <mat-nav-list>
+      <a mat-list-item *ngFor='let item of list' [routerLink]='item.link' [routerLinkActive]='"active"'>
+        {{ item.name }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button [hidden]='opened' mat-mini-fab [color]='"primary"' (click)='sidenav.toggle()'>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class='p-1'>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

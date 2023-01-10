@@ -1,0 +1,41 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-select-default class='d-block w-500'></app-dynamic-select-default>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With multiselect</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-select-multi class='d-block w-500'></app-dynamic-select-multi>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default value</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-select-value class='d-block w-500'></app-dynamic-select-value>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default multiple values</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-select-value-multi class='d-block w-500'></app-dynamic-select-value-multi>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Remove nested fields on change</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-select-clean class='d-block w-500'></app-dynamic-select-clean>
+  </mat-expansion-panel>
+</mat-accordion>

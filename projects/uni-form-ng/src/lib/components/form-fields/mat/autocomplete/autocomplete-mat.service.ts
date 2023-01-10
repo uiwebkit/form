@@ -26,17 +26,17 @@ export class UniAutocompleteMatService {
       .map((item) => item.value + '')[0];
   }
 
-  patchGroups(groups: UniFormFieldGroup[], values: string[]): UniFormFieldGroup[] {
-    return groups
-      .map((group: UniFormFieldGroup) => ({ ...group, options: this.filterValues(group.options, values) }))
-      .filter((group: UniFormFieldGroup): boolean => group.options.length > 0);
-  }
+  // patchGroups(groups: UniFormFieldGroup[], values: string[]): UniFormFieldGroup[] {
+  //   return groups
+  //     .map((group: UniFormFieldGroup) => ({ ...group, options: this.filterValues(group.options, values) }))
+  //     .filter((group: UniFormFieldGroup): boolean => group.options.length > 0);
+  // }
 
-  filterValues(items: UniFormFieldOption[], values: string[]): UniFormFieldOption[] {
-    return items.filter((item: UniFormFieldOption): boolean => {
-      return !values.some((value: string): boolean => value.toLowerCase() === item.label.toLowerCase());
-    });
-  };
+  // filterValues(items: UniFormFieldOption[], values: string[]): UniFormFieldOption[] {
+  //   return items.filter((item: UniFormFieldOption): boolean => {
+  //     return !values.some((value: string): boolean => value.toLowerCase() === item.label.toLowerCase());
+  //   });
+  // };
 
   // filter groups and options if option label does not include specified value and hide empty groups
   filterGroups(groups: UniFormFieldGroup[] = [], value: string): UniFormFieldGroup[] {

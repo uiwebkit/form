@@ -1,0 +1,14 @@
+<mat-form-field [formGroup]='formGroup'>
+  <mat-label>{{ field.label }}</mat-label>
+
+  <input matInput [matDatepicker]='picker' [formControlName]='field.key' [placeholder]='field.placeholder || ""'>
+  <mat-datepicker-toggle matIconSuffix [for]='picker'></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+
+  <mat-error class='d-flex'>
+    <uni-form-field-error-ng
+      [fieldErrors]='field.errors ?? {}'
+      [errors]='formGroup.controls[field.key].errors'
+    ></uni-form-field-error-ng>
+  </mat-error>
+</mat-form-field>

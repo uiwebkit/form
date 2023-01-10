@@ -1,0 +1,18 @@
+<mat-form-field [formGroup]='formGroup'>
+  <mat-label>{{ field.label }}</mat-label>
+
+  <mat-date-range-input [rangePicker]='picker'>
+    <input matStartDate [formControlName]='field.key' [placeholder]='field.placeholder || "Start date"'>
+    <input matEndDate [formControlName]='field.keyEnd || "keyEnd"' [placeholder]='field.placeholderEnd || "End date"'>
+  </mat-date-range-input>
+
+  <mat-datepicker-toggle matIconSuffix [for]='picker'></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+
+  <mat-error class='d-flex'>
+    <uni-form-field-error-ng
+      [fieldErrors]='field.errors ?? {}'
+      [errors]='formGroup.controls[field.key].errors'
+    ></uni-form-field-error-ng>
+  </mat-error>
+</mat-form-field>

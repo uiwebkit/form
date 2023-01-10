@@ -1,0 +1,20 @@
+<div class='uni-slider-label-container'>
+  <label>{{ field.label }}</label>
+  <label *ngIf='!field.keyEnd'>{{ formGroup.value[field.key] }}</label>
+  <label *ngIf='field.keyEnd'>{{ formGroup.value[field.key] }} - {{ formGroup.value[field.keyEnd] }}</label>
+</div>
+
+<mat-slider
+  [min]='field.min'
+  [max]='field.max'
+  [step]='field.step'
+  [discrete]='field.tooltip'
+  [showTickMarks]='field.ticks'
+  [formGroup]='formGroup'
+  class='w-100'
+>
+  <input matSliderThumb *ngIf='!field.keyEnd' [formControlName]='field.key'>
+
+  <input matSliderStartThumb *ngIf='field.keyEnd' [formControlName]='field.key'>
+  <input matSliderEndThumb *ngIf='field.keyEnd' [formControlName]='field.keyEnd'>
+</mat-slider>

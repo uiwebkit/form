@@ -29,6 +29,14 @@
   padding-left: 2em;
 }
 
+.w-250 {
+  width: 250px;
+}
+
+.w-300 {
+  width: 300px;
+}
+
 .w-500 {
   width: 500px;
 }
@@ -45,6 +53,24 @@
   right: 0;
   z-index: 2;
   box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+}
+
+.uni-content {
+  margin-top: 50px;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+.uni-sidenav-container {
+  /* Don't constrain the height of the sidenav container.
+   This allows the `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+
+  a.active {
+    background: #DDD;
+  }
 }
 
 //@use "@angular/material" as mat;

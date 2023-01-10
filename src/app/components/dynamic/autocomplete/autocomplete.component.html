@@ -1,0 +1,41 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-autocomplete-default class='d-block w-500'></app-dynamic-autocomplete-default>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With multiselect</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-autocomplete-multi class='d-block w-500'></app-dynamic-autocomplete-multi>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default value</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-autocomplete-value class='d-block w-500'></app-dynamic-autocomplete-value>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default multiple values</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-autocomplete-value-multi class='d-block w-500'></app-dynamic-autocomplete-value-multi>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Remove nested fields on change</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-autocomplete-clean class='d-block w-500'></app-dynamic-autocomplete-clean>
+  </mat-expansion-panel>
+</mat-accordion>

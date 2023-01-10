@@ -1,0 +1,25 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-checkbox-default></app-dynamic-checkbox-default>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>With default value</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-checkbox-value></app-dynamic-checkbox-value>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Remove nested fields on change</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-dynamic-checkbox-clean></app-dynamic-checkbox-clean>
+  </mat-expansion-panel>
+</mat-accordion>

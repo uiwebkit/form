@@ -6,9 +6,19 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { UniFormModule } from 'uni-form-ng';
 
 import { AppStaticDatepickerComponent } from './datepicker.component';
+import { AppStaticDatepickerDefaultComponent } from './default/default.component';
+import { AppStaticDatepickerDisabledComponent } from './disabled/disabled.component';
+import { AppStaticSelectDatepickerComponent } from './required/required.component';
+import { AppStaticDatepickerValueComponent } from './value/value.component';
+import { AppStaticDatepickerRangeComponent } from './range/range.component';
 
 const Declarations = [
   AppStaticDatepickerComponent,
+  AppStaticDatepickerDefaultComponent,
+  AppStaticDatepickerDisabledComponent,
+  AppStaticSelectDatepickerComponent,
+  AppStaticDatepickerValueComponent,
+  AppStaticDatepickerRangeComponent
 ];
 
 @NgModule({
