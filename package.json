@@ -8,6 +8,7 @@
     "build:form": "ng build uni-form-ng",
     "build:form:watch": "ng build uni-form-ng --watch",
     "watch": "ng build --watch --configuration development",
+    "copy": "node copy",
     "test": "ng test"
   },
   "private": true,

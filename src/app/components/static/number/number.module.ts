@@ -14,6 +14,8 @@ import { AppStaticNumberMinMaxComponent } from './min-max/min-max.component';
 import { AppStaticNumberStepComponent } from './step/step.component';
 import { AppStaticNumberHintComponent } from './hint/hint.component';
 import { AppStaticNumberValidationComponent } from './validation/validation.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AppCommonModule } from '../../common/common.module';
 
 const Declarations = [
   AppStaticNumberComponent,
@@ -32,8 +34,10 @@ const Declarations = [
   imports: [
     MatExpansionModule,
     MatButtonModule,
-
+    MatIconModule,
     UniFormModule,
+
+    AppCommonModule,
   ],
   declarations: Declarations,
   exports: Declarations

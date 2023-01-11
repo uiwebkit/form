@@ -1,6 +1,6 @@
 <ng-container *ngIf='errors'>
   <ng-container *ngIf="errors!['required']">
-    <div *ngIf="fieldErrors['required']; else requiredTemplate">{{ fieldErrors.required }}</div>
+    <ng-container *ngIf="fieldErrors['required']; else requiredTemplate">{{ fieldErrors.required }}</ng-container>
 
     <ng-template #requiredTemplate>
       This field is <strong>required</strong>
@@ -8,7 +8,7 @@
   </ng-container>
 
   <ng-container *ngIf="errors!['min']">
-    <div *ngIf="fieldErrors['min']; else minTemplate">{{ fieldErrors.min }}</div>
+    <ng-container *ngIf="fieldErrors['min']; else minTemplate">{{ fieldErrors.min }}</ng-container>
 
     <ng-template #minTemplate>
       Minimum is: <strong>{{ errors!['min']!['min'] }}</strong>
@@ -16,7 +16,7 @@
   </ng-container>
 
   <ng-container *ngIf="errors!['max']">
-    <div *ngIf="fieldErrors['max']; else maxTemplate">{{ fieldErrors.max }}</div>
+    <ng-container *ngIf="fieldErrors['max']; else maxTemplate">{{ fieldErrors.max }}</ng-container>
 
     <ng-template #maxTemplate>
       Maximum is: <strong>{{ errors!['max']!['max'] }}</strong>
@@ -24,7 +24,7 @@
   </ng-container>
 
   <ng-container *ngIf="errors!['minlength']">
-    <div *ngIf="fieldErrors['minLength']; else minLengthTemplate">{{ fieldErrors.minLength }}</div>
+    <ng-container *ngIf="fieldErrors['minLength']; else minLengthTemplate">{{ fieldErrors.minLength }}</ng-container>
 
     <ng-template #minLengthTemplate>
       Minimum characters count is: <strong>{{ errors!['minlength']!['requiredLength'] }}</strong>
@@ -33,7 +33,7 @@
   </ng-container>
 
   <ng-container *ngIf="errors!['maxlength']">
-    <div *ngIf="fieldErrors['maxLength']; else maxLengthTemplate">{{ fieldErrors.maxLength }}</div>
+    <ng-container *ngIf="fieldErrors['maxLength']; else maxLengthTemplate">{{ fieldErrors.maxLength }}</ng-container>
 
     <ng-template #maxLengthTemplate>
       Maximum characters count is: <strong>{{ errors!['maxlength']!['requiredLength'] }}</strong>
@@ -42,7 +42,7 @@
   </ng-container>
 
   <ng-container *ngIf="errors!['pattern']">
-    <div *ngIf="fieldErrors['pattern']; else patternTemplate">{{ fieldErrors.pattern }}</div>
+    <ng-container *ngIf="fieldErrors['pattern']; else patternTemplate">{{ fieldErrors.pattern }}</ng-container>
 
     <ng-template #patternTemplate>
       The actual value does not match the pattern: <strong>{{ errors!['pattern']!['requiredPattern'] }}</strong>

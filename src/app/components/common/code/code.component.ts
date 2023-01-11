@@ -32,13 +32,13 @@ export class AppCodeComponent {
     this.isCode = !this.isCode;
     this.codeTooltip = this.isCode ? 'Hide code' : 'View code';
 
-    this.tsString = hl.highlightAuto(jsCode).value;
+    this.tsString = hl.highlight(jsCode, {language: 'javascript'}).value;
 
     this.htmlString$ = this.http.get(this.templateUrl, { responseType: 'text' })
-      .pipe(map(value => hl.highlightAuto(value).value));
+      .pipe(map(value => hl.highlight(value, {language: 'html'}).value));
 
     this.jsonStrings$ = zip(this.jsonUrls.map((url: string) => this.http.get(url)
-      .pipe(map(value => hl.highlightAuto(JSON.stringify(value)).value))
+      .pipe(map(value => hl.highlight(JSON.stringify(value), {language: 'json'}).value))
     ));
   }
 }

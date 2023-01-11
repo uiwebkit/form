@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-default class='d-block w-300'></app-static-autocomplete-default>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/default.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-disabled class='d-block w-300'></app-static-autocomplete-disabled>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/disabled.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/disabled.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-required class='d-block w-300'></app-static-autocomplete-required>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/required.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/required.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,6 +44,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-groups class='d-block w-250'></app-static-autocomplete-groups>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/groups.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/groups.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -37,6 +57,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-multi class='d-block w-300'></app-static-autocomplete-multi>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/multi.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/multi.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -45,6 +70,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-option class='d-block w-300'></app-static-autocomplete-option>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/option.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/option.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -53,6 +83,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-value class='d-block w-250'></app-static-autocomplete-value>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/value.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/value.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -61,6 +96,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-placeholder class='d-block w-500'></app-static-autocomplete-placeholder>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/placeholder.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/placeholder.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -69,6 +109,11 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-hint class='d-block w-300'></app-static-autocomplete-hint>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/hint.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/hint.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -77,5 +122,10 @@
     </mat-expansion-panel-header>
 
     <app-static-autocomplete-validation class='d-block w-500'></app-static-autocomplete-validation>
+
+    <app-code
+      [templateUrl]='"assets/files/static/autocomplete/validation.txt"'
+      [jsonUrls]='["assets/mocks/static/autocomplete/validation.json", "assets/mocks/static/autocomplete/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

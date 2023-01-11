@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 import { UniFormModule } from 'uni-form-ng';
 
+import { AppCommonModule } from '../../common/common.module';
 import { AppStaticAutocompleteComponent } from './autocomplete.component';
 import { AppStaticAutocompleteDefaultComponent } from './default/default.component';
 import { AppStaticAutocompleteDisabledComponent } from './disabled/disabled.component';
@@ -34,8 +36,10 @@ const Declarations = [
   imports: [
     MatExpansionModule,
     MatButtonModule,
-
+    MatIconModule,
     UniFormModule,
+
+    AppCommonModule,
   ],
   declarations: Declarations,
   exports: Declarations

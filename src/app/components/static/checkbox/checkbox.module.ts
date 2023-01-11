@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 import { UniFormModule } from 'uni-form-ng';
 
+import { AppCommonModule } from '../../common/common.module';
 import { AppStaticCheckboxComponent } from './checkbox.component';
 import { AppStaticCheckboxDefaultComponent } from './default/default.component';
 import { AppStaticCheckboxDisabledComponent } from './disabled/disabled.component';
@@ -21,12 +22,12 @@ const Declarations = [
 
 @NgModule({
   imports: [
-    CommonModule,
-
     MatExpansionModule,
     MatButtonModule,
-
+    MatIconModule,
     UniFormModule,
+
+    AppCommonModule,
   ],
   declarations: Declarations,
   exports: Declarations

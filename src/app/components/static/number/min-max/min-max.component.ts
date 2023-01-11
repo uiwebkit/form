@@ -9,7 +9,7 @@ export class AppStaticNumberMinMaxComponent {
 
   form: FormGroup | undefined;
 
-  handleForm(event: any) {
+  handleForm(event: FormGroup) {
     this.form = event;
   }
 
