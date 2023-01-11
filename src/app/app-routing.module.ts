@@ -24,7 +24,7 @@ import { AppDynamicRadioComponent } from './components/dynamic/radio/radio.compo
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
   { path: 'start', component: AppStartComponent },
-  { path: 'static', redirectTo: 'static/select', pathMatch: 'full' },
+  { path: 'static', redirectTo: 'static/text', pathMatch: 'full' },
   {
     path: 'static', component: AppStaticComponent, children: [
       { path: 'text', component: AppStaticTextComponent },

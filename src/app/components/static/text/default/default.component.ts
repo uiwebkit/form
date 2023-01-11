@@ -1,21 +1,13 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-static-text-default',
   templateUrl: './default.component.html',
 })
-export class AppStaticTextDefaultComponent implements OnInit {
+export class AppStaticTextDefaultComponent {
 
   form: FormGroup | undefined;
-
-  constructor(private elementRef: ElementRef) {
-    console.log(this.elementRef.nativeElement);
-  }
-
-  ngOnInit() {
-
-  }
 
   handleForm(event: any) {
     this.form = event;

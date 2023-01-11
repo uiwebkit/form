@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "highlight.js/scss/foundation";
 // @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 .app-background {
@@ -45,7 +46,7 @@
   height: 100vh;
 }
 
-.mat-mdc-tab-header {
+.app-nav.mat-mdc-tab-header {
   position: fixed!important;
   background-color: #FFF;
   top: 0;
@@ -71,6 +72,16 @@
   a.active {
     background: #DDD;
   }
+}
+
+pre {
+  display: flex;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+code, pre {
+  margin: 0;
 }
 
 //@use "@angular/material" as mat;
