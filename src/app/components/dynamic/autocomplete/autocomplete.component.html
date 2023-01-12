@@ -1,18 +1,28 @@
 <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]='true'>
     <mat-expansion-panel-header>
       <mat-panel-title>Default</mat-panel-title>
     </mat-expansion-panel-header>
 
     <app-dynamic-autocomplete-default class='d-block w-500'></app-dynamic-autocomplete-default>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/autocomplete/default.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]='true'>
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>With multiselect</mat-panel-title>
     </mat-expansion-panel-header>
 
     <app-dynamic-autocomplete-multi class='d-block w-500'></app-dynamic-autocomplete-multi>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/autocomplete/multi.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-autocomplete-value class='d-block w-500'></app-dynamic-autocomplete-value>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/autocomplete/value.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,6 +44,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-autocomplete-value-multi class='d-block w-500'></app-dynamic-autocomplete-value-multi>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/autocomplete/value-multi.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -37,5 +57,10 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-autocomplete-clean class='d-block w-500'></app-dynamic-autocomplete-clean>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/autocomplete/clean.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

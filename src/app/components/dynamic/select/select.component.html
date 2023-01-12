@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-select-default class='d-block w-500'></app-dynamic-select-default>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/select/default.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-select-multi class='d-block w-500'></app-dynamic-select-multi>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/select/multi.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-select-value class='d-block w-500'></app-dynamic-select-value>
+    <app-code
+      [templateUrl]='"assets/files/dynamic/select/value.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
+
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,6 +44,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-select-value-multi class='d-block w-500'></app-dynamic-select-value-multi>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/select/value-multi.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -37,5 +57,10 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-select-clean class='d-block w-500'></app-dynamic-select-clean>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/select/clean.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/countries.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

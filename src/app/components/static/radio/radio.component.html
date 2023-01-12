@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-default></app-static-radio-default>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/default.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/default.json", "assets/mocks/static/radio/label.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-inline></app-static-radio-inline>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/inline.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/inline.json", "assets/mocks/static/radio/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-disabled></app-static-radio-disabled>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/disabled.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/disabled.json", "assets/mocks/static/radio/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,6 +44,11 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-required></app-static-radio-required>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/required.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/required.json", "assets/mocks/static/radio/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -37,6 +57,11 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-option></app-static-radio-option>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/option.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/option.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -45,5 +70,10 @@
     </mat-expansion-panel-header>
 
     <app-static-radio-value></app-static-radio-value>
+
+    <app-code
+      [templateUrl]='"assets/files/static/radio/value.txt"'
+      [jsonUrls]='["assets/mocks/static/radio/value.json", "assets/mocks/static/radio/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-dynamic-autocomplete-value-multi',
-  templateUrl: './value.component.html',
+  selector: 'app-dynamic-select-value-multi',
+  templateUrl: './value-multi.component.html',
 })
-export class AppDynamicAutocompleteValueMultiComponent {
+export class AppDynamicSelectValueMultiComponent {
 
   form: FormGroup | undefined;
 

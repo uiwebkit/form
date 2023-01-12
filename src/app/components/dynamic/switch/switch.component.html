@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-switch-default></app-dynamic-switch-default>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/switch/default.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-switch-value></app-dynamic-switch-value>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/switch/value.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,5 +31,10 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-switch-clean></app-dynamic-switch-clean>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/switch/clean.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "highlight.js/scss/github";
-// @import "@angular/material/prebuilt-themes/indigo-pink.css";
+
 
 .app-background {
   background: #fafafa;
@@ -83,23 +84,3 @@ pre {
 code, pre {
   margin: 0;
 }
-
-//@use "@angular/material" as mat;
-//
-//@include mat.core();
-//
-//$uni-primary: mat.define-palette(mat.$indigo-palette);
-//$uni-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-//$uni-warn: mat.define-palette(mat.$red-palette);
-//
-//$uni-theme: mat.define-light-theme(
-//    (
-//      color: (
-//        primary: $uni-primary,
-//        accent: $uni-accent,
-//        warn: $uni-warn,
-//      ),
-//    )
-//);
-//
-//@include mat.all-component-themes($uni-theme);

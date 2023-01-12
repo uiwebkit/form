@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-checkbox-default></app-dynamic-checkbox-default>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/checkbox/default.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-checkbox-value></app-dynamic-checkbox-value>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/checkbox/value.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,5 +31,10 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-checkbox-clean></app-dynamic-checkbox-clean>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/checkbox/clean.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/auth.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

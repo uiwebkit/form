@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-radio-default></app-dynamic-radio-default>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/radio/default.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/radio.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-radio-value></app-dynamic-radio-value>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/radio/value.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/radio.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,5 +31,10 @@
     </mat-expansion-panel-header>
 
     <app-dynamic-radio-clean></app-dynamic-radio-clean>
+
+    <app-code
+      [templateUrl]='"assets/files/dynamic/radio/clean.txt"'
+      [jsonUrls]='["assets/mocks/dynamic/radio.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

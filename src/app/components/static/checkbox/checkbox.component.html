@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-static-checkbox-default></app-static-checkbox-default>
+
+    <app-code
+      [templateUrl]='"assets/files/static/checkbox/default.txt"'
+      [jsonUrls]='["assets/mocks/static/checkbox/default.json", "assets/mocks/static/checkbox/label.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-static-checkbox-disabled></app-static-checkbox-disabled>
+
+    <app-code
+      [templateUrl]='"assets/files/static/checkbox/disabled.txt"'
+      [jsonUrls]='["assets/mocks/static/checkbox/disabled.json", "assets/mocks/static/checkbox/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-static-checkbox-required></app-static-checkbox-required>
+
+    <app-code
+      [templateUrl]='"assets/files/static/checkbox/required.txt"'
+      [jsonUrls]='["assets/mocks/static/checkbox/required.json", "assets/mocks/static/checkbox/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,5 +44,10 @@
     </mat-expansion-panel-header>
 
     <app-static-checkbox-value></app-static-checkbox-value>
+
+    <app-code
+      [templateUrl]='"assets/files/static/checkbox/value.txt"'
+      [jsonUrls]='["assets/mocks/static/checkbox/value.json", "assets/mocks/static/checkbox/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

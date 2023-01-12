@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-static-switch-default></app-static-switch-default>
+
+    <app-code
+      [templateUrl]='"assets/files/static/switch/default.txt"'
+      [jsonUrls]='["assets/mocks/static/switch/default.json", "assets/mocks/static/switch/label.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-static-switch-disabled></app-static-switch-disabled>
+
+    <app-code
+      [templateUrl]='"assets/files/static/switch/disabled.txt"'
+      [jsonUrls]='["assets/mocks/static/switch/disabled.json", "assets/mocks/static/switch/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-static-switch-required></app-static-switch-required>
+
+    <app-code
+      [templateUrl]='"assets/files/static/switch/required.txt"'
+      [jsonUrls]='["assets/mocks/static/switch/required.json", "assets/mocks/static/switch/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,5 +44,10 @@
     </mat-expansion-panel-header>
 
     <app-static-switch-value></app-static-switch-value>
+
+    <app-code
+      [templateUrl]='"assets/files/static/switch/value.txt"'
+      [jsonUrls]='["assets/mocks/static/switch/value.json", "assets/mocks/static/switch/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>

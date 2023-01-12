@@ -5,6 +5,11 @@
     </mat-expansion-panel-header>
 
     <app-static-datepicker-default></app-static-datepicker-default>
+
+    <app-code
+      [templateUrl]='"assets/files/static/datepicker/default.txt"'
+      [jsonUrls]='["assets/mocks/static/datepicker/default.json", "assets/mocks/static/datepicker/label.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -13,6 +18,11 @@
     </mat-expansion-panel-header>
 
     <app-static-datepicker-disabled></app-static-datepicker-disabled>
+
+    <app-code
+      [templateUrl]='"assets/files/static/datepicker/disabled.txt"'
+      [jsonUrls]='["assets/mocks/static/datepicker/disabled.json", "assets/mocks/static/datepicker/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -21,6 +31,11 @@
     </mat-expansion-panel-header>
 
     <app-static-datepicker-required></app-static-datepicker-required>
+
+    <app-code
+      [templateUrl]='"assets/files/static/datepicker/required.txt"'
+      [jsonUrls]='["assets/mocks/static/datepicker/required.json", "assets/mocks/static/datepicker/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -29,6 +44,11 @@
     </mat-expansion-panel-header>
 
     <app-static-datepicker-value></app-static-datepicker-value>
+
+    <app-code
+      [templateUrl]='"assets/files/static/datepicker/value.txt"'
+      [jsonUrls]='["assets/mocks/static/datepicker/value.json", "assets/mocks/static/datepicker/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -37,5 +57,10 @@
     </mat-expansion-panel-header>
 
     <app-static-datepicker-range></app-static-datepicker-range>
+
+    <app-code
+      [templateUrl]='"assets/files/static/datepicker/range.txt"'
+      [jsonUrls]='["assets/mocks/static/datepicker/range.json", "assets/mocks/static/datepicker/default.json"]'
+    ></app-code>
   </mat-expansion-panel>
 </mat-accordion>
