@@ -71,14 +71,29 @@
 
   <p>
     <span>@Input() url: string </span>
-    <span> - the URL link to JSON data with list of fields</span>
+    <span> - the URL link to JSON data with list of fields.</span>
   </p>
 
   <p>
     <span>@Input() nested: UniObject&#60;UniFormNested&#62; </span>
-    <span> - the object for nested fields deep configuration</span>
+    <span> - the object for nested fields deep configuration.</span>
   </p>
 
   <p>Selector: <strong>uni-form-field-ng</strong></p>
+
+  <p>
+    <span>@Input() url: string </span>
+    <span> - the URL link to JSON data for building and rendering form field.</span>
+  </p>
+
+  <p>
+    <span>@Input() options: Partial&#60;UniFormField&#62; </span>
+    <span> - the object for the field deep configuration.</span>
+  </p>
+
+  <p>
+    <span>@Input() nested: UniObject&#60;UniFormNested&#62; </span>
+    <span> - the object for nested fields deep configuration.</span>
+  </p>
 </div>
 
