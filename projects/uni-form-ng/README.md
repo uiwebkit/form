@@ -7,10 +7,10 @@ License: `MIT`
 ### Out of the box, you get:
 
 - ready to use well-designed forms (Google's Material design);
- - a well-tested and low-coding solution that requires only JSON data;
- - dynamic fields based on Angular reactive forms;
- - full access to the form object for the easy customization;
- - rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
+- a well-tested and low-coding solution that requires only JSON data;
+- dynamic fields based on Angular reactive forms;
+- full access to the form object for the easy customization;
+- rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
 
 ## How to connect?
 
@@ -73,6 +73,12 @@ export class Component {
   }
 }
 ```
+
+[Static fields demo](https://uiwebkit.github.io/form/static/text)
+
+[Dynamic fields demo](https://uiwebkit.github.io/form/dynamic/select)
+
+[Custom forms demo](https://uiwebkit.github.io/form/custom)
 
 ## API overview
 

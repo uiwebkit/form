@@ -74,6 +74,12 @@ export class Component {
 }
 ```
 
+[Static fields demo](https://uiwebkit.github.io/form/static/text)
+
+[Dynamic fields demo](https://uiwebkit.github.io/form/dynamic/select)
+
+[Custom forms demo](https://uiwebkit.github.io/form/custom)
+
 ## API overview
 
 ### Selector: `uni-form-ng`
