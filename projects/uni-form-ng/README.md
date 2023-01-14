@@ -26,6 +26,13 @@ Then you need to add a dependency into your Angular Module:
 })
 ```
 
+In main styles file (styles.css) please add:
+
+```
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+```
+
 ## How to use?
 
 ### HTML

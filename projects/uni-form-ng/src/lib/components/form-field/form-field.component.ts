@@ -14,8 +14,7 @@ import { UniFormFieldService } from './form-field.service';
 @Component({
   selector: 'uni-form-field-ng',
   templateUrl: 'form-field.component.html',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./form-field.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
 

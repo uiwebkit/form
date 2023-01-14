@@ -1,15 +1,16 @@
 {
   "name": "uni-form-ng",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Vitaly Gavriliuk",
   "description": "Angular forms based on JSON data",
   "peerDependencies": {
-    "@angular/animations": "*",
-    "@angular/common": "*",
-    "@angular/core": "*",
-    "@angular/forms": "*",
-    "@angular/material": "*"
+    "@angular/animations": "^15.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/forms": "^15.0.0",
+    "@angular/material": "^15.0.0",
+    "@angular/material-moment-adapter": "^15.0.0"
   },
   "dependencies": {
     "tslib": "^2.4.0"
@@ -18,5 +19,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/uiwebkit/form.git"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "angular",
+    "Form",
+    "form",
+    "Forms",
+    "forms",
+    "JSON",
+    "json"
+  ]
 }
