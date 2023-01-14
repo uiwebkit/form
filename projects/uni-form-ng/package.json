@@ -1,7 +1,9 @@
 {
   "name": "uni-form-ng",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
+  "author": "Vitaly Gavriliuk",
+  "description": "Angular forms based on JSON data",
   "peerDependencies": {
     "@angular/animations": "*",
     "@angular/common": "*",
