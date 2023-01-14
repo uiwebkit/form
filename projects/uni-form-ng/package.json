@@ -11,5 +11,10 @@
   },
   "dependencies": {
     "tslib": "^2.4.0"
+  },
+  "homepage": "https://uiwebkit.github.io/form",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwebkit/form.git"
   }
 }
