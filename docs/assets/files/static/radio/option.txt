@@ -1,0 +1,13 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/radio/option.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'radio', key: 'create', label: 'Create disabled radio button option:', options: [
+    {disabled: true, label: 'One', value: 1}, {label: 'Two', value: 2}
+    ]}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>
+

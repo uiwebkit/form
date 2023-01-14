@@ -1,0 +1,16 @@
+{
+  "key": "taste",
+  "label": "Select taste",
+  "type": "select",
+  "required": true,
+  "options": [
+    {
+      "label": "Sweet taste",
+      "value": "sweet"
+    },
+    {
+      "label": "Sour taste",
+      "value": "sour"
+    }
+  ]
+}

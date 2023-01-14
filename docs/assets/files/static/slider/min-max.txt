@@ -1,0 +1,21 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/min-max.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/default.json'"
+    [options]="{key: 'set', label: 'Set slider min and max:', min: 300, max: 5000}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/min-max.json'"
+    [options]="{key: 'change', label: 'Changed slider min and max:', min: 50, max: 70, tooltip: true, ticks: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'slider', key: 'create', label: 'Create slider with min and max:', min: 5, max: 10, tooltip: true, ticks: true}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>
+

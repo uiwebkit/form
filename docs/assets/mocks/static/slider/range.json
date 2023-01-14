@@ -1,0 +1,8 @@
+{
+  "type": "slider",
+  "key": "slider",
+  "keyEnd": "sliderEnd",
+  "label": "Slider with default range:",
+  "value": 5,
+  "valueEnd": 95
+}

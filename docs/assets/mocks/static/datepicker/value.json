@@ -1,0 +1,6 @@
+{
+  "type": "datepicker",
+  "key": "datepicker",
+  "label": "Datepicker with default value",
+  "value": "2023-01-02T23:00:00.000Z"
+}

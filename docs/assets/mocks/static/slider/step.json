@@ -1,0 +1,9 @@
+{
+  "type": "slider",
+  "key": "slider",
+  "label": "Slider with custom step:",
+  "tooltip": true,
+  "ticks": true,
+  "step": 0.1,
+  "max": 5
+}

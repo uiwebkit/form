@@ -1,0 +1,5 @@
+{
+  "type": "switch",
+  "key": "switch",
+  "label": "Switch with label"
+}

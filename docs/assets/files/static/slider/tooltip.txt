@@ -1,0 +1,20 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/tooltip.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/default.json'"
+    [options]="{key: 'set', label: 'Set slider has tooltip:', tooltip: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/tooltip.json'"
+    [options]="{key: 'change', label: 'Changed slider has tooltip:', tooltip: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'slider', key: 'create', label: 'Create slider with tooltip:', tooltip: true}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

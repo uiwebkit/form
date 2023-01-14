@@ -1,0 +1,21 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/checkbox/disabled.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/checkbox/default.json'"
+    [options]="{key: 'set', label: 'Set disabled checkbox', disabled: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/checkbox/disabled.json'"
+    [options]="{key: 'change', label: 'Changed disabled checkbox', disabled: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'checkbox', key: 'create', label: 'Create disabled checkbox', disabled: true}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>
+

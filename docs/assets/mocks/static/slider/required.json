@@ -1,0 +1,6 @@
+{
+  "type": "slider",
+  "key": "slider",
+  "label": "Required slider*:",
+  "required": true
+}

@@ -1,0 +1,20 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/datepicker/value.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/datepicker/default.json'"
+    [options]="{key: 'set', label: 'Set datepicker value', value: '2023-01-03T23:00:00.000Z'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/datepicker/value.json'"
+    [options]="{key: 'change', label: 'Changed datepicker value', value: '2023-01-04T23:00:00.000Z'}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'datepicker', key: 'create', label: 'Create datepicker with value', value: '2023-01-05T23:00:00.000Z'}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

@@ -1,0 +1,33 @@
+{
+  "type": "select",
+  "key": "select",
+  "label": "Groped select",
+  "groups": [
+    {
+      "name": "Digits",
+      "options": [
+        {
+          "label": "One",
+          "value": 1
+        },
+        {
+          "label": "Two",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Letters",
+      "options": [
+        {
+          "label": "Aa",
+          "value": "a"
+        },
+        {
+          "label": "Bb",
+          "value": "b"
+        }
+      ]
+    }
+  ]
+}

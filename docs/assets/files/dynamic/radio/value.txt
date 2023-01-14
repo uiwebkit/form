@@ -1,0 +1,10 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/dynamic/radio.json'"
+    [options]='{value: "auth"}'
+    [nested]='{login: {value: "email@email.com"}, password: {value: "password"}, countries: {value: "USA"}}'
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

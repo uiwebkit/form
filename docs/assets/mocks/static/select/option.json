@@ -1,0 +1,20 @@
+{
+  "type": "select",
+  "key": "select",
+  "label": "Disabled select option",
+  "options": [
+    {
+      "label": "One",
+      "value": 1
+    },
+    {
+      "disabled": true,
+      "label": "Two",
+      "value": 2
+    },
+    {
+      "label": "Three",
+      "value": 3
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)' [clean]='true'>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/dynamic/auth.json'"
+    [options]='{type: "switch", label: "Switch to enable authorization", value: true}'
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

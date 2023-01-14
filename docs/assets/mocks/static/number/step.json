@@ -1,0 +1,6 @@
+{
+  "type": "number",
+  "key": "number",
+  "label": "Number field with custom step",
+  "step": 0.01
+}

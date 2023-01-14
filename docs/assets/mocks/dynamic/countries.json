@@ -1,0 +1,26 @@
+{
+  "type": "select",
+  "key": "countries",
+  "label": "Select country / countries",
+  "groups": [
+    {
+      "name": "North America",
+      "options": [
+        {
+          "label": "Canada",
+          "value": "Canada",
+          "fields": [
+            "assets/mocks/dynamic/canada.json"
+          ]
+        },
+        {
+          "label": "USA",
+          "value": "USA",
+          "fields": [
+            "assets/mocks/dynamic/usa.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

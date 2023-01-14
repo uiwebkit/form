@@ -1,0 +1,21 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/slider/step.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/default.json'"
+    [options]="{key: 'set', label: 'Set slider custom step:', step: 10, tooltip: true, ticks: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/slider/step.json'"
+    [options]="{key: 'change', label: 'Change slider custom step:', step: 0.5, tooltip: true, ticks: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'slider', key: 'create', label: 'Create slider with custom step:', step: 1000, max: 100000, tooltip: true, ticks: true}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>
+

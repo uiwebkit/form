@@ -1,0 +1,10 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/custom/check.json'" [options]='{value: true}'></uni-form-field-ng>
+
+  <div [hidden]='!form?.value["check"]'>
+    <uni-form-field-ng [url]="'assets/mocks/dynamic/countries.json'"></uni-form-field-ng>
+  </div>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

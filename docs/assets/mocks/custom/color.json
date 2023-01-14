@@ -1,0 +1,20 @@
+{
+  "key": "color",
+  "label": "Select color",
+  "type": "select",
+  "required": true,
+  "options": [
+    {
+      "label": "Red color",
+      "value": "red"
+    },
+    {
+      "label": "Yellow color",
+      "value": "yellow"
+    },
+    {
+      "label": "Green color",
+      "value": "green"
+    }
+  ]
+}

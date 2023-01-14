@@ -1,0 +1,9 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)' [clean]='true'>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/dynamic/countries.json'"
+    [options]="{multi: true, value: ['Canada', 'USA']}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

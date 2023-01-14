@@ -1,0 +1,6 @@
+{
+  "type": "textarea",
+  "key": "textarea",
+  "label": "Required textarea field",
+  "required": true
+}

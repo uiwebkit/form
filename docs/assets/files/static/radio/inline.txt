@@ -1,0 +1,22 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/radio/inline.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/radio/default.json'"
+    [options]="{key: 'set', label: 'Set inline radio button:', inline: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/radio/inline.json'"
+    [options]="{key: 'change', label: 'Changed inline radio button:', inline: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'radio', key: 'create', label: 'Create inline radio button:', inline: true, options: [
+    {label: 'One', value: 1}, {label: 'Two', value: 2}
+    ]}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

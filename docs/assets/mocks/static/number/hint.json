@@ -1,0 +1,6 @@
+{
+  "type": "number",
+  "key": "number",
+  "label": "Number field with hint message",
+  "hint": "Default hint message"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "select",
+  "key": "select",
+  "label": "Select field with default value",
+  "value": 2,
+  "options": [
+    {},
+    {
+      "label": "One",
+      "value": 1
+    },
+    {
+      "label": "Two",
+      "value": 2
+    },
+    {
+      "label": "Three",
+      "value": 3
+    }
+  ]
+}

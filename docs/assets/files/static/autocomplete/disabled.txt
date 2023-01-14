@@ -1,0 +1,23 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng [url]="'assets/mocks/static/autocomplete/disabled.json'"></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/autocomplete/default.json'"
+    [options]="{key: 'set', label: 'Set disabled autocomplete field', disabled: true}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/static/autocomplete/disabled.json'"
+    [options]="{key: 'change', label: 'Changed disabled autocomplete field', disabled: false}"
+  ></uni-form-field-ng>
+
+  <uni-form-field-ng
+    [options]="{type: 'autocomplete', key: 'create', label: 'Create disabled autocomplete field', disabled: true, options: [
+    {label: 'One', value: 'One'}, {label: 'Two', value: 'Two'}
+    ]}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>
+

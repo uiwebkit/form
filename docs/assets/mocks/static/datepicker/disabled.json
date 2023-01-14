@@ -1,0 +1,6 @@
+{
+  "type": "datepicker",
+  "key": "datepicker",
+  "label": "Disabled datepicker",
+  "disabled": true
+}

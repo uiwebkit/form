@@ -1,0 +1,7 @@
+{
+  "type": "textarea",
+  "key": "textarea",
+  "label": "Textarea field with minimum and maximum length",
+  "minLength": 2,
+  "maxLength": 3
+}
