@@ -1,9 +1,3 @@
-## Running unit tests
-
-Run `ng test uni-form-ng` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-
-
 # UniFormNg
 
 This is an Angular 15+ library, that automatically builds and renders highly customizable dynamic forms based on JSON data.
@@ -103,3 +97,5 @@ export class Component {
 `@Input() options: Partial<UniFormField>` - the object for the field deep configuration.
 
 `@Input() nested: UniObject<UniFormNested>` - the object for nested fields deep configuration.
+
+## Now I'm looking for new job opportunities. Please, contact me, if you are interested. Thank you! [Author's profile](https://www.linkedin.com/in/univitali/)
