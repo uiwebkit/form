@@ -1,5 +1,0 @@
-{
-  "type": "checkbox",
-  "key": "raise",
-  "label": "Raise current bid (if daily amount spent for now is LESS than specified here sum)"
-}

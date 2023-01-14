@@ -15,6 +15,17 @@ export class UniFormFieldService {
     }));
   }
 
+  enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
+    if (options) {
+      field = {
+        ...field,
+        ...options,
+      };
+    }
+
+    return field;
+  }
+
   groupsToOptions(field: UniFormField): UniFormFieldOption[] {
     let options: UniFormFieldOption[] = [];
 

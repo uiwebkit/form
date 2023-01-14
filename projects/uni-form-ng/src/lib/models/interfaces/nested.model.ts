@@ -1,4 +1,4 @@
-import { UniFormFieldType } from 'uni-form-ng';
+import { UniFormFieldType } from '../types/form-field.type';
 
 export interface UniFormNested {
   type?: UniFormFieldType

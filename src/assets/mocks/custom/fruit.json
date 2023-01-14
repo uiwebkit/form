@@ -1,0 +1,38 @@
+{
+  "key": "fruit",
+  "label": "Select fruit",
+  "type": "select",
+  "required": true,
+  "options": [
+    {
+      "label": "--"
+    },
+    {
+      "label": "Apple",
+      "value": "apple",
+      "fields": [
+        "assets/mocks/custom/engraving.json",
+        "assets/mocks/custom/taste.json",
+        "assets/mocks/custom/color.json"
+      ]
+    },
+    {
+      "label": "Banana",
+      "value": "banana",
+      "fields": [
+        "assets/mocks/custom/engraving.json",
+        "assets/mocks/custom/curvature.json",
+        "assets/mocks/custom/size.json"
+      ]
+    },
+    {
+      "label": "Grape",
+      "value": "grape",
+      "fields": [
+        "assets/mocks/custom/engraving.json",
+        "assets/mocks/custom/taste.json",
+        "assets/mocks/custom/weight.json"
+      ]
+    }
+  ]
+}

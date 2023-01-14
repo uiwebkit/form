@@ -95,6 +95,10 @@ const paths = [
   ['dynamic/radio', 'default'],
   ['dynamic/radio', 'value'],
   ['dynamic/radio', 'clean'],
+  ['dynamic/radio', 'clean'],
+  ['custom', 'fruits'],
+  ['custom', 'second'],
+  ['custom', 'group'],
 ];
 
 // To copy a folder or file, select overwrite accordingly

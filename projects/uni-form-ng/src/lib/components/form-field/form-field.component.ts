@@ -49,8 +49,8 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
     if (this.url) {
       this.http.get(this.url).subscribe((field: any) => {
         // @TODO make with builder pattern
-        field = this.enrichField(field, this.options);
-        field = this.enrichField(field, this.nested[field.key]);
+        field = this.formFieldService.enrichField(field, this.options);
+        field = this.formFieldService.enrichField(field, this.nested[field.key]);
         this.fields = [field];
         this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
 
@@ -101,28 +101,18 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
 
   private loadNestedFields(urls: string[], fieldIndex: number = 0): void {
     urls.forEach((url: string, urlIndex: number) => {
-      this.http.get(url).subscribe((nestedField: any) => {
+      this.http.get(url).subscribe((field: any) => {
+        // Is required for multi selection
         if (fieldIndex) {
           urlIndex++;
         }
 
-        this.fields[urlIndex + 1] = this.enrichField(nestedField, this.nested[nestedField.key]);
+        this.fields[urlIndex + 1] = this.formFieldService.enrichField(field, this.nested[field.key]);
+        // hotfix
         this.fields = this.fields.filter(field => isObject(field));
         this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
       });
     });
-  }
-
-  // @TODO move to service
-  private enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
-    if (options) {
-      field = {
-        ...field,
-        ...options,
-      };
-    }
-
-    return field;
   }
 
   private setSelectedOption(field: UniFormField, value: string | number | string[] | number[]): void {

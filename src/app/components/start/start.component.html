@@ -1,5 +1,84 @@
-<uni-form-ng [hidden]='true'>
-  <uni-form-field-ng [url]="'assets/mocks/field/test/auth.json'"></uni-form-field-ng>
-</uni-form-ng>
+<div class='px-1'>
+  <p [style]='{"font-size": "18px"}'>
+    <strong>Uni Form Ng</strong>
+    is an Angular 15+ library, that automatically builds and renders highly customizable dynamic forms based on JSON
+    data.
+  </p>
 
-<p>start</p>
+  <p>License: <strong>MIT</strong></p>
+
+  <p [style]='{"font-size": "18px"}'>Out of the box, you get:</p>
+
+  <ol>
+    <li>ready to use well designed forms (Google's Material design);</li>
+    <li>a well-tested and low-coding solution that requires only JSON data;</li>
+    <li>dynamic fields based on Angular reactive forms;</li>
+    <li>full access to the form object for the easy customization;</li>
+    <li>rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
+    </li>
+  </ol>
+
+  <h3>How to connect?</h3>
+
+  <p>
+    Fist install npm package: <code [innerHTML]='npm'>npm install uni-form-ng</code>
+  </p>
+  <p>You do not need to install "@angular/forms", "@angular/material" or any other dependencies.</p>
+
+  <p>Then you need to add a dependency into your Angular Module:</p>
+  <pre>
+    <code [innerHTML]='module'></code>
+  </pre>
+
+  <h3>How to use? (Demo)</h3>
+
+  <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+    <uni-form-group-ng
+      [url]="'assets/mocks/group/group.json'"
+      [nested]='{countries: {type: "autocomplete", multi: true},
+        login: {value: "email@email.com"}, password: {value: "password"}}'
+    ></uni-form-group-ng>
+
+    <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+  </uni-form-ng>
+
+  <app-code-tabs
+    [templateUrl]='"assets/files/custom/group.txt"'
+    [jsonUrls]='["assets/mocks/group/group.json", "assets/mocks/dynamic/countries.json", "assets/mocks/dynamic/auth.json"]'
+  ></app-code-tabs>
+
+  <h3>API overview</h3>
+
+  <p>Selector: <strong>uni-form-ng</strong></p>
+
+  <p>
+    <span>@Input() clean: boolean </span>
+    <span>- by default is false and newly added dynamic fields will not be removed form Angular reactive form object after switch. </span>
+    <span>If true, then newly added dynamic fields will be removed after switch to another fields.</span>
+  </p>
+
+  <p>
+    <span>@Output() formGroupEvent: EventEmitter&#60;FormGroup&#62;</span>
+    <span> - returns a NEW Angular reactive form object every time when a new field was added or removed.</span>
+  </p>
+
+  <p>
+    <span>@Output() submitEvent: EventEmitter&#60;FormGroup&#62;</span>
+    <span> - returns an Angular reactive form object when form is submitted.</span>
+  </p>
+
+  <p>Selector: <strong>uni-form-group-ng</strong></p>
+
+  <p>
+    <span>@Input() url: string </span>
+    <span> - the URL link to JSON data with list of fields</span>
+  </p>
+
+  <p>
+    <span>@Input() nested: UniObject&#60;UniFormNested&#62; </span>
+    <span> - the object for nested fields deep configuration</span>
+  </p>
+
+  <p>Selector: <strong>uni-form-field-ng</strong></p>
+</div>
+

@@ -1,49 +1,50 @@
-<uni-form-ng (formGroupEvent)='handleFruitForm($event)' (submitEvent)='onFruitSubmit($event)'>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Fruits Customization</mat-card-title>
-    </mat-card-header>
+<div class='p-1'>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]='true'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Fruits engraving demo:</mat-panel-title>
+      </mat-expansion-panel-header>
 
-    <mat-card-content>
-      <uni-form-field-ng
-        [url]="'assets/mocks/field/test/fruit.json'"
-        [options]='{value: "apple"}'
-        [nested]="{color: {value: 'green'}, engraving: {value: 'test'}}"
-      ></uni-form-field-ng>
-    </mat-card-content>
-  </mat-card>
+      <app-custom-fruits></app-custom-fruits>
 
-  <mat-card [style]="'margin: 10px 0'">
-    <mat-card-content>
-      <uni-form-field-ng
-        [url]="'assets/mocks/field/test/auth.json'"
-        [nested]="{login: {value: 'login'}, password: {value: 'password'}}"
-      ></uni-form-field-ng>
-    </mat-card-content>
+      <app-code
+        [templateUrl]='"assets/files/custom/fruits.txt"'
+        [jsonUrls]='[
+        "assets/mocks/custom/fruit.json",
+         "assets/mocks/custom/engraving.json",
+         "assets/mocks/custom/color.json",
+         "assets/mocks/custom/size.json",
+          "assets/mocks/custom/taste.json",
+          "assets/mocks/custom/curvature.json",
+          "assets/mocks/custom/weight.json"
+          ]'
+      ></app-code>
+    </mat-expansion-panel>
 
-    <mat-card-actions>
-      <button type='submit' mat-button [disabled]='!formFruit.valid'>SUBMIT</button>
-    </mat-card-actions>
-  </mat-card>
-</uni-form-ng>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>The second level of dynamic fields:</mat-panel-title>
+      </mat-expansion-panel-header>
 
-<p></p>
+      <app-custom-second></app-custom-second>
 
-<uni-form-ng (formGroupEvent)='handleAuthForm($event)' (submitEvent)='onAuthSubmit($event)'>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Authorization</mat-card-title>
-    </mat-card-header>
+      <app-code
+        [templateUrl]='"assets/files/custom/second.txt"'
+        [jsonUrls]='["assets/mocks/custom/check.json", "assets/mocks/dynamic/countries.json"]'
+      ></app-code>
+    </mat-expansion-panel>
 
-    <mat-card-content>
-      <uni-form-group-ng
-        [url]="'assets/mocks/group/test.json'"
-        [nested]="{login: {value: 'login'}, password: {value: 'password'}, taste: {value: 'sour'}}"
-      ></uni-form-group-ng>
-    </mat-card-content>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Group:</mat-panel-title>
+      </mat-expansion-panel-header>
 
-    <mat-card-actions>
-      <button type='submit' mat-button [disabled]='!formAuth.valid'>SUBMIT</button>
-    </mat-card-actions>
-  </mat-card>
-</uni-form-ng>
+      <app-custom-group></app-custom-group>
+
+      <app-code
+        [templateUrl]='"assets/files/custom/group.txt"'
+        [jsonUrls]='["assets/mocks/group/group.json", "assets/mocks/dynamic/countries.json", "assets/mocks/dynamic/auth.json"]'
+      ></app-code>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

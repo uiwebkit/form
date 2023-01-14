@@ -1,0 +1,10 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-field-ng
+    [url]="'assets/mocks/custom/fruit.json'"
+    [options]='{value: "apple"}'
+    [nested]="{engraving: {value: 'test'}, taste: {value: 'sweet'}, color: {value: 'red'}}"
+  ></uni-form-field-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

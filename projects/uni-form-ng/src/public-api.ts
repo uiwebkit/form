@@ -21,6 +21,9 @@ export * from './lib/components/form-field/form-field.component';
 export * from './lib/components/form-field-error/form-field-error.component';
 export * from './lib/components/form-fields/mat/form-fields-mat.component';
 export * from './lib/components/form-fields/mat/autocomplete/autocomplete-mat.component';
+export * from './lib/components/form-fields/mat/datepicker/datepicker-mat.component';
+export * from './lib/components/form-fields/mat/datepicker-range/datepicker-range-mat.component';
+export * from './lib/components/form-fields/mat/slider/slider-mat.component';
 
 export * from './lib/components/form/form.service';
 export * from './lib/components/form-field/form-field.service';

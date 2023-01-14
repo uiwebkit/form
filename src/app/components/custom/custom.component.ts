@@ -6,27 +6,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './custom.component.html'
 })
 export class AppCustomComponent {
-  formFruit: FormGroup;
-  formAuth: FormGroup;
+  form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.formFruit = this.formBuilder.group({});
-    this.formAuth = this.formBuilder.group({});
+    this.form = this.formBuilder.group({});
   }
 
-  handleFruitForm(event: any) {
-    this.formFruit = event;
+  handleForm(event: any) {
+    this.form = event;
   }
 
-  onFruitSubmit(event: any) {
-    console.log(event.value);
-  }
-
-  handleAuthForm(event: any) {
-    this.formAuth = event;
-  }
-
-  onAuthSubmit(event: any) {
+  onFormSubmit(event: any) {
     console.log(event.value);
   }
 }

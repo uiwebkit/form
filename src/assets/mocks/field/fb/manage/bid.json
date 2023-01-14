@@ -1,6 +1,0 @@
-{
-  "type": "number",
-  "key": "bid",
-  "label": "Bid raise or reduce (with minus)",
-  "step": 0.01
-}

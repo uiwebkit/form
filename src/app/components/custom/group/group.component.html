@@ -1,0 +1,10 @@
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+
+  <uni-form-group-ng
+    [url]="'assets/mocks/group/group.json'"
+    [nested]='{countries: {type: "autocomplete", multi: true},
+      login: {value: "email@email.com"}, password: {value: "password"}}'
+  ></uni-form-group-ng>
+
+  <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
+</uni-form-ng>

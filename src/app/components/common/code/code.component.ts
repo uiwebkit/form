@@ -1,15 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Observable, of, zip } from 'rxjs';
-
-import hl from 'highlight.js';
-
-import { jsCode } from './code';
 
 @Component({
   selector: 'app-code',
-  templateUrl: './code.component.html',
-  styleUrls: ['./code.component.scss'],
+  templateUrl: './code.component.html'
 })
 export class AppCodeComponent {
 
@@ -21,24 +14,9 @@ export class AppCodeComponent {
 
   isCode: boolean = false;
   codeTooltip: string = 'View code';
-  htmlString$: Observable<string> = of('');
-  jsonStrings$: Observable<string[]> = of( ['']);
-  tsString: string = '';
-
-  constructor(private http: HttpClient) {
-  }
 
   openCode(): void {
     this.isCode = !this.isCode;
     this.codeTooltip = this.isCode ? 'Hide code' : 'View code';
-
-    this.tsString = hl.highlight(jsCode, {language: 'javascript'}).value;
-
-    this.htmlString$ = this.http.get(this.templateUrl, { responseType: 'text' })
-      .pipe(map(value => hl.highlight(value, {language: 'html'}).value));
-
-    this.jsonStrings$ = zip(this.jsonUrls.map((url: string) => this.http.get(url)
-      .pipe(map(value => hl.highlight(JSON.stringify(value), {language: 'json'}).value))
-    ));
   }
 }

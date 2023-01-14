@@ -6,9 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { AppCodeComponent } from './code/code.component';
+import { AppCodeTabsComponent } from './code-tabs/code-tabs.component';
 
 const Declarations = [
-  AppCodeComponent
+  AppCodeComponent,
+  AppCodeTabsComponent
 ];
 
 @NgModule({

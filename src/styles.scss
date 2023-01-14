@@ -27,6 +27,11 @@
   padding: 1em;
 }
 
+.px-1 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 .ps-2 {
   padding-left: 2em;
 }
@@ -83,4 +88,8 @@ pre {
 
 code, pre {
   margin: 0;
+}
+
+uni-form-ng .mdc-button {
+  float: right;
 }
