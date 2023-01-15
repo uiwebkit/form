@@ -1,15 +1,19 @@
-<div class='p-1'>
-  <mat-accordion>
-    <mat-expansion-panel [expanded]='true'>
-      <mat-expansion-panel-header>
-        <mat-panel-title>Fruits engraving demo:</mat-panel-title>
-      </mat-expansion-panel-header>
+<div class='container'>
+  <div class='row py-2'>
+    <div class='col-sm-1'></div>
 
-      <app-custom-fruits></app-custom-fruits>
+    <div class='col-sm-10'>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]='true'>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Fruits engraving demo:</mat-panel-title>
+          </mat-expansion-panel-header>
 
-      <app-code
-        [templateUrl]='"assets/files/custom/fruits.txt"'
-        [jsonUrls]='[
+          <app-custom-fruits></app-custom-fruits>
+
+          <app-code
+            [templateUrl]='"assets/files/custom/fruits.txt"'
+            [jsonUrls]='[
         "assets/mocks/custom/fruit.json",
          "assets/mocks/custom/engraving.json",
          "assets/mocks/custom/color.json",
@@ -18,33 +22,37 @@
           "assets/mocks/custom/curvature.json",
           "assets/mocks/custom/weight.json"
           ]'
-      ></app-code>
-    </mat-expansion-panel>
+          ></app-code>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>The second level of dynamic fields:</mat-panel-title>
-      </mat-expansion-panel-header>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>The second level of dynamic fields:</mat-panel-title>
+          </mat-expansion-panel-header>
 
-      <app-custom-second></app-custom-second>
+          <app-custom-second></app-custom-second>
 
-      <app-code
-        [templateUrl]='"assets/files/custom/second.txt"'
-        [jsonUrls]='["assets/mocks/custom/check.json", "assets/mocks/dynamic/countries.json"]'
-      ></app-code>
-    </mat-expansion-panel>
+          <app-code
+            [templateUrl]='"assets/files/custom/second.txt"'
+            [jsonUrls]='["assets/mocks/custom/check.json", "assets/mocks/dynamic/countries.json"]'
+          ></app-code>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>Group:</mat-panel-title>
-      </mat-expansion-panel-header>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Group:</mat-panel-title>
+          </mat-expansion-panel-header>
 
-      <app-custom-group></app-custom-group>
+          <app-custom-group></app-custom-group>
 
-      <app-code
-        [templateUrl]='"assets/files/custom/group.txt"'
-        [jsonUrls]='["assets/mocks/group/group.json", "assets/mocks/dynamic/countries.json", "assets/mocks/dynamic/auth.json"]'
-      ></app-code>
-    </mat-expansion-panel>
-  </mat-accordion>
+          <app-code
+            [templateUrl]='"assets/files/custom/group.txt"'
+            [jsonUrls]='["assets/mocks/group/group.json", "assets/mocks/dynamic/countries.json", "assets/mocks/dynamic/auth.json"]'
+          ></app-code>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+    <div class='col-sm-1'></div>
+  </div>
 </div>

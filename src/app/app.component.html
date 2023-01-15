@@ -1,10 +1,10 @@
-<nav mat-tab-nav-bar [backgroundColor]="'primary'" [tabPanel]="tabPanel" class='app-nav'>
+<nav mat-tab-nav-bar [backgroundColor]="'primary'" [tabPanel]='tabPanel' class='app-nav'>
   <a mat-tab-link
-     *ngFor="let tab of tabs"
+     *ngFor='let tab of tabs'
      [routerLink]='tab.link'
      routerLinkActive
-     #rla="routerLinkActive"
-     [active]="rla.isActive"
+     #rla='routerLinkActive'
+     [active]='rla.isActive'
   >
     {{ tab.name }}
   </a>
