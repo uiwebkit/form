@@ -60,6 +60,10 @@ export class UniAutocompleteMatComponent implements OnInit {
     if (this.field.value) {
       this.chips = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
     }
+
+    if (this.field.multi && this.formGroup.get(this.field.key)?.value) {
+      this.chips = this.formGroup.get(this.field.key)?.value;
+    }
   }
 
   isSelected(value: string | number = ''): boolean {

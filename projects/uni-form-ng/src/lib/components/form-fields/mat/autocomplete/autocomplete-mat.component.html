@@ -43,7 +43,8 @@
       </mat-option>
     </mat-optgroup>
 
-    <mat-option *ngFor='let option of (options$ | async)' [value]='option.value' [disabled]='option.disabled'>
+    <mat-option *ngFor='let option of (options$ | async)' [value]='option.value'
+                [disabled]='option.disabled || isSelected(option.value)'>
       {{ option.label }}
     </mat-option>
   </mat-autocomplete>
