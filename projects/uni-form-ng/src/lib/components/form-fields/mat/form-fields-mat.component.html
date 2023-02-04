@@ -47,7 +47,7 @@
 <mat-form-field *ngIf='isMatFormField(field.type)' [formGroup]='formGroup' class='w-100'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <div matPrefix>
+  <div *ngIf='hasPrefix' matPrefix>
     <ng-content select='[prefix]'></ng-content>
   </div>
 
@@ -96,7 +96,7 @@
     </mat-option>
   </mat-select>
 
-  <div matSuffix>
+  <div *ngIf='hasSuffix' matSuffix>
     <ng-content select='[suffix]'></ng-content>
   </div>
 

@@ -25,6 +25,12 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
   options: Partial<UniFormField> | undefined;
 
   @Input()
+  hasPrefix: boolean = false;
+
+  @Input()
+  hasSuffix: boolean = false;
+
+  @Input()
   nested: UniObject<UniFormNested> = {};
 
   @HostListener('uniFormGroup') onUniFormGroup() {

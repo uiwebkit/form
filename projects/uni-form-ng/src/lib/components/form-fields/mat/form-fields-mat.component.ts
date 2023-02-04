@@ -16,10 +16,16 @@ export class UniFormFieldsMatComponent {
   @Input()
   field: UniFormField = { key: '', type: 'text' };
 
-  isDefined = isDefined;
-
   @Input()
   formGroup: FormGroup;
+
+  @Input()
+  hasPrefix: boolean = false;
+
+  @Input()
+  hasSuffix: boolean = false;
+
+  isDefined = isDefined;
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({});

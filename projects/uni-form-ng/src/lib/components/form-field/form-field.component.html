@@ -1,5 +1,5 @@
 <ng-container *ngFor='let field of fields'>
-  <uni-form-fields-mat [field]="field" [formGroup]="formGroup">
+  <uni-form-fields-mat [field]="field" [formGroup]="formGroup" [hasPrefix]='hasPrefix' [hasSuffix]='hasSuffix'>
     <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
     <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
   </uni-form-fields-mat>

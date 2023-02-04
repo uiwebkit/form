@@ -10,7 +10,8 @@ import { FormGroup } from '@angular/forms';
 export class AppStartComponent {
 
   private moduleString = `@NgModule({
-  imports: [UniFormModule]
+  imports: [UniFormModule],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}] // optional
 })`;
 
   private impString = `@import "@angular/material/prebuilt-themes/indigo-pink.css";
