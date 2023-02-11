@@ -10,7 +10,12 @@ import { FormGroup } from '@angular/forms';
 export class AppStartComponent {
 
   private moduleString = `@NgModule({
-  imports: [UniFormModule],
+  imports: [
+    BrowserAnimationsModule,
+    HttpClientModule,
+
+    UniFormModule,
+  ],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}] // optional
 })`;
 

@@ -13,12 +13,14 @@ import { AppStartModule } from './components/start/start.module';
 import { AppStaticModule } from './components/static/static.module';
 import { AppDynamicModule } from './components/dynamic/dynamic.module';
 import { AppCustomModule } from './components/custom/custom.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
 
     MatTabsModule,

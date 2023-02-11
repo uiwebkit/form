@@ -45,9 +45,7 @@ const Declarations = [
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
 
     MatFormFieldModule,
