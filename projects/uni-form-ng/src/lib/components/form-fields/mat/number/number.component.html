@@ -1,0 +1,44 @@
+<mat-form-field [formGroup]='formGroup' class='w-100'>
+  <mat-label>{{ field.label }}</mat-label>
+
+  <div *ngIf='hasPrefix' matPrefix>
+    <ng-content select='[prefix]'></ng-content>
+  </div>
+
+  <input
+    matInput
+    [type]='field.type'
+    [formControlName]='field.key'
+    [placeholder]='field.placeholder || ""'
+    [min]='field.min'
+    [max]='field.max'
+    [step]='field.step'
+  >
+
+  <div *ngIf='hasSuffix' matSuffix>
+    <ng-content select='[suffix]'></ng-content>
+  </div>
+
+  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+
+  <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
+    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>
+      Minimum is: <strong>{{ field.min }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>
+      Maximum is: <strong>{{ field.max }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>
+      Minimum is: <strong>{{ field.min }}</strong> and maximum is: <strong>{{ field.max }}</strong>
+    </ng-container>
+  </mat-hint>
+
+  <mat-error [style]='{display: "flex"}'>
+    <uni-form-field-error-ng
+      [fieldErrors]='field.errors ?? {}'
+      [errors]='formGroup.controls[field.key].errors'
+    ></uni-form-field-error-ng>
+  </mat-error>
+</mat-form-field>

@@ -1,0 +1,46 @@
+<mat-form-field [formGroup]='formGroup' class='w-100'>
+  <mat-label>{{ field.label }}</mat-label>
+
+  <div *ngIf='hasPrefix' matPrefix>
+    <ng-content select='[prefix]'></ng-content>
+  </div>
+
+  <input
+    matInput
+    [type]='field.type'
+    [formControlName]='field.key'
+    [placeholder]='field.placeholder || ""'
+  >
+
+  <div *ngIf='hasSuffix' matSuffix>
+    <ng-content select='[suffix]'></ng-content>
+  </div>
+
+  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+
+  <mat-hint *ngIf='(field.minLength || field.maxLength)  && !field.hint' align='start'>
+    <ng-container *ngIf='field.minLength && !field.maxLength'>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='field.maxLength && !field.minLength'>
+      Maximum characters count is: <strong>{{ field.maxLength }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='field.minLength && field.maxLength'>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong> and maximum is:
+      <strong>{{ field.maxLength }}</strong>
+    </ng-container>
+  </mat-hint>
+
+  <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
+    {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
+  </mat-hint>
+
+  <mat-error [style]='{display: "flex"}'>
+    <uni-form-field-error-ng
+      [fieldErrors]='field.errors ?? {}'
+      [errors]='formGroup.controls[field.key].errors'
+    ></uni-form-field-error-ng>
+  </mat-error>
+</mat-form-field>

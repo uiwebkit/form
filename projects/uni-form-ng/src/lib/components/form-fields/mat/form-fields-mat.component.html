@@ -1,7 +1,25 @@
+<uni-text-mat
+  *ngIf='isInput(field.type)'
+  [field]='field'
+  [formGroup]='formGroup'
+  [hasPrefix]='hasPrefix'
+  [hasSuffix]='hasSuffix'
+></uni-text-mat>
+
 <ng-container [ngSwitch]='field.type'>
-  <ng-container *ngSwitchCase='"autocomplete"'>
-    <uni-autocomplete-mat [field]='field' [formGroup]='formGroup'></uni-autocomplete-mat>
-  </ng-container>
+  <uni-number-mat
+    *ngSwitchCase='"number"'
+    [field]='field'
+    [formGroup]='formGroup'
+    [hasPrefix]='hasPrefix'
+    [hasSuffix]='hasSuffix'
+  ></uni-number-mat>
+
+  <uni-textarea-mat *ngSwitchCase='"textarea"' [field]='field' [formGroup]='formGroup'></uni-textarea-mat>
+
+  <uni-select-mat *ngSwitchCase='"select"' [field]='field' [formGroup]='formGroup'></uni-select-mat>
+
+  <uni-autocomplete-mat *ngSwitchCase='"autocomplete"' [field]='field' [formGroup]='formGroup'></uni-autocomplete-mat>
 
   <ng-container *ngSwitchCase='"datepicker"'>
     <uni-datepicker-mat *ngIf='!field.keyEnd' [field]='field' [formGroup]='formGroup' class='d-flex'>
@@ -11,9 +29,7 @@
     </uni-datepicker-range-mat>
   </ng-container>
 
-  <ng-container *ngSwitchCase='"slider"'>
-    <uni-slider-mat [field]='field' [formGroup]='formGroup'></uni-slider-mat>
-  </ng-container>
+  <uni-slider-mat *ngSwitchCase='"slider"' [field]='field' [formGroup]='formGroup'></uni-slider-mat>
 
   <ng-container *ngSwitchCase='"switch"'>
     <div [formGroup]='formGroup'>
@@ -25,9 +41,7 @@
 
   <ng-container *ngSwitchCase='"checkbox"'>
     <div [formGroup]='formGroup'>
-      <mat-checkbox [formControlName]='field.key'>
-        {{ field.label }}
-      </mat-checkbox>
+      <mat-checkbox [formControlName]='field.key'>{{ field.label }}</mat-checkbox>
     </div>
   </ng-container>
 
@@ -43,102 +57,3 @@
     </div>
   </ng-container>
 </ng-container>
-
-<mat-form-field *ngIf='isMatFormField(field.type)' [formGroup]='formGroup' class='w-100'>
-  <mat-label>{{ field.label }}</mat-label>
-
-  <div *ngIf='hasPrefix' matPrefix>
-    <ng-content select='[prefix]'></ng-content>
-  </div>
-
-  <input
-    matInput
-    *ngIf='isInput(field.type)'
-    [type]='field.type'
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-    (keydown.enter)='onEnter($event)'
-  >
-
-  <input
-    matInput
-    *ngIf="field.type === 'number'"
-    [type]='field.type'
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-    [min]='field.min'
-    [max]='field.max'
-    [step]='field.step'
-    (keydown.enter)='onEnter($event)'
-  >
-
-  <textarea
-    matInput
-    *ngIf="field.type === 'textarea'"
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-  ></textarea>
-
-  <mat-select
-    *ngIf="field.type === 'select'"
-    [formControlName]='field.key'
-    [multiple]='field.multi'
-    [placeholder]='field.placeholder || ""'
-  >
-    <mat-optgroup *ngFor='let group of field.groups' [label]='group.name' [disabled]='group.disabled'>
-      <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
-        {{ option.label }}
-      </mat-option>
-    </mat-optgroup>
-
-    <mat-option *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
-      {{ option.label }}
-    </mat-option>
-  </mat-select>
-
-  <div *ngIf='hasSuffix' matSuffix>
-    <ng-content select='[suffix]'></ng-content>
-  </div>
-
-  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
-
-  <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
-    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>
-      Minimum is: <strong>{{ field.min }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>
-      Maximum is: <strong>{{ field.max }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>
-      Minimum is: <strong>{{ field.min }}</strong> and maximum is: <strong>{{ field.max }}</strong>
-    </ng-container>
-  </mat-hint>
-
-  <mat-hint *ngIf='(field.minLength || field.maxLength)  && !field.hint' align='start'>
-    <ng-container *ngIf='field.minLength && !field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='field.maxLength && !field.minLength'>
-      Maximum characters count is: <strong>{{ field.maxLength }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='field.minLength && field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong> and maximum is:
-      <strong>{{ field.maxLength }}</strong>
-    </ng-container>
-  </mat-hint>
-
-  <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
-    {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
-  </mat-hint>
-
-  <mat-error class='d-flex'>
-    <uni-form-field-error-ng
-      [fieldErrors]='field.errors ?? {}'
-      [errors]='formGroup.controls[field.key].errors'
-    ></uni-form-field-error-ng>
-  </mat-error>
-</mat-form-field>

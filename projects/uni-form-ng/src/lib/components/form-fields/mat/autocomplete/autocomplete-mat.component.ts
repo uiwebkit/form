@@ -74,7 +74,7 @@ export class UniAutocompleteMatComponent implements OnInit {
     const value = (event.value || '').trim();
     const formattedValue = this.autoService.getFormattedValue(this.field.groups, this.field.options, value);
 
-    if (formattedValue) {
+    if (formattedValue && !this.chips.includes(formattedValue)) {
       this.chips.push(formattedValue);
       this.formGroup.patchValue({ [this.field.key]: this.chips });
     }
