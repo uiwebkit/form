@@ -1,4 +1,13 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnChanges, OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs';
@@ -14,15 +23,18 @@ import { UniFormFieldService } from './form-field.service';
 @Component({
   selector: 'uni-form-field-ng',
   templateUrl: 'form-field.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
+export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   url: string | undefined;
 
   @Input()
   options: Partial<UniFormField> | undefined;
+
+  @Input()
+  inline: boolean = false;
 
   @Input()
   hasPrefix: boolean = false;
@@ -50,6 +62,10 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
     this.formGroup = this.formBuilder.group({});
   }
 
+  getWidth(): string {
+    return `calc(100%/${this.fields.length})`;
+  }
+
   ngOnInit(): void {
     if (this.url) {
       this.http.get(this.url).subscribe((field: any) => {
@@ -57,7 +73,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
         field = this.formFieldService.enrichField(field, this.options);
         field = this.formFieldService.enrichField(field, this.nested[field.key]);
         this.fields = [field];
-        this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
+        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
 
         if (field.fields) {
           if (isDefined(field.value)) {
@@ -70,8 +86,8 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
               if (value) {
                 this.loadNestedFields(field.fields);
               } else {
+                this.formFieldService.dispatchRemove(this.elRef.nativeElement, [...this.fields].slice(1));
                 this.fields = [field];
-                this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
               }
             });
         } else if (field.options || field.groups) {
@@ -88,20 +104,33 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
             this.formGroup.controls[field.key].valueChanges
               .pipe(takeUntil(this.destroy$))
               .subscribe((value: string) => {
-                if (isDefined(value)) {
-                  this.setSelectedOption(field, value);
-                } else {
-                  this.fields = [field];
-                  this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
-                }
+                this.setSelectedOption(field, value);
               });
           }
         }
       });
     } else if (this.options?.type && this.options.key) {
       this.fields = [(this.options as UniFormField)];
-      this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
+      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['options'] && !changes['options'].firstChange) {
+      this.fields[0] = {
+        ...this.fields[0],
+        ...changes['options'].currentValue,
+      };
+
+      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'set');
+    }
+  }
+
+  override ngOnDestroy() {
+    super.ngOnDestroy();
+
+    // this.formFieldService.dispatch(this.elRef.nativeElement, [{type: 'text', key: this.parent}]);
+    this.formFieldService.dispatchRemove(this.elRef.nativeElement, this.fields);
   }
 
   private loadNestedFields(urls: string[], fieldIndex: number = 0): void {
@@ -115,7 +144,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
         this.fields[urlIndex + 1] = this.formFieldService.enrichField(field, this.nested[field.key]);
         // hotfix
         this.fields = this.fields.filter(field => isObject(field));
-        this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
+        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
       });
     });
   }
@@ -124,6 +153,9 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
     const options = this.formFieldService.groupsToOptions(field);
     const selectedOptions = this.formFieldService.getSelectedOptions(options, value);
 
+    // @TODO Remove only unselected option
+    this.formFieldService.dispatchRemove(this.elRef.nativeElement, [...this.fields].slice(1));
+
     this.fields = [field];
 
     if (selectedOptions.length > 0 && this.formFieldService.hasSelectedOptionsFields(selectedOptions)) {
@@ -131,7 +163,8 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
         this.loadNestedFields(option.fields || [], index);
       });
     } else {
-      this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
+      // @TODO Remove all options
+      // this.formFieldService.dispatchRemove(this.elRef.nativeElement, this.fields);
     }
   }
 }

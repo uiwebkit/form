@@ -1,21 +1,18 @@
 <uni-text-mat
-  *ngIf='isInput(field.type)'
+  *ngIf='isInput(field.type) || field.type === "number" || field.type === "textarea"'
   [field]='field'
   [formGroup]='formGroup'
   [hasPrefix]='hasPrefix'
   [hasSuffix]='hasSuffix'
-></uni-text-mat>
+>
+  <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
+  <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
+</uni-text-mat>
 
 <ng-container [ngSwitch]='field.type'>
-  <uni-number-mat
-    *ngSwitchCase='"number"'
-    [field]='field'
-    [formGroup]='formGroup'
-    [hasPrefix]='hasPrefix'
-    [hasSuffix]='hasSuffix'
-  ></uni-number-mat>
+  <!--<uni-number-mat *ngSwitchCase='"number"' [field]='field' [formGroup]='formGroup'></uni-number-mat>-->
 
-  <uni-textarea-mat *ngSwitchCase='"textarea"' [field]='field' [formGroup]='formGroup'></uni-textarea-mat>
+  <!--<uni-textarea-mat *ngSwitchCase='"textarea"' [field]='field' [formGroup]='formGroup'></uni-textarea-mat>-->
 
   <uni-select-mat *ngSwitchCase='"select"' [field]='field' [formGroup]='formGroup'></uni-select-mat>
 
@@ -33,7 +30,7 @@
 
   <ng-container *ngSwitchCase='"switch"'>
     <div [formGroup]='formGroup'>
-      <mat-slide-toggle [formControlName]='field.key' class='py-2'>
+      <mat-slide-toggle [formControlName]='field.key' class='py-3'>
         <span class='uni-pointer'>{{ field.label }}</span>
       </mat-slide-toggle>
     </div>

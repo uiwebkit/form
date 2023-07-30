@@ -1,4 +1,4 @@
-<mat-form-field [formGroup]='formGroup' class='w-100'>
+<mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
   <textarea
@@ -14,17 +14,13 @@
       Minimum characters count is: <strong>{{ field.minLength }}</strong>
     </ng-container>
 
-    <ng-container *ngIf='field.maxLength && !field.minLength'>
-      Maximum characters count is: <strong>{{ field.maxLength }}</strong>
-    </ng-container>
-
     <ng-container *ngIf='field.minLength && field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong> and maximum is:
-      <strong>{{ field.maxLength }}</strong>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong>
+      and maximum is: <strong>{{ field.maxLength }}</strong>
     </ng-container>
   </mat-hint>
 
-  <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
+  <mat-hint *ngIf='field.maxLength' align='end'>
     {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
   </mat-hint>
 

@@ -1,8 +1,6 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { UniObject } from '../../models/interfaces/object.model';
-import { UniFormField } from '../../models/interfaces/form-field.model';
 import { UniFormService } from './form.service';
 
 @Component({
@@ -21,12 +19,15 @@ export class UniFormComponent {
   @Output()
   submitEvent = new EventEmitter<FormGroup>();
 
-  @HostListener('uniFormData') onUniFormData() {
-    this.onUniFormDataChange(event as CustomEvent);
+  @HostListener('uniFormDataAdd') onUniFormDataAdd() {
+    this.onUniFormDataAddChange(event as CustomEvent);
+  }
+
+  @HostListener('uniFormDataRemove') onUniFormDataRemove() {
+    this.onUniFormDataRemoveChange(event as CustomEvent);
   }
 
   formGroup: FormGroup;
-  private formData: UniObject<UniFormField[]> = {};
 
   constructor(
     private elRef: ElementRef,
@@ -36,26 +37,20 @@ export class UniFormComponent {
     this.formGroup = this.formBuilder.group({});
   }
 
-  private onUniFormDataChange(event: CustomEvent) {
-    const curr = [...event.detail.formData];
-    const prev = [...(this.formData[curr[0].key] || [])];
-    // console.log(...prev);
-    // console.log(...curr);
-
-    if (this.clean && prev) {
-      const removeFields = curr ? prev.filter((field: UniFormField) => !curr.includes(field)) : prev;
-      // console.log('Remove:', removeFields);
-      this.formService.removeControls(this.formGroup, removeFields);
-    }
-
-    const addFields = prev && curr ? curr.filter((field: UniFormField) => !prev.includes(field)) : curr || [];
-    // console.log('Add:', addFields);
-    this.formService.addControls(this.formGroup, addFields);
-    this.formData[curr[0].key] = curr;
+  private onUniFormDataAddChange(event: CustomEvent) {
+    this.formGroup = this.formService.addControls(this.formGroup, [...event.detail.formData], event.detail.mode);
 
     this.uniFormGroupEvent(this.formGroup);
     this.formGroupEvent.emit(this.formGroup);
-    // console.log(this.formGroup);
+  }
+
+  private onUniFormDataRemoveChange(event: CustomEvent) {
+    if (this.clean) {
+      this.formService.removeControls(this.formGroup, [...event.detail.formData]);
+    }
+
+    this.uniFormGroupEvent(this.formGroup);
+    this.formGroupEvent.emit(this.formGroup);
   }
 
   private uniFormGroupEvent(formGroup: FormGroup): void {

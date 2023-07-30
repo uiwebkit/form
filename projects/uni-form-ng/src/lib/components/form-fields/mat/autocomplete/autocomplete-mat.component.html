@@ -1,14 +1,16 @@
-<mat-form-field [style]="{width: '100%'}" [formGroup]='formGroup'>
+<mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <mat-chip-grid #chipGrid *ngIf='field.multi'>
-    <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
-      {{ chip }}
+  <ng-container *ngIf='field.multi'>
+    <mat-chip-grid #chipGrid>
+      <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
+        {{ chip }}
 
-      <button matChipRemove [attr.aria-label]="'remove ' + chip">
-        <mat-icon>cancel</mat-icon>
-      </button>
-    </mat-chip-row>
+        <button matChipRemove [attr.aria-label]="'remove ' + chip">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
 
     <input
       #autoInput
@@ -21,8 +23,8 @@
       [matChipInputAddOnBlur]='false'
       (matChipInputTokenEnd)='add($event)'
       [matAutocomplete]='autoComplete'>
-    <input [formControlName]='field.key' [style]='{display: "none"}'>
-  </mat-chip-grid>
+    <!--<input [formControlName]='field.key' [style]='{display: "none"}'>-->
+  </ng-container>
 
   <input
     *ngIf='!field.multi'

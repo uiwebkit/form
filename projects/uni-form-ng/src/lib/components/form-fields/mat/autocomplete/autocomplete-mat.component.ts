@@ -29,7 +29,7 @@ export class UniAutocompleteMatComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   chips: any[] = [];
-  autoCtrl = new FormControl({ value: '', disabled: true }, [Validators.required]);
+  autoCtrl = new FormControl({ value: '', disabled: true });
   groups$: Observable<UniFormFieldGroup[]> = of([]);
   options$: Observable<UniFormFieldOption[]> = of([]);
 
@@ -41,6 +41,9 @@ export class UniAutocompleteMatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const disabled = this.field.disabled || false;
+    const validators = this.field.required ? { validators: Validators.required } : {};
+    this.autoCtrl = new FormControl({ value: '', disabled }, validators);
     const formField = this.field.multi ? this.autoCtrl : this.formGroup.get(this.field.key);
 
     if (this.field.groups) {

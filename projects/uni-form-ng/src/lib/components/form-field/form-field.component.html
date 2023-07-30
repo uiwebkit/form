@@ -1,5 +1,6 @@
 <ng-container *ngFor='let field of fields'>
-  <uni-form-fields-mat [field]="field" [formGroup]="formGroup" [hasPrefix]='hasPrefix' [hasSuffix]='hasSuffix'>
+  <uni-form-fields-mat [field]='field' [formGroup]='formGroup' [hasPrefix]='hasPrefix' [hasSuffix]='hasSuffix'
+                       [style]='inline ? {display: "inline-block", width: getWidth()} : {}'>
     <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
     <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
   </uni-form-fields-mat>

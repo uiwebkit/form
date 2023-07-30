@@ -1,7 +1,15 @@
-<mat-form-field [formGroup]='formGroup'>
+<mat-form-field [formGroup]='formGroup' class='pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <input matInput [matDatepicker]='picker' [formControlName]='field.key' [placeholder]='field.placeholder || ""'>
+  <input
+    matInput
+    [matDatepicker]='picker'
+    [formControlName]='field.key'
+    [placeholder]='field.placeholder || ""'
+    [min]='field.minDate'
+    [max]='field.maxDate'
+  >
+
   <mat-datepicker-toggle matIconSuffix [for]='picker'></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 

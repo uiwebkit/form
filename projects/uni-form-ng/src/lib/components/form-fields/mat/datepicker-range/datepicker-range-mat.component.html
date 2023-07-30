@@ -1,7 +1,7 @@
-<mat-form-field [formGroup]='formGroup'>
+<mat-form-field [formGroup]='formGroup' class='pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <mat-date-range-input [rangePicker]='picker'>
+  <mat-date-range-input [rangePicker]='picker' [min]='field.minDate' [max]='field.maxDate'>
     <input matStartDate [formControlName]='field.key' [placeholder]='field.placeholder || "Start date"'>
     <input matEndDate [formControlName]='field.keyEnd || "keyEnd"' [placeholder]='field.placeholderEnd || "End date"'>
   </mat-date-range-input>

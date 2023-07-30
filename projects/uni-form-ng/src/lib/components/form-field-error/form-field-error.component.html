@@ -2,32 +2,28 @@
   <ng-container *ngIf="errors!['required']">
     <ng-container *ngIf="fieldErrors['required']; else requiredTemplate">{{ fieldErrors.required }}</ng-container>
 
-    <ng-template #requiredTemplate>
-      This field is <strong>required</strong>
-    </ng-template>
+    <ng-template #requiredTemplate>This field is <strong>required</strong></ng-template>
   </ng-container>
 
   <ng-container *ngIf="errors!['min']">
     <ng-container *ngIf="fieldErrors['min']; else minTemplate">{{ fieldErrors.min }}</ng-container>
 
-    <ng-template #minTemplate>
-      Minimum is: <strong>{{ errors!['min']!['min'] }}</strong>
+    <ng-template #minTemplate>Minimum is: <strong>{{ errors!['min']!['min'] }}</strong>
     </ng-template>
   </ng-container>
 
   <ng-container *ngIf="errors!['max']">
     <ng-container *ngIf="fieldErrors['max']; else maxTemplate">{{ fieldErrors.max }}</ng-container>
 
-    <ng-template #maxTemplate>
-      Maximum is: <strong>{{ errors!['max']!['max'] }}</strong>
+    <ng-template #maxTemplate>Maximum is: <strong>{{ errors!['max']!['max'] }}</strong>
     </ng-template>
   </ng-container>
 
   <ng-container *ngIf="errors!['minlength']">
     <ng-container *ngIf="fieldErrors['minLength']; else minLengthTemplate">{{ fieldErrors.minLength }}</ng-container>
 
-    <ng-template #minLengthTemplate>
-      Minimum characters count is: <strong>{{ errors!['minlength']!['requiredLength'] }}</strong>
+    <ng-template #minLengthTemplate>Minimum characters count is:
+      <strong>{{ errors!['minlength']!['requiredLength'] }}</strong>
       but actual characters count is: <strong>{{ errors!['minlength']!['actualLength'] }}</strong>
     </ng-template>
   </ng-container>
@@ -35,8 +31,8 @@
   <ng-container *ngIf="errors!['maxlength']">
     <ng-container *ngIf="fieldErrors['maxLength']; else maxLengthTemplate">{{ fieldErrors.maxLength }}</ng-container>
 
-    <ng-template #maxLengthTemplate>
-      Maximum characters count is: <strong>{{ errors!['maxlength']!['requiredLength'] }}</strong>
+    <ng-template #maxLengthTemplate>Maximum characters count is:
+      <strong>{{ errors!['maxlength']!['requiredLength'] }}</strong>
       but actual characters count is: <strong>{{ errors!['maxlength']!['actualLength'] }}</strong>
     </ng-template>
   </ng-container>
@@ -44,16 +40,16 @@
   <ng-container *ngIf="errors!['pattern']">
     <ng-container *ngIf="fieldErrors['pattern']; else patternTemplate">{{ fieldErrors.pattern }}</ng-container>
 
-    <ng-template #patternTemplate>
-      The actual value does not match the pattern: <strong>{{ errors!['pattern']!['requiredPattern'] }}</strong>
+    <ng-template #patternTemplate>The actual value does not match the pattern:
+      <strong>{{ errors!['pattern']!['requiredPattern'] }}</strong>
     </ng-template>
   </ng-container>
 
-  <ng-container *ngIf="errors!['matDatepickerParse']">
+  <ng-container *ngIf="errors!['matDatepickerParse']">Incorrect date format
 <!--    <div *ngIf="fieldErrors['format']; else formatTemplate">{{ fieldErrors.format }}</div>-->
 
 <!--    <ng-template #fotmatTemplate>-->
-      Incorrect date format
+<!--      Incorrect date format-->
 <!--    </ng-template>-->
   </ng-container>
 </ng-container>

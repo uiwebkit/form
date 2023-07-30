@@ -11,7 +11,8 @@
     "build:form:watch": "ng build uni-form-ng --watch",
     "watch": "ng build --watch --configuration development",
     "copy": "node copy",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {

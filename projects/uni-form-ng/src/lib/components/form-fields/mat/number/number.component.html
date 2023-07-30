@@ -1,4 +1,4 @@
-<mat-form-field [formGroup]='formGroup' class='w-100'>
+<mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
   <div *ngIf='hasPrefix' matPrefix>
@@ -22,16 +22,14 @@
   <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
 
   <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
-    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>
-      Minimum is: <strong>{{ field.min }}</strong>
+    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>Min is: <strong>{{ field.min }}</strong>
     </ng-container>
 
-    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>
-      Maximum is: <strong>{{ field.max }}</strong>
+    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>Max is: <strong>{{ field.max }}</strong>
     </ng-container>
 
-    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>
-      Minimum is: <strong>{{ field.min }}</strong> and maximum is: <strong>{{ field.max }}</strong>
+    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>Min is:
+      <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
     </ng-container>
   </mat-hint>
 

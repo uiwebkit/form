@@ -1,4 +1,4 @@
-<mat-form-field [formGroup]='formGroup' class='w-100'>
+<mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
   <div *ngIf='hasPrefix' matPrefix>
@@ -7,10 +7,21 @@
 
   <input
     matInput
+    *ngIf='isInput(field.type) || field.type === "number"'
     [type]='field.type'
     [formControlName]='field.key'
     [placeholder]='field.placeholder || ""'
+    [min]='field.min'
+    [max]='field.max'
+    [step]='field.step'
   >
+
+  <textarea
+    matInput
+    *ngIf='field.type === "textarea"'
+    [formControlName]='field.key'
+    [placeholder]='field.placeholder || ""'
+  ></textarea>
 
   <div *ngIf='hasSuffix' matSuffix>
     <ng-content select='[suffix]'></ng-content>
@@ -18,23 +29,31 @@
 
   <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
 
-  <mat-hint *ngIf='(field.minLength || field.maxLength)  && !field.hint' align='start'>
+  <mat-hint *ngIf='(isInput(field.type) || field.type === "textarea") && (field.minLength || field.maxLength)  && !field.hint' align='start'>
     <ng-container *ngIf='field.minLength && !field.maxLength'>
       Minimum characters count is: <strong>{{ field.minLength }}</strong>
     </ng-container>
 
-    <ng-container *ngIf='field.maxLength && !field.minLength'>
-      Maximum characters count is: <strong>{{ field.maxLength }}</strong>
-    </ng-container>
-
     <ng-container *ngIf='field.minLength && field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong> and maximum is:
-      <strong>{{ field.maxLength }}</strong>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong>
+      and maximum is: <strong>{{ field.maxLength }}</strong>
     </ng-container>
   </mat-hint>
 
-  <mat-hint *ngIf='field.maxLength && !field.hint' align='end'>
+  <mat-hint *ngIf='(isInput(field.type) || field.type === "textarea") && field.maxLength' align='end'>
     {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
+  </mat-hint>
+
+  <mat-hint *ngIf='field.type === "number" && (isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
+    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>Min is: <strong>{{ field.min }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>Max is: <strong>{{ field.max }}</strong>
+    </ng-container>
+
+    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>Min is:
+      <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
+    </ng-container>
   </mat-hint>
 
   <mat-error [style]='{display: "flex"}'>
