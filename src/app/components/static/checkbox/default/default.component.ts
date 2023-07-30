@@ -7,6 +7,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppStaticCheckboxDefaultComponent {
 
+  test = true;
+
   form: FormGroup | undefined;
 
   handleForm(event: any) {

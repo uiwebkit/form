@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-static-text-default',
@@ -7,7 +8,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppStaticTextDefaultComponent {
 
+  hide: boolean = true;
   form: FormGroup | undefined;
+  isCreate$: Observable<boolean> | undefined;
 
   handleForm(event: any) {
     this.form = event;
