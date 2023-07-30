@@ -8,9 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AppStaticTextDefaultComponent {
 
-  hide: boolean = true;
   form: FormGroup | undefined;
-  isCreate$: Observable<boolean> | undefined;
 
   handleForm(event: any) {
     this.form = event;
