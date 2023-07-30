@@ -11,12 +11,14 @@ import { AppCustomComponent } from './custom.component';
 import { AppCustomFruitsComponent } from './fruits/fruits.component';
 import { AppCustomSecondComponent } from './second/second.component';
 import { AppCustomGroupComponent } from './group/group.component';
+import {AppCustomCustomizationComponent} from "./customization/customization.component";
 
 const Declarations = [
   AppCustomComponent,
   AppCustomFruitsComponent,
   AppCustomSecondComponent,
-  AppCustomGroupComponent
+  AppCustomGroupComponent,
+  AppCustomCustomizationComponent
 ];
 
 @NgModule({
