@@ -17,10 +17,22 @@ export class UniFormFieldService {
 
   enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
     if (options) {
-      field = {
-        ...field,
-        ...options,
-      };
+      if (options.options && field.options) {
+        field.options = field.options.map((option: UniFormFieldOption) => {
+          const index: number = options.options!.findIndex((opt: UniFormFieldOption): boolean => option.value === opt.value);
+
+          if (index >= 0 ) {
+            option = {...option, ...options.options![index]};
+          }
+
+          return option;
+        })
+      } else {
+        field = {
+          ...field,
+          ...options,
+        };
+      }
     }
 
     return field;

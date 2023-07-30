@@ -110,5 +110,3 @@ export class Component {
 `@Input() options: Partial<UniFormField>` - the object for the field deep configuration.
 
 `@Input() nested: UniObject<UniFormNested>` - the object for nested fields deep configuration.
-
-## Now I'm looking for new job opportunities. Please, contact me, if you are interested. Thank you! [Author's profile](https://www.linkedin.com/in/univitali/)

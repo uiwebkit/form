@@ -16,5 +16,5 @@ export interface UniFormField extends Partial<UniInputText>, Partial<UniInputNum
   value?: number | string | string[] | boolean;
   disabled?: boolean;
   fields?: string[];
-  errors?: Partial<UniFormFieldErrors>
+  errors?: Partial<UniFormFieldErrors>;
 }

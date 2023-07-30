@@ -51,6 +51,6 @@ export class UniAutocompleteMatService {
   }
 
   filterValue(items: UniFormFieldOption[] = [], value: string): UniFormFieldOption[] {
-    return items.filter((item: UniFormFieldOption): boolean => item.label.toLowerCase().includes(value.toLowerCase()));
+    return items.filter((item: UniFormFieldOption): boolean => item.label?.toLowerCase().includes(value.toLowerCase()) || false);
   };
 }

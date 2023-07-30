@@ -1,5 +1,5 @@
 export interface UniFormFieldOption {
-  label: string;
+  label?: string;
   value?: string | number;
   disabled?: boolean;
   fields?: string[];
