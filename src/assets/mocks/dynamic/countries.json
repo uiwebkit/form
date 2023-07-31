@@ -4,6 +4,18 @@
   "label": "Select country / countries",
   "groups": [
     {
+      "name": "Europe",
+      "options": [
+        {
+          "label": "France",
+          "value": "France",
+          "fields": [
+            "assets/mocks/dynamic/france.json"
+          ]
+        }
+      ]
+    },
+    {
       "name": "North America",
       "options": [
         {

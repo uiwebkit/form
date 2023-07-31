@@ -82,7 +82,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
 
           this.formGroup.controls[field.key].valueChanges
             .pipe(takeUntil(this.destroy$))
-            .subscribe((value: boolean) => {
+            .subscribe((value: boolean): void => {
               if (value) {
                 this.loadNestedFields(field.fields);
               } else {
@@ -134,11 +134,11 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
   }
 
   private loadNestedFields(urls: string[], fieldIndex: number = 0): void {
-    urls.forEach((url: string, urlIndex: number) => {
-      this.http.get(url).subscribe((field: any) => {
+    urls.forEach((url: string, urlIndex: number): void => {
+      this.http.get(url).subscribe((field: any): void => {
         // Is required for multi selection
         if (fieldIndex) {
-          urlIndex++;
+          urlIndex = fieldIndex;
         }
 
         this.fields[urlIndex + 1] = this.formFieldService.enrichField(field, this.nested[field.key]);

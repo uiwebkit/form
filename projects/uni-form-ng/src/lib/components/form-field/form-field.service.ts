@@ -24,19 +24,23 @@ export class UniFormFieldService {
 
   enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
     if (options) {
-      if (options.options && field.options) {
-        field.options = this.mapOptions(field.options, options.options);
-      } else if (options.options && field.groups) {
-        field.groups = field.groups.map((group: UniFormFieldGroup): UniFormFieldGroup => {
-          group.options = this.mapOptions(group.options, options.options!);
-          return group;
-        });
-      } else {
-        field = {
-          ...field,
-          ...options,
-        };
+      if (options.options) {
+        if (field.options) {
+          field.options = this.mapOptions(field.options, options.options);
+        } else if (field.groups) {
+          field.groups = field.groups.map((group: UniFormFieldGroup): UniFormFieldGroup => {
+            group.options = this.mapOptions(group.options, options.options!);
+            return group;
+          });
+        }
+
+        delete options.options;
       }
+
+      field = {
+        ...field,
+        ...options,
+      };
     }
 
     return field;
@@ -46,7 +50,7 @@ export class UniFormFieldService {
     return fieldOptions.map((option: UniFormFieldOption) => {
       const index: number = options.findIndex((opt: UniFormFieldOption): boolean => option.value === opt.value);
 
-      if (index >= 0 ) {
+      if (index >= 0) {
         option = {...option, ...options[index]};
       }
 

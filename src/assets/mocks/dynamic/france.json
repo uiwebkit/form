@@ -1,0 +1,95 @@
+{
+  "type": "select",
+  "key": "france",
+  "label": "Select region(s) of France",
+  "options": [
+    {
+      "label": "Alsace",
+      "value": "Alsace"
+    },
+    {
+      "label": "Aquitaine",
+      "value": "Aquitaine"
+    },
+    {
+      "label": "Auvergne",
+      "value": "Auvergne"
+    },
+    {
+      "label": "Brittany",
+      "value": "Brittany"
+    },
+    {
+      "label": "Burgundy",
+      "value": "Burgundy"
+    },
+    {
+      "label": "Centre-Val de Loire",
+      "value": "Centre-Val de Loire"
+    },
+    {
+      "label": "Champagne-Ardenne",
+      "value": "Champagne-Ardenne"
+    },
+    {
+      "label": "Corsica",
+      "value": "Corsica"
+    },
+    {
+      "label": "Franche-Comté",
+      "value": "Franche-Comté"
+    },
+    {
+      "label": "Île-de-France",
+      "value": "Île-de-France"
+    },
+    {
+      "label": "Languedoc-Roussillon",
+      "value": "Languedoc-Roussillon"
+    },
+    {
+      "label": "Limousin",
+      "value": "Limousin"
+    },
+    {
+      "label": "Lorraine",
+      "value": "Lorraine"
+    },
+    {
+      "label": "Lower Normandy",
+      "value": "Lower Normandy"
+    },
+    {
+      "label": "Midi-Pyrénées",
+      "value": "Midi-Pyrénées"
+    },
+    {
+      "label": "Nord-Pas-de-Calais",
+      "value": "Nord-Pas-de-Calais"
+    },
+    {
+      "label": "Pays de la Loire",
+      "value": "Pays de la Loire"
+    },
+    {
+      "label": "Picardy",
+      "value": "Picardy"
+    },
+    {
+      "label": "Poitou-Charentes",
+      "value": "Poitou-Charentes"
+    },
+    {
+      "label": "Provence-Alpes-Côte d'Azur",
+      "value": "Provence-Alpes-Côte d'Azur"
+    },
+    {
+      "label": "Rhône-Alpes",
+      "value": "Rhône-Alpes"
+    },
+    {
+      "label": "Upper Normandy",
+      "value": "Upper Normandy"
+    }
+  ]
+}
