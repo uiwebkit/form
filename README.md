@@ -12,7 +12,7 @@ License: `MIT`
 - full access to the form object for the easy customization;
 - rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
 
-Check out our docs [here](https://uformng.web.app/).
+Check out our docs [here](https://uformng.web.app).
 
 ## How to connect?
 
@@ -89,11 +89,11 @@ export class Component {
 }
 ```
 
-[Static fields demo](https://uiwebkit.github.io/form/static/text)
+[Static fields demo](https://uformng.web.app/static/text)
 
-[Dynamic fields demo](https://uiwebkit.github.io/form/dynamic/select)
+[Dynamic fields demo](https://uformng.web.app/dynamic/select)
 
-[Custom forms demo](https://uiwebkit.github.io/form/custom)
+[Custom forms demo](https://uformng.web.app/custom)
 
 ## API overview
 
