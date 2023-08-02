@@ -80,7 +80,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
             this.loadNestedFields(field.fields);
           }
 
-          this.formGroup.controls[field.key].valueChanges
+          this.formGroup.controls[field.key]?.valueChanges
             .pipe(takeUntil(this.destroy$))
             .subscribe((value: boolean): void => {
               if (value) {
@@ -101,7 +101,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
               this.setSelectedOption(field, field.value);
             }
 
-            this.formGroup.controls[field.key].valueChanges
+            this.formGroup.controls[field.key]?.valueChanges
               .pipe(takeUntil(this.destroy$))
               .subscribe((value: string) => {
                 this.setSelectedOption(field, value);
