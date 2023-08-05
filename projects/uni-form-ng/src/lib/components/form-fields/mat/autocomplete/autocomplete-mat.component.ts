@@ -8,8 +8,8 @@ import { map, Observable, of, startWith } from 'rxjs';
 import { UniFormField } from '../../../../models/interfaces/form-field.model';
 import { UniFormFieldGroup } from '../../../../models/interfaces/form-field-group.model';
 import { UniFormFieldOption } from '../../../../models/interfaces/form-field-option.model';
-import { UniAutocompleteMatService } from './autocomplete-mat.service';
 import { isArray } from '../../../../utils/is';
+import { UniAutocompleteMatService } from './autocomplete-mat.service';
 
 @Component({
   selector: 'uni-autocomplete-mat',
@@ -28,7 +28,8 @@ export class UniAutocompleteMatComponent implements OnInit {
   autoInput?: ElementRef<HTMLInputElement>;
 
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  chips: any[] = [];
+  chips: string[] = [];
+  values: string[] = [];
   autoCtrl = new FormControl({ value: '', disabled: true });
   groups$: Observable<UniFormFieldGroup[]> = of([]);
   options$: Observable<UniFormFieldOption[]> = of([]);
@@ -41,7 +42,7 @@ export class UniAutocompleteMatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const disabled = this.field.disabled || false;
+    const disabled: boolean = this.field.disabled || false;
     const validators = this.field.required ? { validators: Validators.required } : {};
     this.autoCtrl = new FormControl({ value: '', disabled }, validators);
     const formField = this.field.multi ? this.autoCtrl : this.formGroup.get(this.field.key);
@@ -60,26 +61,33 @@ export class UniAutocompleteMatComponent implements OnInit {
         );
     }
 
-    if (this.field.value) {
-      this.chips = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
-    }
+    if (this.field.multi) {
+      if (this.field.value) {
+        console.log(this.field.value)
+        this.chips = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
+        this.values = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
+      }
 
-    if (this.field.multi && this.formGroup.get(this.field.key)?.value) {
-      this.chips = this.formGroup.get(this.field.key)?.value;
+      if (this.formGroup.get(this.field.key)?.value) {
+        console.log(this.formGroup.get(this.field.key)?.value)
+        this.chips = [...this.formGroup.get(this.field.key)?.value];
+        this.values = [...this.formGroup.get(this.field.key)?.value];
+      }
     }
   }
 
   isSelected(value: string | number = ''): boolean {
-    return this.chips.includes(value + '');
+    return this.values.includes(value + '');
   }
 
   add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-    const formattedValue = this.autoService.getFormattedValue(this.field.groups, this.field.options, value);
+    const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, (event.value || '').trim());
+    console.log(1, label, (event.value || '').trim());
 
-    if (formattedValue && !this.chips.includes(formattedValue)) {
-      this.chips.push(formattedValue);
-      this.formGroup.patchValue({ [this.field.key]: this.chips });
+    if (label && !this.chips.includes(label)) {
+      this.chips.push(label);
+      this.values.push((event.value || '').trim());
+      this.formGroup.patchValue({ [this.field.key]: this.values});
     }
 
     // Clear the input value
@@ -89,12 +97,13 @@ export class UniAutocompleteMatComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     if (this.field.multi && this.autoInput) {
-      const value = event.option.value;
-      const notPresent = this.chips.filter((chip: string) => chip.toLowerCase() === value.toLowerCase()).length === 0;
+      const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, event.option.value);
+      console.log(2, label, event.option.value);
 
-      if (notPresent) {
-        this.chips.push(value);
-        this.formGroup.patchValue({ [this.field.key]: this.chips });
+      if (label && !this.chips.includes(label)) {
+        this.chips.push(label);
+        this.values.push(event.option.value);
+        this.formGroup.patchValue({ [this.field.key]: this.values });
       }
 
       this.autoInput.nativeElement.value = '';
@@ -102,12 +111,13 @@ export class UniAutocompleteMatComponent implements OnInit {
     }
   }
 
-  remove(chip: string): void {
-    const index = this.chips.indexOf(chip);
+  remove(value: string): void {
+    const index: number = this.chips.findIndex((chip: string): boolean => chip === value);
 
     if (index >= 0) {
       this.chips.splice(index, 1);
-      this.formGroup.patchValue({ [this.field.key]: this.chips });
+      this.values.splice(index, 1);
+      this.formGroup.patchValue({ [this.field.key]: this.values });
     }
 
     this.autoCtrl.setValue('');
@@ -115,9 +125,9 @@ export class UniAutocompleteMatComponent implements OnInit {
 
   onBlur(event: any): void {
     event.preventDefault();
+    const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, event.target.value);
+    console.log(3, label, event.target.value);
 
-    this.formGroup.patchValue({
-      [this.field.key]: this.autoService.getFormattedValue(this.field.groups, this.field.options, event.target.value) || '',
-    });
+    this.formGroup.patchValue({[this.field.key]: label || ''});
   }
 }

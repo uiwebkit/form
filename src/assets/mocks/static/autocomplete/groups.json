@@ -8,11 +8,11 @@
       "options": [
         {
           "label": "One",
-          "value": "One"
+          "value": "1"
         },
         {
           "label": "Two",
-          "value": "Two"
+          "value": "2"
         }
       ]
     },
@@ -21,11 +21,11 @@
       "options": [
         {
           "label": "A",
-          "value": "A"
+          "value": "a"
         },
         {
           "label": "B",
-          "value": "B"
+          "value": "b"
         }
       ]
     }

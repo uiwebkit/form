@@ -2,28 +2,23 @@ import { Injectable } from '@angular/core';
 
 import { UniFormFieldGroup } from '../../../../models/interfaces/form-field-group.model';
 import { UniFormFieldOption } from '../../../../models/interfaces/form-field-option.model';
+import { isDefined } from "../../../../utils/is";
 
 @Injectable({ providedIn: 'root' })
 export class UniAutocompleteMatService {
 
-  getFormattedValue(groups: UniFormFieldGroup[] = [], options: UniFormFieldOption[] = [], value: string): string {
-    return groups.length > 0
-      ? this.getGroupValue(groups, value)
-      : this.getOptionsValue(options, value);
+  getLabelByValue(groups: UniFormFieldGroup[] = [], options: UniFormFieldOption[] = [], value: string): string {
+    return groups.length > 0 ? this.getGroupValue(groups, value) : this.getOptionsValue(options, value);
   }
 
-  getGroupValue(groups: UniFormFieldGroup[], value: string): string {
+  private getGroupValue(groups: UniFormFieldGroup[], value: string): string {
     return groups
-      .map((group) => group.options
-        .filter((item) => value.toLowerCase() === (item.label + '').toLowerCase())
-        .map((item) => item.value + ''))
-      .flatMap(items => items)[0];
+      .map((group: UniFormFieldGroup) => group.options.find((item: UniFormFieldOption): boolean => value === item.value))
+      .filter((item: UniFormFieldOption | undefined): boolean => isDefined(item))[0]?.label!;
   }
 
-  getOptionsValue(options: UniFormFieldOption[], value: string): string {
-    return options
-      .filter((item) => value.toLowerCase() === (item.label + '').toLowerCase())
-      .map((item) => item.value + '')[0];
+  private getOptionsValue(options: UniFormFieldOption[], value: string): string {
+    return options.find((item: UniFormFieldOption): boolean => value === item.value)?.label!
   }
 
   // patchGroups(groups: UniFormFieldGroup[], values: string[]): UniFormFieldGroup[] {

@@ -5,15 +5,15 @@
   "options": [
     {
       "label": "One",
-      "value": "One"
+      "value": "1"
     },
     {
       "label": "Two",
-      "value": "Two"
+      "value": "2"
     },
     {
       "label": "Three",
-      "value": "Three"
+      "value": "3"
     }
   ]
 }
