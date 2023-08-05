@@ -63,13 +63,11 @@ export class UniAutocompleteMatComponent implements OnInit {
 
     if (this.field.multi) {
       if (this.field.value) {
-        console.log(this.field.value)
         this.chips = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
         this.values = isArray(this.field.value) ? this.field.value as string[] : [this.field.value as string];
       }
 
       if (this.formGroup.get(this.field.key)?.value) {
-        console.log(this.formGroup.get(this.field.key)?.value)
         this.chips = [...this.formGroup.get(this.field.key)?.value];
         this.values = [...this.formGroup.get(this.field.key)?.value];
       }
@@ -82,7 +80,6 @@ export class UniAutocompleteMatComponent implements OnInit {
 
   add(event: MatChipInputEvent): void {
     const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, (event.value || '').trim());
-    console.log(1, label, (event.value || '').trim());
 
     if (label && !this.chips.includes(label)) {
       this.chips.push(label);
@@ -98,7 +95,6 @@ export class UniAutocompleteMatComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     if (this.field.multi && this.autoInput) {
       const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, event.option.value);
-      console.log(2, label, event.option.value);
 
       if (label && !this.chips.includes(label)) {
         this.chips.push(label);
@@ -126,7 +122,6 @@ export class UniAutocompleteMatComponent implements OnInit {
   onBlur(event: any): void {
     event.preventDefault();
     const label: string = this.autoService.getLabelByValue(this.field.groups, this.field.options, event.target.value);
-    console.log(3, label, event.target.value);
 
     this.formGroup.patchValue({[this.field.key]: label || ''});
   }

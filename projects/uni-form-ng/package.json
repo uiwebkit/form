@@ -1,6 +1,6 @@
 {
   "name": "uni-form-ng",
-  "version": "1.6.2",
+  "version": "1.6.4",
   "license": "MIT",
   "author": "Vitaly Gavriliuk",
   "description": "Angular forms based on JSON data",
