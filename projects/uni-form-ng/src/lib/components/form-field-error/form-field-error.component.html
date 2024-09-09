@@ -1,56 +1,64 @@
-<ng-container *ngIf='errors'>
-  <ng-container *ngIf="errors!['required']">
-    <ng-container *ngIf="fieldErrors['required']; else requiredTemplate">{{ fieldErrors.required }}</ng-container>
+@if (errors) {
+  @if (errors!['required']) {
+    @if (fieldErrors['required']) {
+      {{ fieldErrors.required }}
+    } @else {
+      This field is <strong>required</strong>
+    }
+  }
 
-    <ng-template #requiredTemplate>This field is <strong>required</strong></ng-template>
-  </ng-container>
+  @if (errors!['min']) {
+    @if (fieldErrors['min']) {
+      {{ fieldErrors.min }}
+    } @else {
+      Minimum is: <strong>{{ errors!['min']!['min'] }}</strong>
+    }
+  }
 
-  <ng-container *ngIf="errors!['min']">
-    <ng-container *ngIf="fieldErrors['min']; else minTemplate">{{ fieldErrors.min }}</ng-container>
+  @if (errors!['max']) {
+    @if (fieldErrors['max']) {
+      {{ fieldErrors.max }}
+    } @else {
+      Maximum is: <strong>{{ errors!['max']!['max'] }}</strong>
+    }
+  }
 
-    <ng-template #minTemplate>Minimum is: <strong>{{ errors!['min']!['min'] }}</strong>
-    </ng-template>
-  </ng-container>
-
-  <ng-container *ngIf="errors!['max']">
-    <ng-container *ngIf="fieldErrors['max']; else maxTemplate">{{ fieldErrors.max }}</ng-container>
-
-    <ng-template #maxTemplate>Maximum is: <strong>{{ errors!['max']!['max'] }}</strong>
-    </ng-template>
-  </ng-container>
-
-  <ng-container *ngIf="errors!['minlength']">
-    <ng-container *ngIf="fieldErrors['minLength']; else minLengthTemplate">{{ fieldErrors.minLength }}</ng-container>
-
-    <ng-template #minLengthTemplate>Minimum characters count is:
+  @if (errors!['minLength']) {
+    @if (fieldErrors['minLength']) {
+      {{ fieldErrors.minLength }}
+    } @else {
+      Minimum characters count is:
       <strong>{{ errors!['minlength']!['requiredLength'] }}</strong>
-      but actual characters count is: <strong>{{ errors!['minlength']!['actualLength'] }}</strong>
-    </ng-template>
-  </ng-container>
+      but actual characters count is:
+      <strong>{{ errors!['minlength']!['actualLength'] }}</strong>
+    }
+  }
 
-  <ng-container *ngIf="errors!['maxlength']">
-    <ng-container *ngIf="fieldErrors['maxLength']; else maxLengthTemplate">{{ fieldErrors.maxLength }}</ng-container>
-
-    <ng-template #maxLengthTemplate>Maximum characters count is:
+  @if (errors!['maxLength']) {
+    @if (fieldErrors['maxLength']) {
+      {{ fieldErrors.maxLength }}
+    } @else {
+      Maximum characters count is:
       <strong>{{ errors!['maxlength']!['requiredLength'] }}</strong>
-      but actual characters count is: <strong>{{ errors!['maxlength']!['actualLength'] }}</strong>
-    </ng-template>
-  </ng-container>
+      but actual characters count is:
+      <strong>{{ errors!['maxlength']!['actualLength'] }}</strong>
+    }
+  }
 
-  <ng-container *ngIf="errors!['pattern']">
-    <ng-container *ngIf="fieldErrors['pattern']; else patternTemplate">{{ fieldErrors.pattern }}</ng-container>
-
-    <ng-template #patternTemplate>The actual value does not match the pattern:
+  @if (errors!['pattern']) {
+    @if (fieldErrors['pattern']) {
+      {{ fieldErrors.pattern }}
+    } @else {
+      The actual value does not match the pattern:
       <strong>{{ errors!['pattern']!['requiredPattern'] }}</strong>
-    </ng-template>
-  </ng-container>
+    }
+  }
 
-  <ng-container *ngIf="errors!['matDatepickerParse']">Incorrect date format
-<!--    <div *ngIf="fieldErrors['format']; else formatTemplate">{{ fieldErrors.format }}</div>-->
-
-<!--    <ng-template #fotmatTemplate>-->
-<!--      Incorrect date format-->
-<!--    </ng-template>-->
-  </ng-container>
-</ng-container>
-
+  <!--  @if (errors!['matDatepickerParse']) {-->
+    <!--    @if (fieldErrors['format']) {-->
+    <!--      {{ fieldErrors.format }}-->
+    <!--    } @else {-->
+    <!--      Incorrect date format-->
+    <!--    }-->
+    <!--  }-->
+}

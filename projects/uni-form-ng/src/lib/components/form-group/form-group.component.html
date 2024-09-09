@@ -1,1 +1,3 @@
-<uni-form-field-ng *ngFor="let url of urls" [url]="url" [nested]="nested"></uni-form-field-ng>
+@for (url of urls; track url) {
+  <uni-form-field-ng [url]="url" [nested]="nested" />
+}

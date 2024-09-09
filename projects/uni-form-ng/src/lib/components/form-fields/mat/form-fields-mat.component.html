@@ -1,56 +1,58 @@
-<uni-text-mat
-  *ngIf='isInput(field.type) || field.type === "number" || field.type === "textarea"'
-  [field]='field'
-  [formGroup]='formGroup'
-  [hasPrefix]='hasPrefix'
-  [hasSuffix]='hasSuffix'
->
-  <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
-  <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
-</uni-text-mat>
+@switch (field.type) {
+  @case ('checkbox') {
+    <div [formGroup]='formGroup'>
+      <mat-checkbox [formControlName]='field.key'>{{ field.label }}</mat-checkbox>
+    </div>
+  }
+  @case ('radio') {
+    <div [formGroup]='formGroup' [class]='field.inline ? "uni-radio-field-inline" : "uni-radio-field"'>
+      @if (field.label) {
+        <label class='uni-radio-field-label'>{{ field.label }}</label>
+      }
 
-<ng-container [ngSwitch]='field.type'>
-  <!--<uni-number-mat *ngSwitchCase='"number"' [field]='field' [formGroup]='formGroup'></uni-number-mat>-->
-
-  <!--<uni-textarea-mat *ngSwitchCase='"textarea"' [field]='field' [formGroup]='formGroup'></uni-textarea-mat>-->
-
-  <uni-select-mat *ngSwitchCase='"select"' [field]='field' [formGroup]='formGroup'></uni-select-mat>
-
-  <uni-autocomplete-mat *ngSwitchCase='"autocomplete"' [field]='field' [formGroup]='formGroup'></uni-autocomplete-mat>
-
-  <ng-container *ngSwitchCase='"datepicker"'>
-    <uni-datepicker-mat *ngIf='!field.keyEnd' [field]='field' [formGroup]='formGroup' class='d-flex'>
-    </uni-datepicker-mat>
-
-    <uni-datepicker-range-mat *ngIf='field.keyEnd' [field]='field' [formGroup]='formGroup' class='d-flex'>
-    </uni-datepicker-range-mat>
-  </ng-container>
-
-  <uni-slider-mat *ngSwitchCase='"slider"' [field]='field' [formGroup]='formGroup'></uni-slider-mat>
-
-  <ng-container *ngSwitchCase='"switch"'>
+      <mat-radio-group [formControlName]='field.key' [required]='field.required || false'>
+        @for (option of field.options; track option.value) {
+          <mat-radio-button [value]='option.value' [disabled]='option.disabled'>
+            <span class='uni-pointer'>{{ option.label }}</span>
+          </mat-radio-button>
+        }
+      </mat-radio-group>
+    </div>
+  }
+  @case ('select') {
+    <uni-select-mat [field]='field' [formGroup]='formGroup'></uni-select-mat>
+  }
+  @case ('autocomplete') {
+    <uni-autocomplete-mat [field]='field' [formGroup]='formGroup' />
+  }
+  @case ('slider') {
+    <uni-slider-mat [field]='field' [formGroup]='formGroup'></uni-slider-mat>
+  }
+  @case ('switch') {
     <div [formGroup]='formGroup'>
       <mat-slide-toggle [formControlName]='field.key' class='py-3'>
         <span class='uni-pointer'>{{ field.label }}</span>
       </mat-slide-toggle>
     </div>
-  </ng-container>
-
-  <ng-container *ngSwitchCase='"checkbox"'>
-    <div [formGroup]='formGroup'>
-      <mat-checkbox [formControlName]='field.key'>{{ field.label }}</mat-checkbox>
-    </div>
-  </ng-container>
-
-  <ng-container *ngSwitchCase='"radio"'>
-    <div [formGroup]='formGroup' [class]='field.inline ? "uni-radio-field-inline" : "uni-radio-field"'>
-      <label *ngIf='field.label' class='uni-radio-field-label'>{{ field.label }}</label>
-
-      <mat-radio-group [formControlName]='field.key' [required]='field.required || false'>
-        <mat-radio-button *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
-          <span class='uni-pointer'>{{ option.label }}</span>
-        </mat-radio-button>
-      </mat-radio-group>
-    </div>
-  </ng-container>
-</ng-container>
+  }
+  @case ('datepicker') {
+    @if (field.keyEnd) {
+      <uni-datepicker-range-mat [field]='field' [formGroup]='formGroup' class='d-flex'></uni-datepicker-range-mat>
+    } @else {
+      <uni-datepicker-mat [field]='field' [formGroup]='formGroup' class='d-flex'></uni-datepicker-mat>
+    }
+  }
+  @default {
+    @if (isInput(field.type) || field.type === "number" || field.type === "textarea") {
+      <uni-text-mat
+        [field]='field'
+        [formGroup]='formGroup'
+        [hasPrefix]='hasPrefix'
+        [hasSuffix]='hasSuffix'
+      >
+        <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
+        <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
+      </uni-text-mat>
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UniFormField } from '../../models/interfaces/form-field.model';
 import { isDefined } from '../../utils/is';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class UniFormService {
 
   removeControls(formGroup: FormGroup, fields: UniFormField[]): void {

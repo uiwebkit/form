@@ -5,7 +5,8 @@
     <div class='col-sm-10'>
       <p [style]='{"font-size": "18px"}'>
         <strong>UniFormNg</strong>
-        is an Angular 15+ library, that automatically builds and renders highly customizable dynamic forms based on JSON
+        is an Angular 15 / 18 library, that automatically builds and renders highly customizable dynamic forms based on
+        JSON
         data.
       </p>
 
@@ -33,7 +34,7 @@
       <p>
         Run: <code [innerHTML]='npm'>npm install uni-form-ng</code>
       </p>
-      <p>You do not need to install "@angular/forms", "@angular/material" or any other dependencies.</p>
+      <p>Install "&#64;angular/forms", "&#64;angular/material" or any other dependencies.</p>
 
       <p>Then you need to add a dependency into your Angular Module:</p>
       <pre>
@@ -47,11 +48,21 @@
 
       <h3>How to use? (Demo)</h3>
 
+<!--      <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>-->
+<!--        <uni-form-field-ng-->
+<!--          [url]="'assets/mocks/dynamic/countries.json'"-->
+<!--          [options]="{type: 'autocomplete', multi: true, required: true}"-->
+<!--          [nested]='{france: {type: "autocomplete", multi: true}, canada: {type: "autocomplete", multi: true}, usa: {type: "autocomplete", multi: true}}'-->
+<!--        ></uni-form-field-ng>-->
+
+<!--        <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>-->
+<!--      </uni-form-ng>-->
+
       <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
         <uni-form-group-ng
           [url]="'assets/mocks/group/group.json'"
           [nested]='{countries: {type: "autocomplete", multi: true},
-        login: {value: "email@email.com"}, password: {value: "password"}}'
+              login: {value: "email@email.com"}, password: {value: "password"}}'
         ></uni-form-group-ng>
 
         <button type='submit' mat-button [disabled]='!form?.valid'>SUBMIT</button>
@@ -67,47 +78,47 @@
       <p>Selector: <strong>uni-form-ng</strong></p>
 
       <p>
-        <span>@Input() clean: boolean </span>
+        <span>&#64;Input() clean: boolean </span>
         <span>- by default is false and newly added dynamic fields will not be removed form Angular reactive form object after switch. </span>
         <span>If true, then newly added dynamic fields will be removed after switch to another fields.</span>
       </p>
 
       <p>
-        <span>@Output() formGroupEvent: EventEmitter&#60;FormGroup&#62;</span>
+        <span>&#64;Output() formGroupEvent: EventEmitter&#60;FormGroup&#62;</span>
         <span> - returns a NEW Angular reactive form object every time when a new field was added or removed.</span>
       </p>
 
       <p>
-        <span>@Output() submitEvent: EventEmitter&#60;FormGroup&#62;</span>
+        <span>&#64;Output() submitEvent: EventEmitter&#60;FormGroup&#62;</span>
         <span> - returns an Angular reactive form object when form is submitted.</span>
       </p>
 
       <p>Selector: <strong>uni-form-group-ng</strong></p>
 
       <p>
-        <span>@Input() url: string </span>
+        <span>&#64;Input() url: string </span>
         <span> - the URL link to JSON data with list of fields.</span>
       </p>
 
       <p>
-        <span>@Input() nested: UniObject&#60;UniFormNested&#62; </span>
+        <span>&#64;Input() nested: UniObject&#60;UniFormNested&#62; </span>
         <span> - the object for nested fields deep configuration.</span>
       </p>
 
       <p>Selector: <strong>uni-form-field-ng</strong></p>
 
       <p>
-        <span>@Input() url: string </span>
+        <span>&#64;Input() url: string </span>
         <span> - the URL link to JSON data for building and rendering form field.</span>
       </p>
 
       <p>
-        <span>@Input() options: Partial&#60;UniFormField&#62; </span>
+        <span>&#64;Input() options: Partial&#60;UniFormField&#62; </span>
         <span> - the object for the field deep configuration.</span>
       </p>
 
       <p>
-        <span>@Input() nested: UniObject&#60;UniFormNested&#62; </span>
+        <span>&#64;Input() nested: UniObject&#60;UniFormNested&#62; </span>
         <span> - the object for nested fields deep configuration.</span>
       </p>
 

@@ -1,4 +1,4 @@
-<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
+<uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)' [clean]='true'>
 
   <uni-form-field-ng [url]="'assets/mocks/static/text/label.json'"></uni-form-field-ng>
 

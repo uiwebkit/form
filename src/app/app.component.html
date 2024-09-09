@@ -1,13 +1,14 @@
 <nav mat-tab-nav-bar [backgroundColor]="'primary'" [tabPanel]='tabPanel' class='app-nav'>
-  <a mat-tab-link
-     *ngFor='let tab of tabs'
-     [routerLink]='tab.link'
-     routerLinkActive
-     #rla='routerLinkActive'
-     [active]='rla.isActive'
-  >
-    {{ tab.name }}
-  </a>
+  @for (tab of tabs; track tab.link) {
+    <a mat-tab-link
+       [routerLink]='tab.link'
+       routerLinkActive
+       #rla='routerLinkActive'
+       [active]='rla.isActive'
+    >
+      {{ tab.name }}
+    </a>
+  }
 </nav>
 
 <mat-tab-nav-panel #tabPanel class='uni-content'>

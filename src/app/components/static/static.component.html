@@ -6,9 +6,9 @@
     </button>
 
     <mat-nav-list>
-      <a mat-list-item *ngFor='let item of list' [routerLink]='item.link' [routerLinkActive]='"active"'>
-        {{ item.name }}
-      </a>
+      @for (item of list; track item.link) {
+        <a mat-list-item [routerLink]='item.link' [routerLinkActive]='"active"'>{{ item.name }}</a>
+      }
     </mat-nav-list>
   </mat-sidenav>
 

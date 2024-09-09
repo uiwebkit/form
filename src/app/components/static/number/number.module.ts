@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { UniFormModule } from 'uni-form-ng';
+import { UniFormComponent, UniFormFieldComponent } from 'uni-form-ng';
 
 import { AppStaticNumberComponent } from './number.component';
 import { AppStaticNumberDefaultComponent } from './default/default.component';
@@ -31,16 +31,8 @@ const Declarations = [
 ];
 
 @NgModule({
-  imports: [
-    MatExpansionModule,
-    MatButtonModule,
-    MatIconModule,
-    UniFormModule,
-
-    AppCommonModule,
-  ],
+  imports: [MatExpansionModule, MatButtonModule, MatIconModule, AppCommonModule, UniFormComponent, UniFormFieldComponent],
   declarations: Declarations,
-  exports: Declarations
+  exports: Declarations,
 })
-export class AppStaticNumberModule {
-}
+export class AppStaticNumberModule {}

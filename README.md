@@ -1,6 +1,6 @@
 # UniFormNg
 
-This is an Angular 15+ library, that automatically builds and renders highly customizable dynamic forms based on JSON data.
+UniFormNg is an Angular 15 / 18 library, that automatically builds and renders highly customizable dynamic forms based on JSON data.
 
 License: `MIT`
 
@@ -18,7 +18,7 @@ Check out our docs [here](https://uformng.web.app).
 
 Run: `npm i uni-form-ng`
 
-You do NOT need to install `"@angular/forms"`, `"@angular/material"` or any other dependencies.
+Install `"@angular/forms"`, `"@angular/material"` or any other dependencies.
 
 Then you need to add a dependency into your Angular Module:
 
@@ -26,11 +26,15 @@ Then you need to add a dependency into your Angular Module:
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    HttpClientModule,
 
-    UniFormModule,
+    UniFormComponent,
+    UniFormFieldComponent, // optional
+    UniFormGroupComponent, // optional
   ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}] // optional
+  providers: [
+    provideHttpClient(withFetch()),
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }} // optional
+  ]
 })
 ```
 

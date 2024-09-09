@@ -2,13 +2,28 @@
   "type": "select",
   "key": "countries",
   "label": "Select country / countries",
+  "value": ["all", "no"],
+  "fields" : ["assets/mocks/dynamic/show-regions.json"],
   "groups": [
+    {
+      "name": "World",
+      "options": [
+        {
+          "label": "All countries",
+          "value": "all"
+        },
+        {
+          "label": "No address",
+          "value": "no"
+        }
+      ]
+    },
     {
       "name": "Europe",
       "options": [
         {
           "label": "France",
-          "value": "France",
+          "value": "fr",
           "fields": [
             "assets/mocks/dynamic/france.json"
           ]
@@ -20,14 +35,14 @@
       "options": [
         {
           "label": "Canada",
-          "value": "Canada",
+          "value": "ca",
           "fields": [
             "assets/mocks/dynamic/canada.json"
           ]
         },
         {
-          "label": "USA",
-          "value": "USA",
+          "label": "United States",
+          "value": "us",
           "fields": [
             "assets/mocks/dynamic/usa.json"
           ]

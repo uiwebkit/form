@@ -2,4 +2,6 @@
   <mat-icon>code</mat-icon>
 </button>
 
-<app-code-tabs *ngIf='isCode' [templateUrl]='templateUrl' [jsonUrls]='jsonUrls'></app-code-tabs>
+@if (isCode) {
+  <app-code-tabs [templateUrl]='templateUrl' [jsonUrls]='jsonUrls' />
+}

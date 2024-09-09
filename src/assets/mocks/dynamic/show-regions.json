@@ -1,0 +1,6 @@
+{
+  "type": "checkbox",
+  "key": "regions",
+  "label": "Show regions / states / provinces",
+  "value": false
+}

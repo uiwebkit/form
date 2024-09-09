@@ -3,9 +3,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { UniObject } from '../../models/interfaces/object.model';
 import { UniFormNested } from '../../models/interfaces/nested.model';
+import { UniFormFieldComponent } from '../form-field/form-field.component';
 
 @Component({
   selector: 'uni-form-group-ng',
+  standalone: true,
+  imports: [UniFormFieldComponent],
   templateUrl: 'form-group.component.html',
   encapsulation: ViewEncapsulation.None,
 })

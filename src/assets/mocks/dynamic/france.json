@@ -2,6 +2,10 @@
   "type": "select",
   "key": "france",
   "label": "Select region(s) of France",
+  "showOn": {
+    "key": "regions",
+    "value": true
+  },
   "options": [
     {
       "label": "Alsace",

@@ -6,7 +6,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { UniFormModule } from 'uni-form-ng';
 
 import { AppDynamicComponent } from './dynamic.component';
 import { AppDynamicSelectModule } from './select/select.module';
@@ -24,7 +23,6 @@ import { AppDynamicRadioModule } from './radio/radio.module';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    UniFormModule,
 
     AppDynamicSelectModule,
     AppDynamicAutocompleteModule,

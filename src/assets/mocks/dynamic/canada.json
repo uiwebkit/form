@@ -2,6 +2,10 @@
   "type": "select",
   "key": "canada",
   "label": "Select province(s) and/or territories in Canada",
+  "showOn": {
+    "key": "regions",
+    "value": true
+  },
   "groups": [
     {
       "name": "Provinces",

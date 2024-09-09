@@ -1,24 +1,33 @@
 <mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <mat-select
-    *ngIf="field.type === 'select'"
-    [formControlName]='field.key'
-    [multiple]='field.multi'
-    [placeholder]='field.placeholder || ""'
-  >
-    <mat-optgroup *ngFor='let group of field.groups' [label]='group.name' [disabled]='group.disabled'>
-      <mat-option *ngFor='let option of group.options' [value]='option.value' [disabled]='option.disabled'>
-        {{ option.label }}
-      </mat-option>
-    </mat-optgroup>
+  @if (field.type === 'select') {
+    <mat-select
+      [formControlName]='field.key'
+      [multiple]='field.multi'
+      [placeholder]='field.placeholder || ""'
+    >
+      @for (group of field.groups; track group.name) {
+        <mat-optgroup [label]='group.name' [disabled]='group.disabled'>
+          @for (option of group.options; track option.value) {
+            <mat-option [value]='option.value' [disabled]='option.disabled'>
+              {{ option.label }}
+            </mat-option>
+          }
+        </mat-optgroup>
+      }
 
-    <mat-option *ngFor='let option of field.options' [value]='option.value' [disabled]='option.disabled'>
-      {{ option.label }}
-    </mat-option>
-  </mat-select>
+      @for (option of field.options; track option.value) {
+        <mat-option [value]='option.value' [disabled]='option.disabled'>
+          {{ option.label }}
+        </mat-option>
+      }
+    </mat-select>
+  }
 
-  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+  @if (field.hint) {
+    <mat-hint align='start'>{{ field.hint }}</mat-hint>
+  }
 
   <mat-error [style]='{display: "flex"}'>
     <uni-form-field-error-ng

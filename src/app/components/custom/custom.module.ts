@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 
-import { UniFormModule } from 'uni-form-ng';
+import { UniFormComponent, UniFormFieldComponent, UniFormGroupComponent } from 'uni-form-ng';
 
 import { AppCommonModule } from '../common/common.module';
 import { AppCustomComponent } from './custom.component';
@@ -18,22 +18,21 @@ const Declarations = [
   AppCustomFruitsComponent,
   AppCustomSecondComponent,
   AppCustomGroupComponent,
-  AppCustomCustomizationComponent
+  AppCustomCustomizationComponent,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-
     MatExpansionModule,
     MatButtonModule,
     MatIconModule,
-    UniFormModule,
-
     AppCommonModule,
+    UniFormComponent,
+    UniFormGroupComponent,
+    UniFormFieldComponent,
   ],
   declarations: Declarations,
   exports: Declarations,
 })
-export class AppCustomModule {
-}
+export class AppCustomModule {}

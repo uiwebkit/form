@@ -2,6 +2,10 @@
   "type": "select",
   "key": "usa",
   "label": "Select state(s) of USA",
+  "showOn": {
+    "key": "regions",
+    "value": true
+  },
   "options": [
     {
       "label": "Alabama",

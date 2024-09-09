@@ -12,11 +12,15 @@ export class AppStartComponent {
   private moduleString = `@NgModule({
   imports: [
     BrowserAnimationsModule,
-    HttpClientModule,
 
-    UniFormModule,
+    UniFormComponent,
+    UniFormFieldComponent, // optional
+    UniFormGroupComponent, // optional
   ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}] // optional
+  providers: [
+     provideHttpClient(withFetch()),
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}, // optional
+  ]
 })`;
 
   private impString = `@import "@angular/material/prebuilt-themes/indigo-pink.css";

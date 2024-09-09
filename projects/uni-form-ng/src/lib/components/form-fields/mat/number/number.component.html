@@ -1,9 +1,11 @@
 <mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <div *ngIf='hasPrefix' matPrefix>
-    <ng-content select='[prefix]'></ng-content>
-  </div>
+  @if (hasPrefix) {
+    <div matPrefix>
+      <ng-content select='[prefix]'></ng-content>
+    </div>
+  }
 
   <input
     matInput
@@ -15,23 +17,31 @@
     [step]='field.step'
   >
 
-  <div *ngIf='hasSuffix' matSuffix>
-    <ng-content select='[suffix]'></ng-content>
-  </div>
+  @if (hasSuffix) {
+    <div matSuffix>
+      <ng-content select='[suffix]'></ng-content>
+    </div>
+  }
 
-  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+  @if (field.hint) {
+    <mat-hint align='start'>{{ field.hint }}</mat-hint>
+  }
 
-  <mat-hint *ngIf='(isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
-    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>Min is: <strong>{{ field.min }}</strong>
-    </ng-container>
+  @if ((isDefined(field.min) || isDefined(field.max)) && !field.hint) {
+    <mat-hint align='start'>
+      @if (isDefined(field.min) && isDefined(field.max)) {
+        Min is: <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
+      } @else {
+        @if (isDefined(field.min)) {
+          Min is: <strong>{{ field.min }}</strong>
+        }
 
-    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>Max is: <strong>{{ field.max }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>Min is:
-      <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
-    </ng-container>
-  </mat-hint>
+        @if (isDefined(field.max)) {
+          Max is: <strong>{{ field.max }}</strong>
+        }
+      }
+    </mat-hint>
+  }
 
   <mat-error [style]='{display: "flex"}'>
     <uni-form-field-error-ng

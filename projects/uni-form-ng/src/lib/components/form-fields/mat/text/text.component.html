@@ -1,60 +1,70 @@
 <mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <div *ngIf='hasPrefix' matPrefix>
-    <ng-content select='[prefix]'></ng-content>
-  </div>
+  @if (hasPrefix) {
+    <div matPrefix>
+      <ng-content select='[prefix]'></ng-content>
+    </div>
+  }
 
-  <input
-    matInput
-    *ngIf='isInput(field.type) || field.type === "number"'
-    [type]='field.type'
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-    [min]='field.min'
-    [max]='field.max'
-    [step]='field.step'
-  >
+  @if (isInput(field.type) || field.type === "number") {
+    <input
+      matInput
+      [type]='field.type'
+      [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
+      [min]='field.min'
+      [max]='field.max'
+      [step]='field.step'
+    >
+  }
 
-  <textarea
-    matInput
-    *ngIf='field.type === "textarea"'
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-  ></textarea>
+  @if (field.type === "textarea") {
+    <textarea matInput [formControlName]='field.key' [placeholder]='field.placeholder || ""'></textarea>
+  }
 
-  <div *ngIf='hasSuffix' matSuffix>
-    <ng-content select='[suffix]'></ng-content>
-  </div>
+  @if (hasSuffix) {
+    <div matSuffix>
+      <ng-content select='[suffix]'></ng-content>
+    </div>
+  }
 
-  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+  @if (field.hint) {
+    <mat-hint align='start'>{{ field.hint }}</mat-hint>
+  }
 
-  <mat-hint *ngIf='(isInput(field.type) || field.type === "textarea") && (field.minLength || field.maxLength)  && !field.hint' align='start'>
-    <ng-container *ngIf='field.minLength && !field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong>
-    </ng-container>
+  @if ((isInput(field.type) || field.type === "textarea") && field.minLength && !field.hint) {
+    <mat-hint align='start'>
+      @if (field.maxLength) {
+        Minimum characters count is: <strong>{{ field.minLength }}</strong>
+        and maximum is: <strong>{{ field.maxLength }}</strong>
+      } @else {
+        Minimum characters count is: <strong>{{ field.minLength }}</strong>
+      }
+    </mat-hint>
+  }
 
-    <ng-container *ngIf='field.minLength && field.maxLength'>
-      Minimum characters count is: <strong>{{ field.minLength }}</strong>
-      and maximum is: <strong>{{ field.maxLength }}</strong>
-    </ng-container>
-  </mat-hint>
+  @if ((isInput(field.type) || field.type === "textarea") && field.maxLength) {
+    <mat-hint align='end'>
+      {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
+    </mat-hint>
+  }
 
-  <mat-hint *ngIf='(isInput(field.type) || field.type === "textarea") && field.maxLength' align='end'>
-    {{ formGroup.controls[field.key].value.length }} / {{ field.maxLength }}
-  </mat-hint>
+  @if (field.type === "number" && (isDefined(field.min) || isDefined(field.max)) && !field.hint) {
+    <mat-hint align='start'>
+      @if (isDefined(field.min) && isDefined(field.max)) {
+        Min is: <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
+      } @else {
+        @if (isDefined(field.min)) {
+          Min is: <strong>{{ field.min }}</strong>
+        }
 
-  <mat-hint *ngIf='field.type === "number" && (isDefined(field.min) || isDefined(field.max)) && !field.hint' align='start'>
-    <ng-container *ngIf='isDefined(field.min) && !isDefined(field.max)'>Min is: <strong>{{ field.min }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='isDefined(field.max) && !isDefined(field.min)'>Max is: <strong>{{ field.max }}</strong>
-    </ng-container>
-
-    <ng-container *ngIf='isDefined(field.min) && isDefined(field.max)'>Min is:
-      <strong>{{ field.min }}</strong>, max is: <strong>{{ field.max }}</strong>
-    </ng-container>
-  </mat-hint>
+        @if (isDefined(field.max)) {
+          Max is: <strong>{{ field.max }}</strong>
+        }
+      }
+    </mat-hint>
+  }
 
   <mat-error [style]='{display: "flex"}'>
     <uni-form-field-error-ng

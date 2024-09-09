@@ -1,15 +1,17 @@
 <mat-form-field [formGroup]='formGroup' class='w-100 pt-1'>
   <mat-label>{{ field.label }}</mat-label>
 
-  <ng-container *ngIf='field.multi'>
+  @if (field.multi) {
     <mat-chip-grid #chipGrid>
-      <mat-chip-row *ngFor='let chip of chips' (removed)='remove(chip)'>
-        {{ chip }}
+      @for (chip of chips; track chip) {
+        <mat-chip-row (removed)='remove(chip)'>
+          {{ chip }}
 
-        <button matChipRemove [attr.aria-label]="'remove ' + chip">
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip-row>
+          <button matChipRemove [attr.aria-label]="'remove ' + chip">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      }
     </mat-chip-grid>
 
     <input
@@ -22,36 +24,43 @@
       [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
       [matChipInputAddOnBlur]='false'
       (matChipInputTokenEnd)='add($event)'
-      [matAutocomplete]='autoComplete'>
+      [matAutocomplete]='autoComplete'
+    >
     <!--<input [formControlName]='field.key' [style]='{display: "none"}'>-->
-  </ng-container>
-
-  <input
-    *ngIf='!field.multi'
-    matInput
-    [type]="'text'"
-    [formControlName]='field.key'
-    [placeholder]='field.placeholder || ""'
-    [matAutocomplete]='autoComplete'
-    (blur)='onBlur($event)'
-    (keydown.enter)='onBlur($event)'
-  >
+  } @else {
+    <input
+      matInput
+      [type]="'text'"
+      [formControlName]='field.key'
+      [placeholder]='field.placeholder || ""'
+      [matAutocomplete]='autoComplete'
+      (blur)='onBlur($event)'
+      (keydown.enter)='onBlur($event)'
+    >
+  }
 
   <mat-autocomplete #autoComplete='matAutocomplete' (optionSelected)='selected($event)'>
-    <mat-optgroup *ngFor='let group of (groups$ | async)' [label]='group.name' [disabled]='group.disabled'>
-      <mat-option *ngFor='let option of group.options' [value]='option.value'
-                  [disabled]='option.disabled || isSelected(option.value)' [class.active]='isSelected(option.value)'>
+    @for (group of (groups$ | async); track group.name) {
+      <mat-optgroup [label]='group.name' [disabled]='group.disabled'>
+        @for (option of group.options; track option.value) {
+          <mat-option [value]='option.value' [disabled]='option.disabled || isSelected(option.value)'
+                      [class.active]='isSelected(option.value)'>
+            {{ option.label }}
+          </mat-option>
+        }
+      </mat-optgroup>
+    }
+
+    @for (option of (options$ | async); track option.value) {
+      <mat-option [value]='option.value' [disabled]='option.disabled || isSelected(option.value)'>
         {{ option.label }}
       </mat-option>
-    </mat-optgroup>
-
-    <mat-option *ngFor='let option of (options$ | async)' [value]='option.value'
-                [disabled]='option.disabled || isSelected(option.value)'>
-      {{ option.label }}
-    </mat-option>
+    }
   </mat-autocomplete>
 
-  <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
+  @if (field.hint) {
+    <mat-hint align='start'>{{ field.hint }}</mat-hint>
+  }
 
   <mat-error [style]='{display: "flex"}'>
     <uni-form-field-error-ng

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 import { UniFormField } from '../../models/interfaces/form-field.model';
 import { UniFormFieldOption } from '../../models/interfaces/form-field-option.model';
@@ -7,20 +9,39 @@ import { isArray } from '../../utils/is';
 
 @Injectable({ providedIn: 'root' })
 export class UniFormFieldService {
+  private uniFormGroupSource = new Subject<FormGroup>();
+  private uniFormDataAddSource = new Subject<{ formData: UniFormField[]; mode: 'add' | 'set' }>();
+  private uniFormDataRemoveSource = new Subject<UniFormField[]>();
 
-  dispatchAdd(el: HTMLElement, formData: UniFormField[], mode: 'add' | 'set'): void {
-    el.dispatchEvent(new CustomEvent('uniFormDataAdd', {
-      bubbles: true,
-      detail: { formData, mode },
-    }));
+  uniFormGroupUpdated$ = this.uniFormGroupSource.asObservable();
+  uniFormDataAdded$ = this.uniFormDataAddSource.asObservable();
+  uniFormDataRemoved$ = this.uniFormDataRemoveSource.asObservable();
+
+  updateUniFormGroup(group: FormGroup): void {
+    this.uniFormGroupSource.next(group);
   }
 
-  dispatchRemove(el: HTMLElement, formData: UniFormField[]): void {
-    el.dispatchEvent(new CustomEvent('uniFormDataRemove', {
-      bubbles: true,
-      detail: { formData },
-    }));
+  addUniFormData(formData: UniFormField[], mode: 'add' | 'set'): void {
+    this.uniFormDataAddSource.next({ formData, mode });
   }
+
+  removeUniFormData(data: UniFormField[]): void {
+    this.uniFormDataRemoveSource.next(data);
+  }
+
+  // dispatchAdd(el: HTMLElement, formData: UniFormField[], mode: 'add' | 'set'): void {
+  //   el.dispatchEvent(new CustomEvent('uniFormDataAdd', {
+  //     bubbles: true,
+  //     detail: { formData, mode },
+  //   }));
+  // }
+
+  // dispatchRemove(el: HTMLElement, formData: UniFormField[]): void {
+  //   el.dispatchEvent(new CustomEvent('uniFormDataRemove', {
+  //     bubbles: true,
+  //     detail: { formData },
+  //   }));
+  // }
 
   enrichField(field: UniFormField, options: Partial<UniFormField> | undefined): UniFormField {
     if (options) {
@@ -51,7 +72,7 @@ export class UniFormFieldService {
       const index: number = options.findIndex((opt: UniFormFieldOption): boolean => option.value === opt.value);
 
       if (index >= 0) {
-        option = {...option, ...options[index]};
+        option = { ...option, ...options[index] };
       }
 
       return option;
@@ -73,10 +94,11 @@ export class UniFormFieldService {
   }
 
   getSelectedOptions(options: UniFormFieldOption[], value: string | number | string[] | number[]) {
-    return options?.filter((option: UniFormFieldOption) => !isArray(value)
-      ? value === option.value
-      : option.value && (value as any[]).includes(option.value),
-    ) || [];
+    return (
+      options?.filter((option: UniFormFieldOption) =>
+        !isArray(value) ? value === option.value : option.value && (value as any[]).includes(option.value)
+      ) || []
+    );
   }
 
   hasSelectedOptionsFields(selectedOptions: UniFormFieldOption[]): boolean {

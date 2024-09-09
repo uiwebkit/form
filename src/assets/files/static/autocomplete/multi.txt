@@ -14,7 +14,7 @@
 
   <uni-form-field-ng
     [options]="{type: 'autocomplete', key: 'create', label: 'Create multi autocomplete field', multi: true, options: [
-        {label: 'One', value: '1'}, {label: '2', value: '3'}
+        {label: 'One', value: 'One'}, {label: 'Two', value: 'Two'}
     ]}"
   ></uni-form-field-ng>
 

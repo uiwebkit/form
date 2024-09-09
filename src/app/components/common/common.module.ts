@@ -7,23 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppCodeComponent } from './code/code.component';
 import { AppCodeTabsComponent } from './code-tabs/code-tabs.component';
+import { MatListItem } from '@angular/material/list';
 
-const Declarations = [
-  AppCodeComponent,
-  AppCodeTabsComponent
-];
+const Declarations = [AppCodeComponent, AppCodeTabsComponent];
 
 @NgModule({
-  imports: [
-    CommonModule,
-
-    MatTabsModule,
-    MatTooltipModule,
-    MatButtonModule,
-    MatIconModule
-  ],
+  imports: [CommonModule, MatTabsModule, MatTooltipModule, MatButtonModule, MatIconModule, MatListItem],
   declarations: Declarations,
   exports: Declarations,
 })
-export class AppCommonModule {
-}
+export class AppCommonModule {}
